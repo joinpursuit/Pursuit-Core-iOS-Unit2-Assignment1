@@ -9,5 +9,13 @@
 import Foundation
 
 class TicTacToeBrain {
-  
+//THIS IS WHERE YOU MODEL YOUR LOGIC!!!!
+    
+//ALL THE INFO GOES HERE
+    
+//   TURN
+    
+//   XXX
+//  OOOO
+    
 }
