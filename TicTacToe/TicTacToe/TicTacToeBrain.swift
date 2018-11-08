@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//here is where you will modle  your logic should be here - win who is winning who won
 class TicTacToeBrain {
   
 }
