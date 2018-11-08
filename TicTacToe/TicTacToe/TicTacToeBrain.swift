@@ -8,6 +8,9 @@
 
 import Foundation
 
+//where all logic is to check the player wins
+//where things are
+//what is going on.....
 class TicTacToeBrain {
   
 }

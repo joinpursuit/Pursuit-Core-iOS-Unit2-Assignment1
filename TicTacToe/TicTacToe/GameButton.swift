@@ -9,6 +9,7 @@
 import UIKit
 
 class GameButton: UIButton {
+  //makes the special properties available in the story board
   @IBInspectable var row: Int = 0
   @IBInspectable var col: Int = 0
 }
