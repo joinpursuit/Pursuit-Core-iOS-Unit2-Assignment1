@@ -10,7 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  override func viewDidLoad() {
+    @IBOutlet weak var firstButton: GameButton!
+    
+    @IBOutlet weak var secondButton: GameButton!
+    
+    @IBOutlet weak var thirdButton: GameButton!
+    override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
   }
