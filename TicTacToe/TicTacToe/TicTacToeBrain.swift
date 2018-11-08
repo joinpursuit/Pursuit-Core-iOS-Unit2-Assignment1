@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//this class tells who wins, where things are, who's turn it is
 
 class TicTacToeBrain {
   
