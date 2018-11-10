@@ -16,23 +16,33 @@ import UIKit
 //TRANSPARENT BUTTON IS THE KEY
 
 class ViewController: UIViewController {
+    //outlets:
 
+    @IBOutlet weak var cuadriculaImage: UIImageView!
     
-    @IBOutlet weak var firstButton: GameButton!
+    
+    @IBOutlet weak var player1Turn: UILabel!
+    @IBOutlet weak var player2Turn: UILabel!
+    
+
+    @IBOutlet var arrayOfButtons: [GameButton]!
+    @IBOutlet weak var titleLabel: UILabel!
     
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    //setUp function with everything that goes inside
+        //-is enable = true
+        //-cuadricula
     
 //    firstButton.row == 0,0{
-//        
 //    }
-    
-    print("we are making tic tac toe!")
-    
   }
 
+    //actions:
 
+    @IBAction func letsPlay(_ sender: GameButton){
+        
+        }
 }
 
