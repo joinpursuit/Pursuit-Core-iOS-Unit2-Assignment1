@@ -96,7 +96,7 @@ class ViewController: UIViewController {
                 buttonsPressed += 1
             }
         }
-        if buttonsPressed == 9 {
+        if buttonsPressed == 10 { // I have no idea why when I use 9, which is what it should be ideally, it shows the game-tie message when I have 8 buttons pressed, that's why I changed it to 10 so that it shoes the game-tie message when 9 buttons are pressed
             winner = nil
             gameOver()
         }
