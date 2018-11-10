@@ -9,13 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var TicTacToe: UILabel!
+    
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
     print("We are the Tic!")
   }
-
+    
+    
+    @IBAction func TicTacToeButton(_ sender: UIButton) {
+    }
+    
 
 }
 
