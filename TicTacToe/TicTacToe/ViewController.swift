@@ -96,7 +96,7 @@ class ViewController: UIViewController {
                 buttonsPressed += 1
             }
         }
-        if buttonsPressed == 10 {
+        if buttonsPressed == 9 {
             winner = nil
             gameOver()
         }
