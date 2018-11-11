@@ -22,12 +22,10 @@ class TicTacToeViewController: UIViewController {
     @IBOutlet weak var ninthButton: GameButton!
     
     @IBOutlet weak var gameLabel: UILabel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let array = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninthButton]
-        
         array.forEach{$0?.setImage(UIImage(named: "smile"), for: .normal)}
     }
     @IBAction func buttonPressed (_ sender: GameButton!) {
@@ -41,7 +39,6 @@ class TicTacToeViewController: UIViewController {
             array.forEach{$0?.isEnabled = false}
         }
     }
-    
     @IBAction func resetToOriginalState(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
 }

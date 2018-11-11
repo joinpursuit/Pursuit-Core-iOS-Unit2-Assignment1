@@ -15,7 +15,7 @@ class TicTacToeBrain {
         [0,0,0]]
     var playerToggle = true
     var gameOver = false
-    var gameString = "Player One's Turn!"
+    var gameString = ""
     var imageChange = "smile"
     func thinking (a: Int, b: Int) {
         var playerValue: Int
@@ -24,7 +24,6 @@ class TicTacToeBrain {
             playerToggle = false
             gameString = "Player Two's Turn!"
             imageChange = "O"
-            
         } else {
             playerValue = 4
             playerToggle = true
@@ -32,27 +31,26 @@ class TicTacToeBrain {
             imageChange = "X"
         }
         array[a][b] += playerValue
-        print(array)
-        print(array[1].reduce(0, +))
-        
-        for i in 0..<array.count {
-            if array[i].reduce(0, +) == 12 {
+        var winArray = [[array[0][0],array[1][1],array[2][2]],[array[2][0],array[1][1],array[0][2]],
+                         [array[0][0],array[0][1],array[0][2]],[array[1][0],array[1][1],array[1][2]],[array[2][0],array[2][1],array[2][2]],
+                         [array[0][0],array[1][0],array[2][0]],[array[0][1],array[0][1],array[0][2]],[array[0][2],array[1][2],array[2][2]]]
+        for j in 0..<winArray.count {
+            if winArray[j].reduce(0, +) == 12 {
                 gameString = "Player 2 wins"
                 gameOver = true
-                
-            } else if array[i].reduce(0, +) == 3 {
+            } else if winArray[j].reduce(0, +) == 3 {
                 gameString = "Player 1 wins"
                 gameOver = true
-            } else if array.joined().reduce(0, +) == 21 {
-                gameOver = true
-                gameString = "Draw!"
-            }
-            for j in 0..<array.count {
-                print(array[j][i])
-                
             }
         }
-
+    }
+    func reset(a: Bool){
+        if a {
+            array = [
+                [0,0,0],
+                [0,0,0],
+                [0,0,0]]
+        }
     }
 }
 // THIS IS WHERE YOU MODEL YOUR LOGIC
