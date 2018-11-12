@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomLeft: GameButton!
     @IBOutlet weak var bottomMiddle: GameButton!
     @IBOutlet weak var bottomRight: GameButton!
+    @IBOutlet var allFlipButtons: [GameButton]!
     
     @IBOutlet weak var turnLabel: UILabel!
     
@@ -83,37 +84,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func newGame(_ sender: UIButton) {
-        topLeft.isEnabled = true
-        topMiddle.isEnabled = true
-        topRight.isEnabled = true
-        middleLeft.isEnabled = true
-        middleMiddle.isEnabled = true
-        middleRight.isEnabled = true
-        bottomLeft.isEnabled = true
-        bottomMiddle.isEnabled = true
-        bottomRight.isEnabled = true
-        topLeft.isUserInteractionEnabled = true
-        topMiddle.isUserInteractionEnabled = true
-        topRight.isUserInteractionEnabled = true
-        middleLeft.isUserInteractionEnabled = true
-        middleMiddle.isUserInteractionEnabled = true
-        middleRight.isUserInteractionEnabled = true
-        bottomLeft.isUserInteractionEnabled = true
-        bottomMiddle.isUserInteractionEnabled = true
-        bottomRight.isUserInteractionEnabled = true
+        allFlipButtons.forEach {$0.isEnabled = true}
+        allFlipButtons.forEach {$0.isUserInteractionEnabled = true}
+        allFlipButtons.forEach {$0.setImage(nil, for: .normal)}
         countColX = [Int]()
         countRowX = [Int]()
         countColO = [Int]()
         countRowO = [Int]()
-        topLeft.setImage(nil, for: .normal)
-        topMiddle.setImage(nil, for: .normal)
-        topRight.setImage(nil, for: .normal)
-        middleLeft.setImage(nil, for: .normal)
-        middleMiddle.setImage(nil, for: .normal)
-        middleRight.setImage(nil, for: .normal)
-        bottomLeft.setImage(nil, for: .normal)
-        bottomMiddle.setImage(nil, for: .normal)
-        bottomRight.setImage(nil, for: .normal)
         playerOne = true
         turnLabel.text = "Player one's turn"
 

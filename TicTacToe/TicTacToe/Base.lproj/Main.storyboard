@@ -206,6 +206,15 @@
                         <outlet property="topRight" destination="Xke-OO-opK" id="8mD-Fr-0OE"/>
                         <outlet property="turnLabel" destination="X08-D5-sS3" id="OcY-nr-GGi"/>
                         <outlet property="winnerLabel" destination="3DO-Jz-fid" id="Qzk-gK-7SN"/>
+                        <outletCollection property="allFlipButtons" destination="Z7O-NZ-tBM" collectionClass="NSMutableArray" id="s9p-Jr-Kbl"/>
+                        <outletCollection property="allFlipButtons" destination="ECd-od-kIx" collectionClass="NSMutableArray" id="PTb-1c-Wbr"/>
+                        <outletCollection property="allFlipButtons" destination="Xke-OO-opK" collectionClass="NSMutableArray" id="qd0-3F-ueX"/>
+                        <outletCollection property="allFlipButtons" destination="Qfn-gB-56o" collectionClass="NSMutableArray" id="eJA-7E-uMj"/>
+                        <outletCollection property="allFlipButtons" destination="ovD-3y-NMf" collectionClass="NSMutableArray" id="Kb3-2G-05l"/>
+                        <outletCollection property="allFlipButtons" destination="ieH-c5-vVy" collectionClass="NSMutableArray" id="RaP-ho-ghA"/>
+                        <outletCollection property="allFlipButtons" destination="IZJ-lY-7ls" collectionClass="NSMutableArray" id="Tq8-id-uSk"/>
+                        <outletCollection property="allFlipButtons" destination="Bey-VV-DVC" collectionClass="NSMutableArray" id="6cS-gz-MRf"/>
+                        <outletCollection property="allFlipButtons" destination="GU1-K3-zSU" collectionClass="NSMutableArray" id="XWq-tz-mwe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
