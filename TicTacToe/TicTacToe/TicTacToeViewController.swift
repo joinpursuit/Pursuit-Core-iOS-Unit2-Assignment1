@@ -38,6 +38,6 @@ class TicTacToeViewController: UIViewController {
         ticTacToe.reset(a: true)
         collectionOfButtons.forEach{$0.setImage(picture, for: .normal)}
         collectionOfButtons.forEach{$0.isEnabled = true}
-        gameLabel.text = "Game Resetted! Player one's turn!"
+        gameLabel.text = "Game Reset! Player one's turn!"
         }
 }
