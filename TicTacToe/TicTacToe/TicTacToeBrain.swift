@@ -17,6 +17,7 @@ class TicTacToeBrain {
     var gameOver = false
     var gameString = ""
     var imageChange = "smile"
+    
     func thinking (a: Int, b: Int) {
         var playerValue: Int
         if playerToggle {
@@ -45,11 +46,13 @@ class TicTacToeBrain {
         }
     }
     func reset(a: Bool){
-        if a {
+        if a == true {
             array = [
                 [0,0,0],
                 [0,0,0],
                 [0,0,0]]
+            gameOver = false
+            playerToggle = true
         }
     }
 }

@@ -11,35 +11,33 @@ import UIKit
 class TicTacToeViewController: UIViewController {
     var gameOver = false
     var ticTacToe = TicTacToeBrain()
-    @IBOutlet weak var firstButton: GameButton!
-    @IBOutlet weak var secondButton: GameButton!
-    @IBOutlet weak var thirdButton: GameButton!
-    @IBOutlet weak var fourthButton: GameButton!
-    @IBOutlet weak var fifthButton: GameButton!
-    @IBOutlet weak var sixthButton: GameButton!
-    @IBOutlet weak var seventhButton: GameButton!
-    @IBOutlet weak var eighthButton: GameButton!
-    @IBOutlet weak var ninthButton: GameButton!
-    
-    @IBOutlet weak var gameLabel: UILabel!
+    var picture = UIImage(named: "smile")
 
+    @IBOutlet var collectionOfButtons: Array<GameButton>!
+    @IBOutlet weak var gameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let array = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninthButton]
-        array.forEach{$0?.setImage(UIImage(named: "smile"), for: .normal)}
+        view.backgroundColor = .lightGray
+        collectionOfButtons.forEach{$0.setImage(picture, for: .normal)}
     }
     @IBAction func buttonPressed (_ sender: GameButton!) {
-        let array = [firstButton, secondButton, thirdButton, fourthButton, fifthButton, sixthButton, seventhButton, eighthButton, ninthButton]
         ticTacToe.thinking(a: sender.row, b: sender.col)
         gameLabel.text = ticTacToe.gameString
         sender.setImage(UIImage.init(named: ticTacToe.imageChange), for: .normal)
         sender.isEnabled = false
         gameOver = ticTacToe.gameOver
         if gameOver == true {
-            array.forEach{$0?.isEnabled = false}
+            collectionOfButtons.forEach{$0.isEnabled = false}
         }
     }
-    @IBAction func resetToOriginalState(_ sender: UIButton) {
+    @IBAction func homeScreen(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
 }
+    @IBAction func resetGame(_ sender: UIButton) {
+        ticTacToe.reset(a: true)
+        collectionOfButtons.forEach{$0.setImage(picture, for: .normal)}
+        collectionOfButtons.forEach{$0.isEnabled = true}
+        gameLabel.text = "Game Resetted! Player one's turn!"
+        }
 }
