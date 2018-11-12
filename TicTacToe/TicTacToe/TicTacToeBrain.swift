@@ -25,7 +25,7 @@ class TicTacToeBrain {
             sender.setImage(UIImage(named: "OTac"), for: .normal)
             text.text = "Player one's turn!"
         }
-        sender.isEnabled = false
+        sender.isUserInteractionEnabled = false
     }
 
     static func checkWinnerVertHor(player: Bool,_ sender: GameButton, countColX: [Int], countRowX: [Int], countColO: [Int], countRowO: [Int])-> Bool {
@@ -61,7 +61,28 @@ class TicTacToeBrain {
         return false
     }
     
-    static func checkWinnerDiag() {
+    static func checkWinnerDiagX(topLeft: GameButton, topRight: GameButton, middleMiddle: GameButton, bottomLeft: GameButton, bottomRight: GameButton)-> Bool {
+        if topLeft.currentImage == UIImage(named: "XTic") && middleMiddle.currentImage == UIImage(named: "XTic") && bottomRight.currentImage == UIImage(named: "XTic") {
+            print("X diag win")
+            return true
+        }
+        if bottomLeft.currentImage == UIImage(named: "XTic") && middleMiddle.currentImage == UIImage(named: "XTic") && topRight.currentImage == UIImage(named: "XTic") {
+            print("X diag win")
+            return true
+        }
+        return false
+        //must use if sender image for 3 buttons are x then win
+    }
+    static func checkWinnerDiagO(topLeft: GameButton, topRight: GameButton, middleMiddle: GameButton, bottomLeft: GameButton, bottomRight: GameButton)-> Bool {
+        if topLeft.currentImage == UIImage(named: "OTac") && middleMiddle.currentImage == UIImage(named: "OTac") && bottomRight.currentImage == UIImage(named: "OTac") {
+            print("O diag win")
+            return true
+        }
+        if bottomLeft.currentImage == UIImage(named: "OTac") && middleMiddle.currentImage == UIImage(named: "OTac") && topRight.currentImage == UIImage(named: "OTac") {
+            print("O diag win")
+            return true
+        }
+        return false
         //must use if sender image for 3 buttons are x then win
     }
 }

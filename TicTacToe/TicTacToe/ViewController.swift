@@ -15,20 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var middleLeft: GameButton!
     @IBOutlet weak var middleMiddle: GameButton!
     @IBOutlet weak var middleRight: GameButton!
-    @IBOutlet weak var botLeft: GameButton!
+    @IBOutlet weak var bottomLeft: GameButton!
     @IBOutlet weak var bottomMiddle: GameButton!
-    @IBOutlet weak var bottomRIght: GameButton!
+    @IBOutlet weak var bottomRight: GameButton!
     
     @IBOutlet weak var turnLabel: UILabel!
     
-
+    @IBOutlet weak var winnerLabel: UILabel!
+    
     var playerOne = true
     var countColX = [Int]()
     var countRowX = [Int]()
     var countColO = [Int]()
     var countRowO = [Int]()
-    
-    
+    var winX = 0
+    var winO = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,21 +46,27 @@ class ViewController: UIViewController {
     }
     func gameOver(winner: Bool) {
         if winner {
+            if playerOne {
+                winX += 1
+                turnLabel.text = "Player one wins!"
+                winnerLabel.text = "X wins: \(winX) & O wins: \(winO)"
+                
+            } else {
+                winO += 1
+                turnLabel.text = "Player two wins!"
+                winnerLabel.text = "X wins: \(winX) & O wins: \(winO)"
+            }
             topLeft.isEnabled = false
             topMiddle.isEnabled = false
             topRight.isEnabled = false
             middleLeft.isEnabled = false
             middleMiddle.isEnabled = false
             middleRight.isEnabled = false
-            botLeft.isEnabled = false
+            bottomLeft.isEnabled = false
             bottomMiddle.isEnabled = false
-            bottomRIght.isEnabled = false
+            bottomRight.isEnabled = false
         }
-        if playerOne {
-        turnLabel.text = "Player one wins!"
-        } else {
-            turnLabel.text = "Player two wins!"
-        }
+        
     }
 
     @IBAction func allButtons(_ sender: GameButton) {
@@ -68,12 +75,10 @@ class ViewController: UIViewController {
         let sender = sender
         TicTacToeBrain.assignXO(player: playerOne, sender, text: turnLabel)
         counter(sender)
-//        TicTacToeBrain.checkWinnerVertHor(player: playerOne, sender, countColX: countColX, countRowX: countRowX, countColO: countColO, countRowO: countRowO)
         gameOver(winner: TicTacToeBrain.checkWinnerVertHor(player: playerOne, sender, countColX: countColX, countRowX: countRowX, countColO: countColO, countRowO: countRowO))
-        TicTacToeBrain.checkWinnerDiag()
+        gameOver(winner: TicTacToeBrain.checkWinnerDiagX(topLeft: topLeft, topRight: topRight, middleMiddle: middleMiddle, bottomLeft: bottomLeft, bottomRight: bottomRight))
+        gameOver(winner: TicTacToeBrain.checkWinnerDiagO(topLeft: topLeft, topRight: topRight, middleMiddle: middleMiddle, bottomLeft: bottomLeft, bottomRight: bottomRight))
         playerOne = !playerOne
-        
-
         
     }
 
@@ -84,9 +89,18 @@ class ViewController: UIViewController {
         middleLeft.isEnabled = true
         middleMiddle.isEnabled = true
         middleRight.isEnabled = true
-        botLeft.isEnabled = true
+        bottomLeft.isEnabled = true
         bottomMiddle.isEnabled = true
-        bottomRIght.isEnabled = true
+        bottomRight.isEnabled = true
+        topLeft.isUserInteractionEnabled = true
+        topMiddle.isUserInteractionEnabled = true
+        topRight.isUserInteractionEnabled = true
+        middleLeft.isUserInteractionEnabled = true
+        middleMiddle.isUserInteractionEnabled = true
+        middleRight.isUserInteractionEnabled = true
+        bottomLeft.isUserInteractionEnabled = true
+        bottomMiddle.isUserInteractionEnabled = true
+        bottomRight.isUserInteractionEnabled = true
         countColX = [Int]()
         countRowX = [Int]()
         countColO = [Int]()
@@ -97,10 +111,12 @@ class ViewController: UIViewController {
         middleLeft.setImage(nil, for: .normal)
         middleMiddle.setImage(nil, for: .normal)
         middleRight.setImage(nil, for: .normal)
-        botLeft.setImage(nil, for: .normal)
+        bottomLeft.setImage(nil, for: .normal)
         bottomMiddle.setImage(nil, for: .normal)
-        bottomRIght.setImage(nil, for: .normal)
+        bottomRight.setImage(nil, for: .normal)
         playerOne = true
+        turnLabel.text = "Player one's turn"
+
         
     }
 }

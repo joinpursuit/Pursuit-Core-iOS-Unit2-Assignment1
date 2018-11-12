@@ -183,14 +183,21 @@
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMF-ur-e7E"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="X wins: 0 &amp; O wins: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DO-Jz-fid">
+                                <rect key="frame" x="36" y="481" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="botLeft" destination="IZJ-lY-7ls" id="cu6-W8-ZwC"/>
+                        <outlet property="bottomLeft" destination="IZJ-lY-7ls" id="cu6-W8-ZwC"/>
                         <outlet property="bottomMiddle" destination="Bey-VV-DVC" id="UUd-25-UFf"/>
-                        <outlet property="bottomRIght" destination="GU1-K3-zSU" id="KDG-F8-Zcd"/>
+                        <outlet property="bottomRight" destination="GU1-K3-zSU" id="KDG-F8-Zcd"/>
                         <outlet property="middleLeft" destination="Qfn-gB-56o" id="dL1-cu-1EU"/>
                         <outlet property="middleMiddle" destination="ovD-3y-NMf" id="U2Z-UH-DSL"/>
                         <outlet property="middleRight" destination="ieH-c5-vVy" id="bkg-V9-4N7"/>
@@ -198,6 +205,7 @@
                         <outlet property="topMiddle" destination="ECd-od-kIx" id="bug-Jy-Z5E"/>
                         <outlet property="topRight" destination="Xke-OO-opK" id="8mD-Fr-0OE"/>
                         <outlet property="turnLabel" destination="X08-D5-sS3" id="OcY-nr-GGi"/>
+                        <outlet property="winnerLabel" destination="3DO-Jz-fid" id="Qzk-gK-7SN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
