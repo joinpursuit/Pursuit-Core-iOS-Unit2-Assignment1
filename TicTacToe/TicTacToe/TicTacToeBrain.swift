@@ -42,7 +42,10 @@ class TicTacToeBrain {
             } else if winArray[j].reduce(0, +) == 3 {
                 gameString = "Player 1 wins"
                 gameOver = true
-            }
+            } else if array.joined().reduce(0, +) == 21 {
+                gameString = "DRAW! Press restart!"
+                gameOver = true
+            } <#T##nextPartialResult: (Result, Int) throws -> Result##(Result, Int) throws -> Result#>)
         }
     }
     func reset(a: Bool){
