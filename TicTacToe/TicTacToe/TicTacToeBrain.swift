@@ -9,18 +9,15 @@
 import UIKit
 
 class TicTacToeBrain {
-    var player: String
-    var symbol: String // X or O
+    var playerName: String
+    var mark: String
     var color: UIColor
+    static var player1 = true
     
-    init(player: String, piece: String, color: UIColor) {
-        self.player = player
-        self.symbol = piece
+    init(playerName: String, mark: String, color: UIColor) {
+        self.playerName = playerName
+        self.mark = mark
         self.color = color
-    }
-    
-    static func endGame() -> Bool {
-        return true
     }
 }
 

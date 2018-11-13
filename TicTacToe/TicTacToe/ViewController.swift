@@ -9,96 +9,96 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     @IBOutlet weak var displayMessage: UILabel!
-    @IBOutlet weak var startGameMessage: UIButton!
     @IBOutlet var buttons: [GameButton]!
-    
-    var xoArrofArr: [[GameButton]] = [[],[]]
-    var counter: Int = 0
-    var winner: String? = ""
+    @IBOutlet weak var player1WinMessage: UILabel!
+    @IBOutlet weak var player2WinMessage: UILabel!
+    private var xMarkedOnBoard: [GameButton] = []
+    private var oMarkedOnBoard: [GameButton] = []
+    private var trackforFullBoard: Int = 0
+    private var winner: String? = ""
+    private var player1WinCount: Int = 0
+    private var player2WinCount: Int = 0
     
     override func viewDidLoad() {
     super.viewDidLoad()
-  }
-    
-    func disableAll() {
-        for button in buttons {
-            button.isEnabled = false
-        }
     }
     
-    func enableAll() {
-        for button in buttons {
-            button.isEnabled = true
+    @IBAction func startGame(_ sender: GameButton) {
+        if TicTacToeBrain.player1 {
+            putPlayerMark(gameButton: sender, mark: Player.x.mark, color: Player.x.color, collectingArr: &xMarkedOnBoard)
+            transitionToNextPlayer(nextPlayerName: Player.o.playerName, nextPlayerMark: Player.o.mark)
+        } else {
+            putPlayerMark(gameButton: sender, mark: Player.o.mark, color: Player.o.color, collectingArr: &oMarkedOnBoard)
+            transitionToNextPlayer(nextPlayerName: Player.x.playerName, nextPlayerMark: Player.x.mark)
         }
-    }
-
-    @IBAction func pressStartGame(_ sender: UIButton) {
-        for button in buttons {
-            button.setTitle("", for: .normal)
+        
+    if xMarkedOnBoard.count >= 3 {
+        checkforWin(arr: xMarkedOnBoard, player: Player.x.playerName)
         }
-        displayMessage.text = "Player 1 (X), your turn."
-        counter = 0
-        enableAll()
-        xoArrofArr = [[],[]]
+    if oMarkedOnBoard.count >= 3 {
+        checkforWin(arr: oMarkedOnBoard, player: Player.o.playerName)
+        }
     }
     
     func gameOver() {
-        disableAll()
+        buttons.forEach{ $0.isEnabled = false }
         if let safeWinner = winner {
             displayMessage.text = "Game Over. \nWinner is \(safeWinner)"
+            if safeWinner == "Player 1" {
+                player1WinCount += 1
+                player1WinMessage.text = "Player 1 Win: \(player1WinCount)"
+            } else {
+                player2WinCount += 1
+                player2WinMessage.text = "Player 2 Win: \(player2WinCount)"
+            }
         } else {
             displayMessage.text = "Game Over.\nIt's a tie."
         }
     }
+
+    @IBAction func restartGame(_ resetButton: UIButton) {
+        buttons.forEach{ $0.setTitle("", for: .normal)}
+        displayMessage.text = "Player 1 (X), your turn."
+        trackforFullBoard = 0
+        buttons.forEach{ $0.isEnabled = true }
+        TicTacToeBrain.player1 = true
+        xMarkedOnBoard.removeAll()
+        oMarkedOnBoard.removeAll()
+    }
     
-    @IBAction func startGame(_ sender: GameButton) {
-        var buttonsPressed: Int = 0
-        startGameMessage.setTitle("Restart", for: .normal)
-        if counter % 2 == 0 {
-            if sender.isEnabled {
-            counter += 1
-            sender.setTitle(UserPiece.x.symbol, for: .normal)
-            sender.setTitleColor(UserPiece.x.color, for: .normal)
-            sender.isEnabled = false
-            xoArrofArr[0].append(sender)
-            displayMessage.text = "Player 2 (O), your turn."
-            }
-        } else {
-            if sender.isEnabled {
-            counter += 1
-            sender.setTitle(UserPiece.o.symbol, for: .normal)
-            sender.setTitleColor(UserPiece.o.color, for: .normal)
-            sender.isEnabled = false
-            xoArrofArr[1].append(sender)
-            displayMessage.text = "Player 1 (X), your turn."
-            }
-        }
-        
-    if xoArrofArr[0].count >= 3 {
-        for arr in xoArrofArr {
-            for button1 in arr[0..<arr.count-2] {
-                for button2 in arr[0..<arr.count-1] {
-                    for button3 in arr[0..<arr.count] {
-                        if ((button2.row == button1.row && button3.row == button1.row) || (button2.col == button1.col && button3.col == button1.col) || (button1.row == button1.col && button2.row == button2.col && button3.row == button3.col) || ((button1.row + button1.col == 2) && (button2.row + button2.col == 2) &&  (button3.row + button3.col == 2))) && button1 != button2 && button2 != button3 && button1 != button3 {
-                            winner = counter % 2 == 0 ? UserPiece.o.player : UserPiece.x.player
-                            gameOver()
-                            }
+    private func putPlayerMark(gameButton: GameButton, mark: String, color: UIColor, collectingArr: inout [GameButton]) {
+        gameButton.setTitle(mark, for: .normal)
+        gameButton.setTitleColor(color, for: .normal)
+        gameButton.isEnabled = false
+        collectingArr.append(gameButton)
+        trackforFullBoard += 1
+    }
+    
+    private func transitionToNextPlayer(nextPlayerName: String, nextPlayerMark: String) {
+        displayMessage.text = "\(nextPlayerName) (\(nextPlayerMark)), your turn."
+        TicTacToeBrain.player1 = !TicTacToeBrain.player1
+    }
+    
+    private func checkforWin(arr: [GameButton], player: String) {
+        for button1 in arr[0..<arr.count-2] {
+            for button2 in arr[0..<arr.count-1] {
+                for button3 in arr[0..<arr.count] {
+                    if ((button2.row == button1.row && button3.row == button1.row) ||
+                        (button2.col == button1.col && button3.col == button1.col) ||
+                        (button1.row == button1.col && button2.row == button2.col && button3.row == button3.col) ||
+                        ((button1.row + button1.col == 2) && (button2.row + button2.col == 2) && (button3.row + button3.col == 2)))
+                        && button1 != button2 && button2 != button3 && button1 != button3 {
+                        winner = player
+                        gameOver()
                         }
+                    else if trackforFullBoard == 9 {
+                        winner = nil
+                        gameOver()
                     }
                 }
             }
         }
-        
-        for button in buttons {
-            if button.isEnabled == false {
-                buttonsPressed += 1
-            }
-        }
-        if buttonsPressed == 10 { // I have no idea why when I use 9, which is what it should be ideally, it shows the game-tie message when I have 8 buttons pressed, that's why I changed it to 10 so that it shoes the game-tie message when 9 buttons are pressed
-            winner = nil
-            gameOver()
-        }
     }
 }
+
