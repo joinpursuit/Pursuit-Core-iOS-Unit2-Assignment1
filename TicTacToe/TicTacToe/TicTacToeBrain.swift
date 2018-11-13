@@ -9,8 +9,6 @@
 import UIKit
 
 class TicTacToeBrain {
-
-    
     static func assignXO(player: Bool, _ sender: GameButton, text: UILabel) {
         if player {
             
@@ -27,7 +25,13 @@ class TicTacToeBrain {
         }
         sender.isUserInteractionEnabled = false
     }
-
+    static func checkAllWins(checkWinnerVertHor: Bool,checkWinnerDiagO: Bool, checkWinnerDiagX: Bool)-> Bool{
+        if checkWinnerVertHor || checkWinnerDiagO || checkWinnerDiagX {
+            return true
+        } else {
+            return false
+        }
+}
     static func checkWinnerVertHor(player: Bool,_ sender: GameButton, countColX: [Int], countRowX: [Int], countColO: [Int], countRowO: [Int])-> Bool {
         if player {
             print("counter col X is \(countColX)")
@@ -71,7 +75,6 @@ class TicTacToeBrain {
             return true
         }
         return false
-        //must use if sender image for 3 buttons are x then win
     }
     static func checkWinnerDiagO(topLeft: GameButton, topRight: GameButton, middleMiddle: GameButton, bottomLeft: GameButton, bottomRight: GameButton)-> Bool {
         if topLeft.currentImage == UIImage(named: "OTac") && middleMiddle.currentImage == UIImage(named: "OTac") && bottomRight.currentImage == UIImage(named: "OTac") {
@@ -83,6 +86,5 @@ class TicTacToeBrain {
             return true
         }
         return false
-        //must use if sender image for 3 buttons are x then win
     }
 }
