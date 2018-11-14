@@ -10,51 +10,43 @@ import UIKit
 
 
 class TicTacToeBrain {
-    
-//    enum PlayerPicture: String {
-//        case xMark
-//        case circle
-//
-//        func image() -> UIImage{
-//            var cardImage: UIImage!
-//            switch self{
-//            case .circle:
-//                cardImage = UIImage(named: PlayerPicture.circle.rawValue)
-//            case .xMark:
-//                cardImage = UIImage(named: PlayerPicture.xMark.rawValue)
-//
-//            }
-//            return cardImage
-//        }
-//    }
-    
-//    var image: UIImage
-//
-//    init(image: UIImage){
-//        self.image = image
-//    }
-    static var playerImage: UIImage!
-    static var playerMessage = "Your turn"
+
+    public var playerImage: UIImage!
+    public var playerMessage = "Your turn"
     private var playerOneTurn = true
     
     public func play(move: (row: Int, col: Int)) {
         print("row: \(move.row), col: \(move.col)")
         if playerOneTurn {
             playerOneTurn = false
-            TicTacToeBrain.playerImage = UIImage(named: "xMark")
+            self.playerImage = UIImage(named: "xMark")
         } else {
             playerOneTurn = true
-            TicTacToeBrain.playerImage = UIImage(named: "circle")
+            self.playerImage = UIImage(named: "circle")
         }
-        TicTacToeBrain.playerMessage = playerOneTurn ? "Player One you are on" : "Player Two you are on"
+        self.playerMessage = playerOneTurn ? "Player One you are on" : "Player Two you are on"
     }
-
+ 
+        var winningMatrix = [
+        /*position 0*/ ["","",""],
+        /*position 1*/ ["","",""],
+        /*position 2*/ ["","",""]
+    ]
+    
+    func keepTracKInWinningarray () {
+    
+    }
+    
+    //button gets click
+    //take position
+    //access winningMatrix at position change to "o" or "x"
     
     
-    //who'sturn it is
-    //what the score looks like
-    //use coordinates to set pictures
     
+    
+    
+    
+ 
     //who wins
     //Calculate diagonal win accessing tag or index, similar to siagonal sum with Brian from twitter
     
@@ -107,3 +99,28 @@ class TicTacToeBrain {
     //counterPlayerTwo:
 }
 
+
+
+
+//    enum PlayerPicture: String {
+//        case xMark
+//        case circle
+//
+//        func image() -> UIImage{
+//            var cardImage: UIImage!
+//            switch self{
+//            case .circle:
+//                cardImage = UIImage(named: PlayerPicture.circle.rawValue)
+//            case .xMark:
+//                cardImage = UIImage(named: PlayerPicture.xMark.rawValue)
+//
+//            }
+//            return cardImage
+//        }
+//    }
+
+//    var image: UIImage
+//
+//    init(image: UIImage){
+//        self.image = image
+//    }

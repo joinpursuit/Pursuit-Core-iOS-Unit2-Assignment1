@@ -40,10 +40,9 @@ class ViewController: UIViewController {
     
     private var ticTacToeBrain = TicTacToeBrain()
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUp()
         
     }
@@ -60,16 +59,20 @@ class ViewController: UIViewController {
     
     @IBAction func moveMade(_ sender: GameButton) {
         let ticToeIndex = (sender.row, sender.col)
+        
         ticTacToeBrain.play(move: ticToeIndex)
         currentButton = arrayOfButtons[sender.tag]
-        instructions.text = TicTacToeBrain.playerMessage
-        currentButton.setImage(TicTacToeBrain.playerImage, for: .normal)
+        instructions.text = ticTacToeBrain.playerMessage
+        currentButton.setImage(ticTacToeBrain.playerImage, for: .normal)
+        currentButton.isUserInteractionEnabled = false
     }
+    
     
     
     
     @IBAction func playAgain(_ sender: UIButton){
         setUp()
+        //i need to remove all images
     }
     
 }
