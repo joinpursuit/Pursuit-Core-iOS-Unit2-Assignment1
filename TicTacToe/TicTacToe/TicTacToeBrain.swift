@@ -17,9 +17,11 @@ class TicTacToeBrain {
     var gameOver = false
     var gameString = ""
     var imageChange = "smile"
+    var scoreBoard = Scoreboard()
     
     func thinking (a: Int, b: Int) {
         var playerValue: Int
+
         if playerToggle {
             playerValue = 1
             playerToggle = false
@@ -32,20 +34,29 @@ class TicTacToeBrain {
             imageChange = "X"
         }
         array[a][b] += playerValue
-        var winArray = [[array[0][0],array[1][1],array[2][2]],[array[2][0],array[1][1],array[0][2]],
-                         [array[0][0],array[0][1],array[0][2]],[array[1][0],array[1][1],array[1][2]],[array[2][0],array[2][1],array[2][2]],
-                         [array[0][0],array[1][0],array[2][0]],[array[0][1],array[0][1],array[0][2]],[array[0][2],array[1][2],array[2][2]]]
+        var winArray = [[array[0][0],array[1][1],array[2][2]],
+                        [array[2][0],array[1][1],array[0][2]],
+                        [array[0][0],array[0][1],array[0][2]],
+                        [array[1][0],array[1][1],array[1][2]],
+                        [array[2][0],array[2][1],array[2][2]],
+                        [array[0][0],array[1][0],array[2][0]],
+                        [array[0][1],array[1][1],array[2][1]],
+                        [array[0][2],array[1][2],array[2][2]]]
         for j in 0..<winArray.count {
             if winArray[j].reduce(0, +) == 12 {
                 gameString = "Player 2 wins"
                 gameOver = true
+                scoreBoard.calculate(c: playerToggle)
+                break
             } else if winArray[j].reduce(0, +) == 3 {
                 gameString = "Player 1 wins"
                 gameOver = true
+                scoreBoard.calculate(c: playerToggle)
+                break
             } else if array.joined().reduce(0, +) == 21 {
                 gameString = "DRAW! Press restart!"
                 gameOver = true
-            } <#T##nextPartialResult: (Result, Int) throws -> Result##(Result, Int) throws -> Result#>)
+            }
         }
     }
     func reset(a: Bool){
@@ -57,6 +68,21 @@ class TicTacToeBrain {
             gameOver = false
             playerToggle = true
         }
+    }
+}
+class Scoreboard {
+    var oneScore = 0
+    var twoScore = 0
+    func calculate(c: Bool){
+        if !c {
+            oneScore += 1
+        } else {
+            twoScore += 1
+        }
+    }
+    func reset() {
+        oneScore = 0
+        twoScore = 0
     }
 }
 // THIS IS WHERE YOU MODEL YOUR LOGIC
