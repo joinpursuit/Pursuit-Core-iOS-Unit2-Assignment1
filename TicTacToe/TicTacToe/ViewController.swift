@@ -61,11 +61,24 @@ class ViewController: UIViewController {
         let ticToeIndex = (sender.row, sender.col)
         
         ticTacToeBrain.play(move: ticToeIndex)
+        
         currentButton = arrayOfButtons[sender.tag]
+        
         instructions.text = ticTacToeBrain.playerMessage
+        
         currentButton.setImage(ticTacToeBrain.playerImage, for: .normal)
+        
         currentButton.isUserInteractionEnabled = false
+        
         ticTacToeBrain.keepTracKInWinningarray(ticToeIndex: ticToeIndex)
+        
+        ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winningMatrix)
+        
+        ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winningMatrix)
+        
+        if ticTacToeBrain.playerOneWins || ticTacToeBrain.playerTwoWins{
+         ticTacToeBrain.disableGame(array: arrayOfButtons)
+        }
     }
     
     

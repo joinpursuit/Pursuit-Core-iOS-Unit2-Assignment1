@@ -11,6 +11,7 @@ import UIKit
 
 class TicTacToeBrain {
 
+    
     public var playerImage: UIImage!
     public var playerMessage = "Your turn"
     private var playerOneTurn = true
@@ -27,7 +28,7 @@ class TicTacToeBrain {
         self.playerMessage = playerOneTurn ? "Player One you are on" : "Player Two you are on"
     }
  
-        private var winningMatrix = [
+        public var winningMatrix = [
         /*position 0*/ ["","",""],
         /*position 1*/ ["","",""],
         /*position 2*/ ["","",""]
@@ -35,27 +36,48 @@ class TicTacToeBrain {
     
     var indexToAccessArray = 0
     var indexToAccessElement = 0
-    func keepTracKInWinningarray (ticToeIndex: (row:Int, col:Int)) {
+    let  playerOneMark = "O"
+    let playerTwoMark = "X"
+    func keepTracKInWinningarray (ticToeIndex: (row:Int, col:Int)){
         
         indexToAccessArray = ticToeIndex.row
         indexToAccessElement = ticToeIndex.col
         
         if playerOneTurn{
-            winningMatrix[indexToAccessArray][indexToAccessElement] = "x"
+            winningMatrix[indexToAccessArray][indexToAccessElement] = playerOneMark
         } else{
-            winningMatrix[indexToAccessArray][indexToAccessElement] = "0"
+            winningMatrix[indexToAccessArray][indexToAccessElement] = playerTwoMark
         }
         print(winningMatrix)
     }
     
-    //button gets click
-    //take position
-    //access winningMatrix at position change to "o" or "x"
+    var playerOneWins = false
+    var playerTwoWins = false
     
+    func whoWins (possibleWinningCombinations: [[String]]) {
+        outer: for combination in possibleWinningCombinations{
+            switchLoop: switch combination{
+            case ["X", "X", "X"]:
+                playerOneWins = true
+                print("player one wins? \(playerOneWins)")
+                break
+            case  ["O", "O", "O"]:
+                playerTwoWins = true
+                print("player two wins? \(playerTwoWins)")
+                break
+            default:
+                print("Not a winning combination")
+            }
+            print(combination)
+        }
+        
+    }
     
-    
-    
-    
+    func disableGame (array: [GameButton]){
+        for button in array{
+         button.isEnabled = false
+        }
+    }
     
  
     //who wins
@@ -108,7 +130,7 @@ class TicTacToeBrain {
     
     //counterPlayerOne:
     //counterPlayerTwo:
-}
+//}
 
 
 
@@ -135,3 +157,4 @@ class TicTacToeBrain {
 //    init(image: UIImage){
 //        self.image = image
 //    }
+}
