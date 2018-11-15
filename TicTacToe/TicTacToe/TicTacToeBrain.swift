@@ -50,6 +50,16 @@ class TicTacToeBrain {
         }
         print(winningMatrix)
     }
+    var diagonalOne = [String]()
+    var diagonalTwo = [String]()
+    func diagonal (a: [[String]]){
+        diagonalOne.append(a[0][0])
+        diagonalOne.append(a[1][1])
+        diagonalOne.append(a[2][2])
+        diagonalTwo.append(a[0][2])
+        diagonalTwo.append(a[1][1])
+        diagonalTwo.append(a[2][0])
+    }
     
     var playerOneWins = false
     var playerTwoWins = false
@@ -72,6 +82,8 @@ class TicTacToeBrain {
         }
         
     }
+    
+
     
     func disableGame (array: [GameButton]){
         for button in array{
