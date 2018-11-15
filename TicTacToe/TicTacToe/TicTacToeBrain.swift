@@ -31,7 +31,6 @@ class TicTacToeBrain {
             playerSwitch = false
             playerTurnCondition = "Player Two's Turn!"
             playerIcon = TicTacToeImage.xIcon
-            
         } else {
             playerValue = 5
             playerSwitch = true
@@ -47,13 +46,13 @@ class TicTacToeBrain {
                         [array[0][0],array[1][0],array[2][0]],
                         [array[0][1],array[1][1],array[2][1]],
                         [array[0][2],array[1][2],array[2][2]]]
-        for i in 0..<winArray.count {
-            if winArray[i].reduce(0, +) == 3 {
-                playerTurnCondition = "Player One Wins"
+        for j in 0..<winArray.count {
+            if winArray[j].reduce(0, +) == 15 {
+                playerTurnCondition = "Player Two Wins"
                 gameOver = true
                 break
-            } else if winArray[i].reduce(0, +) == 15 {
-                playerTurnCondition = "Player Two Wins"
+            } else if winArray[j].reduce(0, +) == 3 {
+                playerTurnCondition = "Player One Wins"
                 gameOver = true
                 break
             } else if array.joined().reduce(0, +) == 25 {

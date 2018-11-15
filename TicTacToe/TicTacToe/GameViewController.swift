@@ -36,15 +36,18 @@ class GameViewController: UIViewController {
         displayLabel.text = ticTacToe.playerTurnCondition
         if displayLabel.text == "Player One Wins" {
             playerOneWins += 1
+            playerOneWinCountLabel.text = "Player 1 Wins: \(playerOneWins)"
         }
         if displayLabel.text == "Player Two Wins" {
             playerTwoWins += 1
+            playerTwoWinCountLabel.text = "Player 2 Wins: \(playerTwoWins)"
         }
         cardButton.setImage(UIImage.init(named: ticTacToe.playerIcon), for: .normal)
         gameOver = ticTacToe.gameOver
         if gameOver == true {
             allTilesButton.forEach{$0.isEnabled = false}
         }
+        cardButton.isEnabled = false
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
