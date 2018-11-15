@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     private var ticTacToeBrain = TicTacToeBrain()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
@@ -65,7 +65,9 @@ class ViewController: UIViewController {
         instructions.text = ticTacToeBrain.playerMessage
         currentButton.setImage(ticTacToeBrain.playerImage, for: .normal)
         currentButton.isUserInteractionEnabled = false
+        ticTacToeBrain.keepTracKInWinningarray(ticToeIndex: ticToeIndex)
     }
+    
     
     
     

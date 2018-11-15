@@ -27,14 +27,25 @@ class TicTacToeBrain {
         self.playerMessage = playerOneTurn ? "Player One you are on" : "Player Two you are on"
     }
  
-        var winningMatrix = [
+        private var winningMatrix = [
         /*position 0*/ ["","",""],
         /*position 1*/ ["","",""],
         /*position 2*/ ["","",""]
     ]
     
-    func keepTracKInWinningarray () {
-    
+    var indexToAccessArray = 0
+    var indexToAccessElement = 0
+    func keepTracKInWinningarray (ticToeIndex: (row:Int, col:Int)) {
+        
+        indexToAccessArray = ticToeIndex.row
+        indexToAccessElement = ticToeIndex.col
+        
+        if playerOneTurn{
+            winningMatrix[indexToAccessArray][indexToAccessElement] = "x"
+        } else{
+            winningMatrix[indexToAccessArray][indexToAccessElement] = "0"
+        }
+        print(winningMatrix)
     }
     
     //button gets click
