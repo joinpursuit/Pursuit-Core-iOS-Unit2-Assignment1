@@ -45,9 +45,9 @@ class GameViewController: UIViewController {
         cardButton.setImage(UIImage.init(named: ticTacToe.playerIcon), for: .normal)
         gameOver = ticTacToe.gameOver
         if gameOver == true {
-            allTilesButton.forEach{$0.isEnabled = false}
+            allTilesButton.forEach{$0.isUserInteractionEnabled = false}
         }
-        cardButton.isEnabled = false
+        cardButton.isUserInteractionEnabled = false
     }
     
     @IBAction func resetButton(_ sender: UIButton) {
