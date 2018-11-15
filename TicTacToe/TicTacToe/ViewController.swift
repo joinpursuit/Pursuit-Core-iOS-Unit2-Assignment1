@@ -12,8 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet var buttons: [GameButton]!
     @IBOutlet weak var textWinner: UILabel!
+    @IBOutlet weak var playerOneWinCount: UILabel!
     
-
+    @IBOutlet weak var playerTwoWinCount: UILabel!
+    
     
 
 
@@ -21,14 +23,15 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     textWinner.text = "Player One"
-    
+    playerOneWinCount.text = "Player One Wins: \(TicTacToeBrain.playerOneWinCount)"
+    playerTwoWinCount.text = "Player Two Wins: \(TicTacToeBrain.playerTwoWinCount)"
   }
     @IBAction func buttonAction(_ sender: GameButton) {
         
             if TicTacToeBrain.turn == 1 {
                 sender.setImage(UIImage.init(named: "x"), for: .normal)
                 TicTacToeBrain.board[sender.row][sender.col] = 1
-                sender.isEnabled = false
+                sender.isUserInteractionEnabled = false
                 textWinner.text = "Player Two"
                 TicTacToeBrain.turn = 2
                 TicTacToeBrain.count += 1
@@ -36,7 +39,7 @@ class ViewController: UIViewController {
                 sender.setImage(UIImage.init(named: "o"), for: .normal)
                 TicTacToeBrain.board[sender.row][sender.col] = 4
                 textWinner.text = "Player One"
-                sender.isEnabled = false
+                sender.isUserInteractionEnabled = false
                 TicTacToeBrain.turn = 1
                 TicTacToeBrain.count += 1
                 
@@ -56,15 +59,19 @@ class ViewController: UIViewController {
                 for button in buttons {
                     button.isEnabled = false
                 }
+                TicTacToeBrain.playerOneWinCount += 1
+                playerOneWinCount.text = "Player One Wins: \(TicTacToeBrain.playerOneWinCount)"
                 break
             } else if result == 12 {
                 textWinner.text = "Player two is the winner"
                 for button in buttons {
                     button.isEnabled = false
                 }
+                TicTacToeBrain.playerTwoWinCount += 1
+                playerTwoWinCount.text = "Player Two Wins: \(TicTacToeBrain.playerTwoWinCount)"
                 break
             } else if TicTacToeBrain.count == 9 {
-                print(result)
+                
                 textWinner.text = "Draw"
                 for button in buttons {
                     button.isEnabled = false
@@ -75,6 +82,7 @@ class ViewController: UIViewController {
 
     }
     @IBAction func restart(_ sender: UIButton) {
+        buttons.forEach{$0.isUserInteractionEnabled = true}
         buttons.forEach{$0.isEnabled = true}
         buttons.forEach{$0.setImage(UIImage(named: "Default Image"), for: .normal)}
         TicTacToeBrain.turn = 1
