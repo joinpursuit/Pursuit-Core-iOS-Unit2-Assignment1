@@ -48,8 +48,8 @@ class TicTacToeBrain {
                 }
             }
         } else {
-            print("counter col O is \(countColX)")
-            print("counter Row O is \(countRowX)")
+            print("counter col O is \(countColO)")
+            print("counter Row O is \(countRowO)")
             for numbers in 0...2 {
                 if countColO.filter({$0 == numbers}).count == 3 {
                     print("O col win")
