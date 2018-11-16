@@ -200,18 +200,6 @@
                                     <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zDd-Q5-8nD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igU-Gw-OO5">
-                                <rect key="frame" x="60" y="748" width="254" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="25"/>
-                                <state key="normal" title="Restart Game">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MwI-cE-IoB"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9o-mo-zaL">
                                 <rect key="frame" x="43" y="676" width="288" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -228,14 +216,43 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <view alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-kD-VIb">
+                                <rect key="frame" x="0.0" y="0.0" width="381" height="812"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igU-Gw-OO5">
+                                        <rect key="frame" x="4" y="5" width="373" height="802"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="35"/>
+                                        <state key="normal" title="Play Again!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MwI-cE-IoB"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTq-GY-BhA">
+                                        <rect key="frame" x="14" y="265" width="353" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.3831141801343621" green="0.57669733502538079" blue="0.36042922484695844" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="endScreen" destination="dgH-kD-VIb" id="ujp-jO-7Pv"/>
                         <outlet property="playerOneWinCount" destination="U9o-mo-zaL" id="zEy-bZ-kOD"/>
                         <outlet property="playerTwoWinCount" destination="4Wd-XK-Ivg" id="c8l-CJ-Lii"/>
+                        <outlet property="restartGame" destination="igU-Gw-OO5" id="uH1-2V-faa"/>
                         <outlet property="textWinner" destination="sAc-s0-LZk" id="Irg-Ir-Spl"/>
+                        <outlet property="winner" destination="iTq-GY-BhA" id="thl-Hm-eNe"/>
                         <outletCollection property="buttons" destination="M1e-bs-BG4" collectionClass="NSMutableArray" id="OZZ-91-d5P"/>
                         <outletCollection property="buttons" destination="gAx-ku-7af" collectionClass="NSMutableArray" id="28O-Px-EkQ"/>
                         <outletCollection property="buttons" destination="owJ-Br-tbJ" collectionClass="NSMutableArray" id="KvH-yZ-39V"/>
