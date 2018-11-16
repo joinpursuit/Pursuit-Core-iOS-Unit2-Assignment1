@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     var board = TicTacToeBrain.boardCreator(row: 3, column: 3) {
         didSet {
             guard numberOfTurnsPassed > 4 else {return}
-            guard TicTacToeBrain.checkForWin(matrix: board) else {return}
+            guard TicTacToeBrain.checkForWin(matrix: board, playerSymbol: playerSymbol) else {return}
             someoneWins = true
         }
     }
@@ -61,8 +61,10 @@ class ViewController: UIViewController {
         }
         numberOfTurnsPassed = 0
         playerTurn = Player.player1
-        playerSymbol = playerTurn.ticTacToeSymbol()
+        playerSymbol = Player.player1.ticTacToeSymbol()
         gameStatusLabel.text = "Turn: \(playerTurn.rawValue)"
+        board = TicTacToeBrain.boardCreator(row: 3, column: 3)
+        someoneWins = false
     }
 }
 
