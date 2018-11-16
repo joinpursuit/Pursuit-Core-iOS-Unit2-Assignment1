@@ -9,12 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    print("We are making Tic Tac Toe!!")
-  }
-
-
+    
+    @IBOutlet var boardButtons: [GameButton]!
+    @IBOutlet weak var gameStatusLabel: UILabel!
+    @IBOutlet weak var resetGame: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
 }
 
