@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     var countRowO = [Int]()
     var winX = 0
     var winO = 0
+    var ties = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         }
     }
     func winCount() {
-        winnerLabel.text = "X wins: \(winX) & O wins: \(winO)"
+        winnerLabel.text = "X wins: \(winX), O wins: \(winO), Ties: \(ties)"
     }
     func gameOver(winner: Bool) {
         if winner {
@@ -59,11 +60,20 @@ class ViewController: UIViewController {
             allFlipButtons.forEach {$0.isEnabled = false}
         }
     }
+    func tie() {
+        if countRowX.count == 5 {
+            turnLabel.text = "It's a tie!"
+            ties += 1
+            winCount()
+            allFlipButtons.forEach {$0.isEnabled = false}
+        }
+    }
     @IBAction func allButtons(_ sender: GameButton) {
         let sender = sender
         TicTacToeBrain.assignXO(player: playerOne, sender, text: turnLabel)
         counter(sender)
         gameOver(winner: TicTacToeBrain.checkAllWins(checkWinnerVertHor: TicTacToeBrain.checkWinnerVertHor(player: playerOne, sender, countColX: countColX, countRowX: countRowX, countColO: countColO, countRowO: countRowO), checkWinnerDiagO: TicTacToeBrain.checkWinnerDiagO(topLeft: topLeft, topRight: topRight, middleMiddle: middleMiddle, bottomLeft: bottomLeft, bottomRight: bottomRight), checkWinnerDiagX: TicTacToeBrain.checkWinnerDiagX(topLeft: topLeft, topRight: topRight, middleMiddle: middleMiddle, bottomLeft: bottomLeft, bottomRight: bottomRight)))
+        tie()
         playerOne = !playerOne
     }
     @IBAction func newGame(_ sender: UIButton) {
