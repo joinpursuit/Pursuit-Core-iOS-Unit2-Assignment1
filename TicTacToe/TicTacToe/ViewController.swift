@@ -11,17 +11,35 @@ import UIKit
 class ViewController: UIViewController {
 
     //viewController handles whether buttons are on or off
+    @IBOutlet var allButtons: [GameButton]!
     
-    @IBOutlet weak var firstButton: GameButton!
-    
+    var myMatrix = Array(repeating: Array(repeating: "", count: 3), count: 3)
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("HELLO")
-    // Do any additional setup after loading the view, typically from a nib.
- //   if firstButton.row...
   }
-
+    var playerTurn = TicTacToeBrain.Player.playerOne
+    
+    
+    @IBAction func chooseSpot(_ sender: GameButton) {
+        
+        switch playerTurn {
+        case .playerOne:
+            sender.setTitle("X", for: .normal)
+        case .playerTwo:
+            sender.setTitle("O", for: .normal)
+        }
+        playerTurn.switchPlayer()
+        sender.isEnabled = false
+        
+    }
+    @IBAction func resetGame(_ sender: UIButton) {
+        for button in allButtons {
+            button.isEnabled = true
+            button.setTitle("", for: .normal)
+        }
+        playerTurn = TicTacToeBrain.Player.playerOne
+    }
 
 }
 
