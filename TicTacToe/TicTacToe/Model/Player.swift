@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum Player {
-    case player1
-    case player2
+enum Player: String {
+    case player1 = "Player 1"
+    case player2 = "Player 2"
     
     mutating func switchPlayer() {
         switch self {

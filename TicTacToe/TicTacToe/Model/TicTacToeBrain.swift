@@ -9,9 +9,7 @@
 import Foundation
 
 class TicTacToeBrain {
-    var playTurn = Player.player1
-    
-    func boardCreator(row: Int, column: Int) -> [[String]] {
+    static func boardCreator(row: Int, column: Int) -> [[String]] {
         return Array(repeating: Array(repeating: "", count: column), count: row)
     }
 }
