@@ -11,6 +11,8 @@ import UIKit
 var playerOneTurn = true
 var gameRunning = true
 var turnCount = 0
+var playerXScore = 0
+var playerOScore = 0
 var xPlayerRowArray = [Int]()
 var xPlayerColArray = [Int]()
 var oPlayerRowArray = [Int]()
@@ -57,8 +59,6 @@ class ViewController: UIViewController {
             allButtons[square.tag].isEnabled = false
             oPlayerColArray.append(square.col)
             oPlayerRowArray.append(square.row)
-            print(oPlayerRowArray)
-            print(oPlayerColArray)
             turnCount += 1
             playerOneTurn = !playerOneTurn
             
@@ -67,8 +67,6 @@ class ViewController: UIViewController {
             allButtons[square.tag].isEnabled = false
             xPlayerColArray.append(square.col)
             xPlayerRowArray.append(square.row)
-            print(xPlayerRowArray)
-            print(xPlayerColArray)
             turnCount += 1
             playerOneTurn = !playerOneTurn
             
@@ -81,23 +79,31 @@ class ViewController: UIViewController {
         var checkORow = [Int]()
         var checkOCol = [Int]()
         // Win is possible on turn 9, make. leave draw as defualt final condition
-        if turnCount == 9{
-            gameText.text = "Draw"
-        }
+       
         for i in 1...3{
-           checkXRow = xPlayerRowArray.filter {$0 == i }
-           checkXCol = xPlayerColArray.filter {$0 == i }
-           checkORow = oPlayerRowArray.filter {$0 == i }
-           checkOCol = oPlayerColArray.filter {$0 == i }
-        print("\(i)===========")
-            print(xPlayerRowArray)
-        print("This is Xx \(checkXRow)")
-        print("This is Xy \(checkXCol)")
-        print("This is Ox \(checkORow)")
-        print("This is Oy \(checkOCol)")
-            if xPlayerRowArray.count == 3 {
-                print("X win")
-                
+           checkXRow = xPlayerRowArray.filter {$0 == i}
+           checkXCol = xPlayerColArray.filter {$0 == i}
+           checkORow = oPlayerRowArray.filter {$0 == i}
+           checkOCol = oPlayerColArray.filter {$0 == i}
+
+            if checkXRow.count == 3 {
+                gameText.text = "X win"
+                playerXScore += 1
+                allButtons.forEach  {$0.isEnabled = false}
+            }else if checkXCol.count == 3 {
+                gameText.text = "X wins"
+                playerXScore += 1
+                allButtons.forEach  {$0.isEnabled = false}
+            }else if checkOCol.count == 3 {
+                gameText.text = "O win"
+                playerOScore += 1
+                allButtons.forEach  {$0.isEnabled = false}
+            }else if checkORow.count == 3 {
+                gameText.text = "O win"
+                playerOScore += 1
+                allButtons.forEach  {$0.isEnabled = false}
+            }else if turnCount == 9 {
+                gameText.text = "Draw"
             }
         }
         
@@ -105,15 +111,16 @@ class ViewController: UIViewController {
     
     @IBAction func reset (_ newGame: UIButton){
         allButtons.forEach  {$0.isEnabled = true}
-        allButtons.forEach { $0.setImage(UIImage(named: "Default Image"), for: .normal)
+        allButtons.forEach { $0.setImage(UIImage(named: "Default Image"), for: .normal)}
         turnCount = 0
         xPlayerColArray.removeAll()
         xPlayerRowArray.removeAll()
         oPlayerColArray.removeAll()
         oPlayerRowArray.removeAll()
         gameText.text = "Board Reset"
+        scoreCount.text = "Player X:\(playerXScore) Player O:\(playerOScore)"
         }
     }
-}
+
 
 
