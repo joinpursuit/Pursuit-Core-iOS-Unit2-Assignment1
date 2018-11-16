@@ -29,16 +29,22 @@ class ViewController: UIViewController {
     @IBAction func buttonAction(_ sender: GameButton) {
         
             if TicTacToeBrain.turn == 1 {
-                sender.setImage(UIImage.init(named: "x"), for: .normal)
+//                sender.setImage(UIImage.init(named: "x"), for: .normal)
+                sender.setTitle("X", for: .normal)
+                sender.backgroundColor = #colorLiteral(red: 0.995932281, green: 0.2765177786, blue: 0.3620784283, alpha: 1)
                 TicTacToeBrain.board[sender.row][sender.col] = 1
                 sender.isUserInteractionEnabled = false
                 textWinner.text = "Player Two"
+                
                 TicTacToeBrain.turn = 2
                 TicTacToeBrain.count += 1
             } else {
-                sender.setImage(UIImage.init(named: "o"), for: .normal)
+//                sender.setImage(UIImage.init(named: "o"), for: .normal)
+                sender.setTitle("O", for: .normal)
+                sender.backgroundColor = #colorLiteral(red: 0.2221263647, green: 0.5435168147, blue: 1, alpha: 1)
                 TicTacToeBrain.board[sender.row][sender.col] = 4
                 textWinner.text = "Player One"
+                
                 sender.isUserInteractionEnabled = false
                 TicTacToeBrain.turn = 1
                 TicTacToeBrain.count += 1
@@ -84,7 +90,9 @@ class ViewController: UIViewController {
     @IBAction func restart(_ sender: UIButton) {
         buttons.forEach{$0.isUserInteractionEnabled = true}
         buttons.forEach{$0.isEnabled = true}
-        buttons.forEach{$0.setImage(UIImage(named: "Default Image"), for: .normal)}
+//        buttons.forEach{$0.setImage(UIImage(named: "Default Image"), for: .normal)}
+        buttons.forEach{$0.setTitle("", for: .normal)}
+        buttons.forEach{$0.backgroundColor = .white}
         TicTacToeBrain.turn = 1
         TicTacToeBrain.count = 0
         textWinner.text = ""
