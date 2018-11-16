@@ -72,9 +72,9 @@ class ViewController: UIViewController {
         
         ticTacToeBrain.keepTracKInWinningarray(ticToeIndex: ticToeIndex)
         
-        ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winningMatrix)
+        ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
         
-        ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winningMatrix)
+        
         
         if ticTacToeBrain.playerOneWins || ticTacToeBrain.playerTwoWins{
          ticTacToeBrain.disableGame(array: arrayOfButtons)
