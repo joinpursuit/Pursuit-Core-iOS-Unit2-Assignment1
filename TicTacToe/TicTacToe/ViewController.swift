@@ -14,10 +14,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var gameStatusLabel: UILabel!
     @IBOutlet weak var resetGame: UIButton!
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-    
     var playerTurn = Player.player1
     var playerSymbol = Player.player1.ticTacToeSymbol()
     var numberOfTurnsPassed = 0
@@ -25,14 +21,16 @@ class ViewController: UIViewController {
     var someoneWins = false {
         didSet {
             guard someoneWins else {return}
-            
+            gameStatusLabel.text = "\(playerTurn.rawValue) Wins 🍻!"
+            boardButtons.forEach {$0.isEnabled = false}
         }
     }
     
     var board = TicTacToeBrain.boardCreator(row: 3, column: 3) {
         didSet {
             guard numberOfTurnsPassed > 4 else {return}
-            //activiate the function check for win
+            guard TicTacToeBrain.checkForWin(matrix: board) else {return}
+            someoneWins = true
         }
     }
     
@@ -44,8 +42,9 @@ class ViewController: UIViewController {
         numberOfTurnsPassed += 1
         board[square.row][square.col] = playerSymbol
         
+        guard !someoneWins else {return}
         guard numberOfTurnsPassed < 9 else {
-            gameStatusLabel.text = "It's a Draw!"
+            gameStatusLabel.text = "It's a Draw 🤝!"
             boardButtons.forEach{$0.isEnabled = false}
             return
         }
@@ -60,7 +59,10 @@ class ViewController: UIViewController {
             square.setTitle("", for: .normal)
             square.isEnabled = true
         }
-        
+        numberOfTurnsPassed = 0
+        playerTurn = Player.player1
+        playerSymbol = playerTurn.ticTacToeSymbol()
+        gameStatusLabel.text = "Turn: \(playerTurn.rawValue)"
     }
 }
 
