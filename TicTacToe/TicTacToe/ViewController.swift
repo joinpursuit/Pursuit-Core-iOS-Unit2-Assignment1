@@ -13,16 +13,29 @@ class ViewController: UIViewController {
     @IBOutlet var boardButtons: [GameButton]!
     @IBOutlet weak var gameStatusLabel: UILabel!
     @IBOutlet weak var resetGame: UIButton!
+    @IBOutlet weak var p1ScoreLabel: UILabel!
+    @IBOutlet weak var p2ScoreLabel: UILabel!
     
     var playerTurn = Player.player1
     var playerSymbol = Player.player1.ticTacToeSymbol()
     var numberOfTurnsPassed = 0
+    
+    var player1Score = 0
+    var player2Score = 0
     
     var someoneWins = false {
         didSet {
             guard someoneWins else {return}
             gameStatusLabel.text = "\(playerTurn.rawValue) Wins 🍻!"
             boardButtons.forEach {$0.isEnabled = false}
+            switch playerTurn {
+            case .player1:
+                player1Score += 1
+                p1ScoreLabel.text = "P1 Score: \(player1Score)"
+            case .player2:
+                player2Score += 1
+                p2ScoreLabel.text = "P2 Score: \(player2Score)"
+            }
         }
     }
     

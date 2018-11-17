@@ -184,12 +184,28 @@
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRp-qQ-YHn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="P1 Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDd-aC-0Gr">
+                                <rect key="frame" x="33" y="678" width="133" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="P2 Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dN-c3-GOz">
+                                <rect key="frame" x="249" y="678" width="133" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="gameStatusLabel" destination="pLa-rQ-F93" id="kPg-Eg-0BA"/>
+                        <outlet property="p1ScoreLabel" destination="XDd-aC-0Gr" id="dOw-Vw-j42"/>
+                        <outlet property="p2ScoreLabel" destination="4dN-c3-GOz" id="UQv-hE-2Je"/>
                         <outlet property="resetGame" destination="gua-Gm-xag" id="wHp-9G-SYh"/>
                         <outletCollection property="boardButtons" destination="MOB-dz-deJ" collectionClass="NSMutableArray" id="gPu-7U-JSr"/>
                         <outletCollection property="boardButtons" destination="Dxi-SK-MCf" collectionClass="NSMutableArray" id="s5f-Y0-KhL"/>
