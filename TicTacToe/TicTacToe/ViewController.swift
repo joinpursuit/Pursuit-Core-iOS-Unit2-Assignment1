@@ -51,9 +51,7 @@ class ViewController: UIViewController {
         instructions.text = "Click on any square on the table to begin the game!"
         player1Turn.text = "Player One - \"x\"      wins: "
         player2Turn.text = "Player Two - \"o\"      wins: "
-        for button in arrayOfButtons{
-            button.isEnabled = true
-        }
+        arrayOfButtons.forEach{$0.isEnabled = true}
     }
     
     
@@ -74,20 +72,14 @@ class ViewController: UIViewController {
         
         ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
         
-        
-        
-        if ticTacToeBrain.playerOneWins || ticTacToeBrain.playerTwoWins{
-         ticTacToeBrain.disableGame(array: arrayOfButtons)
-        }
     }
-    
     
     
     
     
     @IBAction func playAgain(_ sender: UIButton){
-        setUp()
-        //i need to remove all images
+        arrayOfButtons.forEach{$0.setImage(nil, for: .normal)}
+
+      setUp()
     }
-    
 }
