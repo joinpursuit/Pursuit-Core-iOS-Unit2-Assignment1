@@ -14,7 +14,7 @@ class TicTacToeBrain {
     
     
     public var playerImage: UIImage!
-    public var playerMessage = "Your turn"
+    public var playerMessage = " "
     public var playerOneTurn = true
     
     public func play(move: (row: Int, col: Int)) {
@@ -111,13 +111,6 @@ class TicTacToeBrain {
             }
         }
         return (playerMessage)
-    }
-    func resetBoard(){
-        for index in 0..<winMatrix.count {
-            for num in 0..<winMatrix[index].count {
-                winMatrix[index][num] = 0
-            }
-        }
     }
 }
 
