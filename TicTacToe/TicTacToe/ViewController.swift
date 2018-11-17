@@ -62,15 +62,14 @@ class ViewController: UIViewController {
         
         currentButton = arrayOfButtons[sender.tag]
         
-        instructions.text = ticTacToeBrain.playerMessage
-        
         currentButton.setImage(ticTacToeBrain.playerImage, for: .normal)
         
         currentButton.isUserInteractionEnabled = false
         
         ticTacToeBrain.keepTracKInWinningarray(ticToeIndex: ticToeIndex)
         
-        ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
+        instructions.text = ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
+    
         
     }
     

@@ -59,7 +59,7 @@ class TicTacToeBrain {
     var playerOneWins = false
     var playerTwoWins = false
     
-    func whoWins (possibleWinningCombinations: [[Int]]) {
+    func whoWins (possibleWinningCombinations: [[Int]]) -> String {
         var winningCombinations = [
             //        horizontal = 3
             [winMatrix[0][0], winMatrix[0][1], winMatrix[0][2]],
@@ -79,17 +79,18 @@ class TicTacToeBrain {
         for array in 0 ..< winningCombinations.count{
             if winningCombinations[array].reduce(0, +) == 3 {
                 playerOneWins = true
-                playerMessage = "Player one wins"
+                playerMessage = "Player One wins"
                 print("player one wins")
             } else if winningCombinations[array].reduce(0, +) == 12 {
                 playerTwoWins = true
-                playerMessage = "player two wins"
+                playerMessage = "player Two wins"
                 print("player two wins")
             } else if winMatrix.joined().reduce(0, +) == 21 {
                 playerMessage = "No one wins"
                 print("no one wins")
             }
         }
+        return playerMessage
     }
     
     //    func disableGame (array: [GameButton]){
