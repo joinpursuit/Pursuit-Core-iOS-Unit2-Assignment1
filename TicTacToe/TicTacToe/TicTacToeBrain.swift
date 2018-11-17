@@ -58,6 +58,8 @@ class TicTacToeBrain {
     
     var playerOneWins = false
     var playerTwoWins = false
+    var draw = false
+    var gameOver = false
     
     func whoWins (possibleWinningCombinations: [[Int]]) -> String {
         var winningCombinations = [
@@ -68,8 +70,8 @@ class TicTacToeBrain {
             
             //        vertical = 12
             [winMatrix[0][0], winMatrix[1][0], winMatrix[2][0]],
-            [winMatrix[1][0], winMatrix[1][1], winMatrix[1][2]],
-            [winMatrix[2][0], winMatrix[2][1], winMatrix[2][2]],
+            [winMatrix[0][1], winMatrix[1][1], winMatrix[2][1]],
+            [winMatrix[0][2], winMatrix[1][2], winMatrix[2][2]],
             
             //        diagonal
             [winMatrix[0][0], winMatrix[1][1], winMatrix[2][2]],
@@ -79,25 +81,23 @@ class TicTacToeBrain {
         for array in 0 ..< winningCombinations.count{
             if winningCombinations[array].reduce(0, +) == 3 {
                 playerOneWins = true
-                playerMessage = "Player One wins"
+                playerMessage = "Player One wins!"
+                gameOver = true
                 print("player one wins")
             } else if winningCombinations[array].reduce(0, +) == 12 {
                 playerTwoWins = true
-                playerMessage = "player Two wins"
+                playerMessage = "player Two wins!"
                 print("player two wins")
+                gameOver = true
             } else if winMatrix.joined().reduce(0, +) == 21 {
-                playerMessage = "No one wins"
+                draw = true
+                playerMessage = "No winners among you..."
                 print("no one wins")
+                gameOver = true
             }
         }
         return playerMessage
     }
-    
-    //    func disableGame (array: [GameButton]){
-    //        for button in array{
-    //            button.isEnabled = false
-    //        }
-    //    }
     
 }
 

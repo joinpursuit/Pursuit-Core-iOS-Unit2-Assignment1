@@ -49,9 +49,10 @@ class ViewController: UIViewController {
     
     func setUp(){
         instructions.text = "Click on any square on the table to begin the game!"
-        player1Turn.text = "Player One - \"x\"      wins: "
-        player2Turn.text = "Player Two - \"o\"      wins: "
+        player1Turn.text = "Player One - \"x\""
+        player2Turn.text = "Player Two - \"o\""
         arrayOfButtons.forEach{$0.isEnabled = true}
+        arrayOfButtons.forEach{$0.isUserInteractionEnabled = true}
     }
     
     
@@ -70,15 +71,19 @@ class ViewController: UIViewController {
         
         instructions.text = ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
     
-        
     }
     
+    func gameIsOver(gameResult: Bool){
+        if gameResult{
+            arrayOfButtons.forEach{$0.isEnabled = false}
+        }
+    }
     
     
     
     @IBAction func playAgain(_ sender: UIButton){
         arrayOfButtons.forEach{$0.setImage(nil, for: .normal)}
+        setUp()
 
-      setUp()
     }
 }
