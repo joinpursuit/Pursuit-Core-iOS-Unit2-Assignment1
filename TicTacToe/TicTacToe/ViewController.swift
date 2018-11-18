@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var player2Turn: UILabel!
     
-
+    
     @IBOutlet var arrayOfButtons: [GameButton]!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         ticTacToeBrain.keepTracKInWinningarray(ticToeIndex: ticToeIndex)
         
         instructions.text = ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
-
+        
         
         self.gameIsOver(gameResult: ticTacToeBrain.gameOver)
         

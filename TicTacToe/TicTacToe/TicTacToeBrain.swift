@@ -35,7 +35,11 @@ class TicTacToeBrain {
     
     
     
-    public var winMatrix: [[Int]] = [[0,0,0],[0,0,0],[0,0,0]]
+    public var winMatrix: [[Int]] = [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]
+    ]
     
     
     
