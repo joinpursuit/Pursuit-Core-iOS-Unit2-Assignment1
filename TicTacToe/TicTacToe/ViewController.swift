@@ -51,15 +51,9 @@ class ViewController: UIViewController {
         instructions.text = "Click on any square on the table to begin the game!"
         player1Turn.text = "Player One - \"x\""
         player2Turn.text = "Player Two - \"o\""
-        arrayOfButtons.forEach{$0.isEnabled = true}
         arrayOfButtons.forEach{$0.isUserInteractionEnabled = true}
     }
     
-    func gameIsOver(gameResult: Bool){
-        if gameResult{
-            arrayOfButtons.forEach{$0.isEnabled = false}
-        }
-    }
     
     @IBAction func moveMade(_ sender: GameButton) {
         let ticToeIndex = (sender.row, sender.col)
@@ -76,17 +70,24 @@ class ViewController: UIViewController {
         
         instructions.text = ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
 
-        gameIsOver(gameResult: ticTacToeBrain.gameOver)
+        self.gameIsOver(gameResult: ticTacToeBrain.gameOver)
         
+    }
+    
+    func gameIsOver(gameResult: Bool){
+        if gameResult{
+            arrayOfButtons.forEach{$0.isUserInteractionEnabled = false}
+        }
     }
     
     @IBAction func playAgain(_ sender: UIButton){
         arrayOfButtons.forEach {$0.setImage(nil, for: .normal)}
-        setUp()
-        for index in 0..<ticTacToeBrain.winMatrix.count {
-            for num in 0..<ticTacToeBrain.winMatrix[index].count {
-               ticTacToeBrain.winMatrix[index][num] = 0
-            }
-        }
+        arrayOfButtons.forEach{$0.isUserInteractionEnabled = true}
+        ticTacToeBrain.winMatrix = ticTacToeBrain.resetBoard(matrix: ticTacToeBrain.winMatrix)
+        ticTacToeBrain.playerOneTurn = true
+        arrayOfButtons.forEach{$0.isEnabled = true}
+        instructions.text = "Click on any square on the table to begin the game!"
+        player1Turn.text = "Player One - \"x\""
+        player2Turn.text = "Player Two - \"o\""
     }
 }

@@ -31,14 +31,14 @@ class TicTacToeBrain {
     
     
     
-    var winMatrix: [[Int]] = [[0,0,0],[0,0,0],[0,0,0]]
+    public var winMatrix: [[Int]] = [[0,0,0],[0,0,0],[0,0,0]]
     
     
     
-    var indexToAccessArray = 0
-    var indexToAccessElement = 0
-    let  xForPlayerOne = 4
-    let oForPlayerTwo = 1
+    private var indexToAccessArray = 0
+    private var indexToAccessElement = 0
+    private let  xForPlayerOne = 4
+    private let oForPlayerTwo = 1
     func keepTracKInWinningarray (ticToeIndex: (row:Int, col:Int)){
         
         
@@ -56,10 +56,10 @@ class TicTacToeBrain {
     
     
     
-    var playerOneWins = false
-    var playerTwoWins = false
-    var draw = false
-    var gameOver = false
+    private var playerOneWins = false
+    private var playerTwoWins = false
+    private var draw = false
+    public var gameOver = false
     
     func whoWins (possibleWinningCombinations: [[Int]]) -> String{
         
@@ -90,13 +90,11 @@ class TicTacToeBrain {
                 playerMessage = "player Two wins!"
                 print("player two wins")
                 gameOver = true
-            }else if winMatrix.joined().reduce(0, +) == 21 {
-                if winningCombinations[array].reduce(0, +) == 3 {
+            }else if winMatrix.joined().reduce(0, +) == 21 && winningCombinations[array].reduce(0, +) == 3 {
                     playerOneWins = true
                     playerMessage = "Player One wins!"
                     print("player one wins")
                     gameOver = true
-                }
                 if winningCombinations[array].reduce(0, +) == 12 {
                     playerTwoWins = true
                     playerMessage = "player Two wins!"
@@ -112,14 +110,17 @@ class TicTacToeBrain {
         }
         return (playerMessage)
     }
+    func resetBoard(matrix: [[Int]]) -> [[Int]]{
+        var renewedMatrix = matrix
+        for index in 0..<matrix.count {
+            for num in 0..<matrix[index].count {
+                renewedMatrix[index][num] = 0
+            }
+        }
+        print(renewedMatrix)
+
+        return renewedMatrix
+
+    }
 }
 
-
-
-//for i in 0 ..< possibleWinningCombinations.count {
-//
-//    for _ in 0 ..< possibleWinningCombinations[i].count{
-//        print(winMatrix)
-//    }
-//
-//}
