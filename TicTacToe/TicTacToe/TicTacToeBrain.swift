@@ -9,16 +9,10 @@
 import Foundation
 
 class TicTacToeBrain {
-    //this class should handle your logic
-    //function that puts an input, where it is in your game
-    //function that checks for a winning condition
-    //whose turn it is should NOT be in the viewController
-  //once a square is selected it should not be able to be selected again bc of how tic tac toe works
-    //hidden and being transparent are not the same thing
-
-    enum Player {
-        case playerOne
-        case playerTwo
+    
+    enum Player: String {
+        case playerOne = "X"
+        case playerTwo = "O"
         
         mutating func switchPlayer() {
             switch self {
@@ -28,5 +22,42 @@ class TicTacToeBrain {
                 self = .playerOne
             }
         }
+    }
+   static func winCondition(matrix: [[String]], userSymbol: String) -> Bool {
+        //horizontal
+        for row in matrix {
+            var allMatched = true
+            for symbol in row {
+                if symbol != userSymbol {
+                    allMatched = false
+                    break
+                }
+            }
+            if allMatched {
+                //print("horizontal")
+                return true
+            }
+        }
+        //vertical
+        for y in 0..<matrix.count {
+            var allMatched = true
+            for x in 0..<matrix.count {
+                if matrix[x][y] != userSymbol {
+                    allMatched = false
+                    break
+                }
+            }
+            if allMatched {
+                //print("vertical")
+                return true
+            }
+        }
+        
+        //diagonal
+        if matrix[0][0] == userSymbol && matrix[1][1] == userSymbol && matrix[2][2] == userSymbol || matrix[0][2] == userSymbol && matrix[1][1] == userSymbol && matrix[2][0] == userSymbol {
+            //print("diagnoal")
+            return true
+        }
+        return false
     }
 }
