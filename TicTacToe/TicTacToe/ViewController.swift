@@ -8,13 +8,6 @@
 
 import UIKit
 
-//THIS HANGDLES IF BUTTONS ARE ACTIVE OR INACTIVE
-
-
-//BUTTON ISHIDDEN(NOT THIS CASE)...  ISENABLED - IS ON BOARD BUT NOT ACTIVE
-
-//TRANSPARENT BUTTON IS THE KEY
-
 
 
 
@@ -27,6 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var player2Turn: UILabel!
     
+
     @IBOutlet var arrayOfButtons: [GameButton]!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -70,11 +64,13 @@ class ViewController: UIViewController {
         
         instructions.text = ticTacToeBrain.whoWins(possibleWinningCombinations: ticTacToeBrain.winMatrix)
 
+        
         self.gameIsOver(gameResult: ticTacToeBrain.gameOver)
         
     }
     
     func gameIsOver(gameResult: Bool){
+        
         if gameResult{
             arrayOfButtons.forEach{$0.isUserInteractionEnabled = false}
         }
@@ -84,6 +80,5 @@ class ViewController: UIViewController {
         arrayOfButtons.forEach {$0.setImage(nil, for: .normal)}
         ticTacToeBrain.resetBoard(reset: true)
         setUp()
-       
     }
 }

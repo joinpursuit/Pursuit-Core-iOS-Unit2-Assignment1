@@ -6,4 +6,21 @@
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class KeepScore: TicTacToeBrain{
+    var ticTacToe = TicTacToeBrain()
+    
+    var scorePlayerOne: Int = 0
+    var scorePlayerTwo: Int = 0
+    
+    func updateCounter(playerOneWins: Bool){
+        if playerOneWins{
+            scorePlayerOne += 1
+            print(scorePlayerOne)
+        }else if playerOneWins == false{
+            scorePlayerTwo += 1
+            print(scorePlayerTwo)
+        }
+    }
+}
