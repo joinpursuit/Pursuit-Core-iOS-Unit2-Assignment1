@@ -82,12 +82,8 @@ class ViewController: UIViewController {
     
     @IBAction func playAgain(_ sender: UIButton){
         arrayOfButtons.forEach {$0.setImage(nil, for: .normal)}
-        arrayOfButtons.forEach{$0.isUserInteractionEnabled = true}
-        ticTacToeBrain.winMatrix = ticTacToeBrain.resetBoard(matrix: ticTacToeBrain.winMatrix)
-        ticTacToeBrain.playerOneTurn = true
-        arrayOfButtons.forEach{$0.isEnabled = true}
-        instructions.text = "Click on any square on the table to begin the game!"
-        player1Turn.text = "Player One - \"x\""
-        player2Turn.text = "Player Two - \"o\""
+        ticTacToeBrain.resetBoard(reset: true)
+        setUp()
+       
     }
 }
