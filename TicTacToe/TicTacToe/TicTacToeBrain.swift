@@ -17,12 +17,14 @@ class TicTacToeBrain {
     var playerTwoCounter = 0
 
     
-    func playerOneWins() {
+    func playerOneWins() -> Bool {
         playerOneCounter += 1
+        return true
     }
     
-    func playerTwoWins() {
+    func playerTwoWins() -> Bool {
         playerTwoCounter += 1
+        return true
     }
     
     func checkForWin() {

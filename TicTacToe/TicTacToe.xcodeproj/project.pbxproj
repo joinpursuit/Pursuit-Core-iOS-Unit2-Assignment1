@@ -15,6 +15,7 @@
 		57A2EF592194DBFD009B12CA /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2EF582194DBFD009B12CA /* GameButton.swift */; };
 		57A2EF5B2194DC83009B12CA /* TicTacToeBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */; };
 		EAF7B89D22F4BE9B00C1C2D9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7B89C22F4BE9B00C1C2D9 /* Player.swift */; };
+		EAF7B89F22F4E8FA00C1C2D9 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF7B89E22F4E8FA00C1C2D9 /* Tile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		57A2EF582194DBFD009B12CA /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeBrain.swift; sourceTree = "<group>"; };
 		EAF7B89C22F4BE9B00C1C2D9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		EAF7B89E22F4E8FA00C1C2D9 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				EAF7B82522F349B600C1C2D9 /* Supporting Files */,
-				57A2EF482194DBAF009B12CA /* ViewController.swift */,
 				57A2EF4A2194DBAF009B12CA /* Main.storyboard */,
+				57A2EF482194DBAF009B12CA /* ViewController.swift */,
 				57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */,
+				EAF7B89E22F4E8FA00C1C2D9 /* Tile.swift */,
 				EAF7B89C22F4BE9B00C1C2D9 /* Player.swift */,
 				57A2EF582194DBFD009B12CA /* GameButton.swift */,
 				57A2EF522194DBB0009B12CA /* Info.plist */,
@@ -155,6 +158,7 @@
 				57A2EF492194DBAF009B12CA /* ViewController.swift in Sources */,
 				EAF7B89D22F4BE9B00C1C2D9 /* Player.swift in Sources */,
 				57A2EF592194DBFD009B12CA /* GameButton.swift in Sources */,
+				EAF7B89F22F4E8FA00C1C2D9 /* Tile.swift in Sources */,
 				57A2EF472194DBAF009B12CA /* AppDelegate.swift in Sources */,
 				57A2EF5B2194DC83009B12CA /* TicTacToeBrain.swift in Sources */,
 			);
