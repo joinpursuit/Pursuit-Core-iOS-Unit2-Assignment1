@@ -33,54 +33,82 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7a-LU-7lu"/>
+                                            <action selector="r1c1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0lg-XL-3Gc"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weW-uR-NAb">
                                         <rect key="frame" x="225" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRk-H7-FiM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7c-T1-06f">
                                         <rect key="frame" x="112" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BEN-te-xQm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tg-Mz-btJ">
                                         <rect key="frame" x="0.0" y="113" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivu-e8-guG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uo-PR-KSm">
                                         <rect key="frame" x="225" y="113" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kQE-YL-ncX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exy-LD-UIb">
                                         <rect key="frame" x="112" y="113" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mjY-T5-MBm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9i-JS-VXk">
                                         <rect key="frame" x="0.0" y="226" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pwd-9b-t5M"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwX-W7-Bqq">
                                         <rect key="frame" x="225" y="226" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SS3-zM-abz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpG-Ms-Ddi">
                                         <rect key="frame" x="112" y="226" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JgT-CT-AgA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -89,11 +117,25 @@
                                 <rect key="frame" x="170" y="692" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="startNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uRX-7q-7yf"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playerTurnLabel" destination="cXI-Yr-FXE" id="nco-fI-aNC"/>
+                        <outletCollection property="buttons" destination="C0h-yI-jw5" collectionClass="NSMutableArray" id="5RQ-cA-bCn"/>
+                        <outletCollection property="buttons" destination="Z7c-T1-06f" collectionClass="NSMutableArray" id="Cef-wj-6VW"/>
+                        <outletCollection property="buttons" destination="weW-uR-NAb" collectionClass="NSMutableArray" id="v9Q-j6-mOc"/>
+                        <outletCollection property="buttons" destination="6tg-Mz-btJ" collectionClass="NSMutableArray" id="w8y-Nc-DjE"/>
+                        <outletCollection property="buttons" destination="exy-LD-UIb" collectionClass="NSMutableArray" id="LEO-as-tAh"/>
+                        <outletCollection property="buttons" destination="2uo-PR-KSm" collectionClass="NSMutableArray" id="NfT-rV-hLP"/>
+                        <outletCollection property="buttons" destination="p9i-JS-VXk" collectionClass="NSMutableArray" id="vrb-fJ-tS2"/>
+                        <outletCollection property="buttons" destination="EpG-Ms-Ddi" collectionClass="NSMutableArray" id="SMw-cF-lLe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
