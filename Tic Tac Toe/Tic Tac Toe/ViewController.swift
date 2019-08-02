@@ -21,3 +21,8 @@ class ViewController: UIViewController {
 
 }
 
+class TicTacButton: UIButton {
+    @IBInspectable var row: Int
+    @IBInspectable var col: Int
+}
+
