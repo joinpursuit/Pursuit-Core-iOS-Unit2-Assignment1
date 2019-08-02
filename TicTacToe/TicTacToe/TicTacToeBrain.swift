@@ -9,5 +9,17 @@
 import Foundation
 
 class TicTacToeBrain {
-  
+    let playerArray = ["mike", "john"]
+    var currentPlayer:String = ""
+    var InitiateCurrentPlayer:String {
+        get {
+            return playerArray[0]
+        }
+        set {
+            
+        }
+    }
+//    
+
+    
 }
