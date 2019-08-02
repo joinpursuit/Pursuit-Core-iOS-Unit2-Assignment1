@@ -9,6 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let playO = UIImage(named: "playO")
+    let playX = UIImage(named: "playX")
 
     override func viewDidLoad() {
         super.viewDidLoad()
