@@ -14,8 +14,21 @@ class ViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!
     
+    var currentPlayer: Player = .playerOne
     
     @IBAction func changeButton(_ sender: UIButton) {
+        switch currentPlayer {
+            case .playerOne:
+                sender.setTitle("o", for: .normal)
+                sender.isEnabled = false
+                playerTurnLabel.text = "Player Two's turn!"
+                currentPlayer = .playerTwo
+            case .playerTwo:
+                sender.setTitle("x", for: .normal)
+                sender.isEnabled = false
+                playerTurnLabel.text = "Player One's turn!"
+                currentPlayer = .playerOne
+        }
     }
     
     @IBAction func startNewGame(_ sender: UIButton) {
