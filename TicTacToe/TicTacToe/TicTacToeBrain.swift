@@ -10,12 +10,27 @@ import Foundation
 
 
 class TicTacToeBrain {
-    var gameBoard: [[String]] = [["-","-","-"],
-                                 ["-","-","-"],
-                                 ["-","-","-"]]
+    var gameBoard: [String] = ["0", "1", "2",
+                               "3", "4", "5",
+                               "6", "7", "8"]
     var playerOneCounter = 0
     var playerTwoCounter = 0
 
+    var currentTile: Tile = .empty
+    
+    func updateBoard() {
+        switch currentTile {
+            case .o:
+                print("update board for specific index")
+            case .x:
+                print("update board for specific index")
+            case .empty:
+                print("update board for specific index")
+        }
+    }
+    
+    
+    
     
     func playerOneWins() -> Bool {
         playerOneCounter += 1
@@ -27,6 +42,7 @@ class TicTacToeBrain {
         return true
     }
     
+    //Update below to reflect new array of strings rather than matrix
     func checkForWin() {
         let row1: [String] = [gameBoard[1][1], gameBoard[1][2], gameBoard[1][3]]
         let row2: [String] = [gameBoard[2][1], gameBoard[2][2], gameBoard[2][3]]
