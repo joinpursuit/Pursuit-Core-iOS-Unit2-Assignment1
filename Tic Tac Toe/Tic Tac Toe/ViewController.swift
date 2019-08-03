@@ -12,9 +12,34 @@ class ViewController: UIViewController {
     
     let playO = UIImage(named: "playO")
     let playX = UIImage(named: "playX")
+    var currentPlayer = Player(rawValue: 1)
+    var gameState = Game()
+    
 
+    @IBOutlet var gameButtons: [TicTacButton]!
+    
+    
+    @IBAction func buttonPressed(_ sender: TicTacButton) {
+        if !gameState.isAvailable(row: sender.row, col: sender.col) {
+            return
+        }
+        
+        if currentPlayer == Player.player1 {
+            sender.setImage(playX, for: UIControl.State.normal)
+        } else {
+            sender.setImage(playO, for: UIControl.State.normal)
+        }
+        gameState.disable(row: sender.row, col: sender.col)
+        currentPlayer?.switchPlayer()
+        
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -22,7 +47,7 @@ class ViewController: UIViewController {
 }
 
 class TicTacButton: UIButton {
-    @IBInspectable var row: Int
-    @IBInspectable var col: Int
+    @IBInspectable var row: Int = 0
+    @IBInspectable var col: Int = 0
 }
 
