@@ -15,8 +15,6 @@ class ViewController: UIViewController {
     var currentPlayer = Player(rawValue: 1)
     var gameState = Game()
     
-
-    @IBOutlet var gameButtons: [TicTacButton]!
     
     
     @IBAction func buttonPressed(_ sender: TicTacButton) {
@@ -29,7 +27,7 @@ class ViewController: UIViewController {
         } else {
             sender.setImage(playO, for: UIControl.State.normal)
         }
-        gameState.disable(row: sender.row, col: sender.col)
+        gameState.disable(row: sender.row, col: sender.col, value:currentPlayer!.rawValue )
         currentPlayer?.switchPlayer()
         
         
