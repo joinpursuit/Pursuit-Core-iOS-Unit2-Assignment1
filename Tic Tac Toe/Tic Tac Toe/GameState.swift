@@ -17,6 +17,8 @@ struct Game {
     
     var gameDone = false
     
+    var availableSpots = 9
+    
     
     func isAvailable(row:Int, col: Int) -> Bool {
         return gamestate[row][col] == 0 && !gameDone
@@ -24,6 +26,10 @@ struct Game {
     
     mutating func disable(row:Int,col:Int, value: Int)  {
         gamestate[row][col] = value
+    }
+    
+    mutating func decrementAvailableSpots() {
+        availableSpots -= 1
     }
     
     private func isRowWin(row: Int) -> Bool {
@@ -59,6 +65,7 @@ struct Game {
         return false
             
         }
+    
     
     mutating func reset() {
         gamestate = [

@@ -8,6 +8,11 @@
 
 import UIKit
 
+class TicTacButton: UIButton {
+    @IBInspectable var row: Int = 0
+    @IBInspectable var col: Int = 0
+}
+
 class ViewController: UIViewController {
     
     let playO = UIImage(named: "playO")
@@ -31,32 +36,27 @@ class ViewController: UIViewController {
             return
         }
         
-        if currentPlayer == Player.player1 {
-            sender.setImage(playX, for: UIControl.State.normal)
-        } else {
-            sender.setImage(playO, for: UIControl.State.normal)
-        }
+        let Image = (currentPlayer == Player.player1) ? playX : playO
+        sender.setImage(Image, for: .normal)
         
         gameState.disable(row: sender.row, col: sender.col, value:currentPlayer!.rawValue )
+        gameState.decrementAvailableSpots()
         
         if gameState.checkWin(row: sender.row, col: sender.col) {
             
             playerLabel.text = currentPlayer?.printWinningPlayer()
             
-           
-
             newGameLabel.titleLabel?.text = "   Reset"
 //            newGameLabel.titleLabel?.textAlignment = .center
-            
-
-            
             gameState.gameDone = true
             
-        } else {
+        } else if gameState.availableSpots == 0 {
+            playerLabel.text = "No Winner"
+            newGameLabel.titleLabel?.text = "   Reset"
+            
+        } else  {
             currentPlayer?.switchPlayer()
         }
-        
-        
         
     }
     
@@ -82,8 +82,5 @@ class ViewController: UIViewController {
 
 }
 
-class TicTacButton: UIButton {
-    @IBInspectable var row: Int = 0
-    @IBInspectable var col: Int = 0
-}
+
 
