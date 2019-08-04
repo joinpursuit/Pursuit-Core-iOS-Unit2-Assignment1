@@ -18,7 +18,9 @@ class ViewController: UIViewController {
         }
     }
     var gameState = Game()
-
+    
+    @IBOutlet var gameButtons: [TicTacButton]!
+    
     @IBOutlet weak var newGameLabel: UIButton!
     
     @IBOutlet weak var playerLabel: UILabel!
@@ -34,16 +36,19 @@ class ViewController: UIViewController {
         } else {
             sender.setImage(playO, for: UIControl.State.normal)
         }
+        
         gameState.disable(row: sender.row, col: sender.col, value:currentPlayer!.rawValue )
+        
         if gameState.checkWin(row: sender.row, col: sender.col) {
-            
-            // label changes to you won
-            // disable the power to click on the board
-            // new game button becomes reset
             
             playerLabel.text = currentPlayer?.printWinningPlayer()
             
-            newGameLabel.titleLabel?.text = "Reset"
+           
+
+            newGameLabel.titleLabel?.text = "   Reset"
+//            newGameLabel.titleLabel?.textAlignment = .center
+            
+
             
             gameState.gameDone = true
             
@@ -52,14 +57,19 @@ class ViewController: UIViewController {
         }
         
         
+        
     }
     
     
     @IBAction func newGameButton(_ sender: UIButton) {
+        gameState.reset()
+        currentPlayer = Player.player1
+        newGameLabel.titleLabel?.text = "New Game"
+        gameState.gameDone = false
         
-        
- 
-    
+        for button in gameButtons {
+            button.setImage(nil, for: .normal)
+        }
         
     }
     

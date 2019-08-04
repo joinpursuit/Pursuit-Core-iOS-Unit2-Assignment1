@@ -60,8 +60,14 @@ struct Game {
             
         }
     
-    
-        
+    mutating func reset() {
+        gamestate = [
+            [0,0,0],
+            [0,0,0],
+            [0,0,0]
+        ]
     }
+        
+}
 
 
