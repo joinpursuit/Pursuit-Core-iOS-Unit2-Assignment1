@@ -12,9 +12,14 @@ class ViewController: UIViewController {
     
     let playO = UIImage(named: "playO")
     let playX = UIImage(named: "playX")
-    var currentPlayer = Player(rawValue: 1)
+    var currentPlayer = Player(rawValue: 1) {
+        didSet {
+            playerLabel.text = self.currentPlayer?.printPlayer()
+        }
+    }
     var gameState = Game()
-    
+
+    @IBOutlet weak var playerLabel: UILabel!
     
     
     @IBAction func buttonPressed(_ sender: TicTacButton) {
