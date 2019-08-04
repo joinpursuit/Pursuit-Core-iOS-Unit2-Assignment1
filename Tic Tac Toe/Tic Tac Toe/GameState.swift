@@ -15,9 +15,11 @@ struct Game {
         [0,0,0]
     ]
     
+    var gameDone = false
+    
     
     func isAvailable(row:Int, col: Int) -> Bool {
-        return gamestate[row][col] == 0
+        return gamestate[row][col] == 0 && !gameDone
     }
     
     mutating func disable(row:Int,col:Int, value: Int)  {
@@ -57,6 +59,7 @@ struct Game {
         return false
             
         }
+    
     
         
     }

@@ -32,6 +32,15 @@ enum Player: Int {
             return "Player Two's Turn!"
         }
     }
+    
+    func printWinningPlayer() -> String {
+        switch self {
+        case.player1:
+            return "Player One Won!"
+        case .player2:
+            return "Player Two Won!"
+        }
+    }
 }
 
 

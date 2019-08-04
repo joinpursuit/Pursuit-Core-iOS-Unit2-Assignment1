@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     }
     var gameState = Game()
 
+    @IBOutlet weak var newGameLabel: UIButton!
+    
     @IBOutlet weak var playerLabel: UILabel!
     
     
@@ -33,12 +35,33 @@ class ViewController: UIViewController {
             sender.setImage(playO, for: UIControl.State.normal)
         }
         gameState.disable(row: sender.row, col: sender.col, value:currentPlayer!.rawValue )
-        currentPlayer?.switchPlayer()
+        if gameState.checkWin(row: sender.row, col: sender.col) {
+            
+            // label changes to you won
+            // disable the power to click on the board
+            // new game button becomes reset
+            
+            playerLabel.text = currentPlayer?.printWinningPlayer()
+            
+            newGameLabel.titleLabel?.text = "Reset"
+            
+            gameState.gameDone = true
+            
+        } else {
+            currentPlayer?.switchPlayer()
+        }
         
         
     }
     
     
+    @IBAction func newGameButton(_ sender: UIButton) {
+        
+        
+ 
+    
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
