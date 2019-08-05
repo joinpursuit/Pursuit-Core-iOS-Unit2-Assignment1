@@ -11,6 +11,7 @@ import Foundation
 class TicTacToeBrain {
     var isPlayerOneTurn = false
     static var gameBoard: [[String]] = [["","",""],["","",""],["","",""]]
+    static var winTracker = (0,0)
     
     func alternateTurn(){
         isPlayerOneTurn = !isPlayerOneTurn
@@ -41,13 +42,21 @@ class TicTacToeBrain {
             } else if TicTacToeBrain.gameBoard[0][index] == TicTacToeBrain.gameBoard[1][index] && TicTacToeBrain.gameBoard[0][index] == TicTacToeBrain.gameBoard[2][index] && TicTacToeBrain.gameBoard[0][index] != "" {
                 return true
                 //check downward-right diagonal
-            } else if TicTacToeBrain.gameBoard[0][0] == TicTacToeBrain.gameBoard[1][1] && TicTacToeBrain.gameBoard[0][0] == TicTacToeBrain.gameBoard[2][2] && TicTacToeBrain.gameBoard[0][0] != "" {
+            } else if TicTacToeBrain.gameBoard[0][0] == TicTacToeBrain.gameBoard[1][1] && TicTacToeBrain.gameBoard[0][0] == TicTacToeBrain.gameBoard[2][2] && TicTacToeBrain.gameBoard[1][1] != "" {
                 return true
                 //check upward-right diagonal
-            } else if TicTacToeBrain.gameBoard[0][2] == TicTacToeBrain.gameBoard[1][1] && TicTacToeBrain.gameBoard[0][0] == TicTacToeBrain.gameBoard[0][2] && TicTacToeBrain.gameBoard[2][2] != "" {
+            } else if TicTacToeBrain.gameBoard[0][2] == TicTacToeBrain.gameBoard[1][1] && TicTacToeBrain.gameBoard[0][2] == TicTacToeBrain.gameBoard[2][0] && TicTacToeBrain.gameBoard[1][1] != "" {
                 return true
             }
         }
         return false
+    }
+    
+    func increaseWinTally() {
+        if isPlayerOneTurn {
+            TicTacToeBrain.winTracker.0 += 1
+        } else {
+            TicTacToeBrain.winTracker.1 += 1
+        }
     }
 }

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var gameButtons: [GameButton]!
     @IBOutlet weak var resetGame: UIButton!
     @IBOutlet weak var winMessage: UILabel!
+    @IBOutlet weak var scores: UILabel!
     
     var gameStatus = TicTacToeBrain()
     
@@ -49,9 +50,12 @@ class ViewController: UIViewController {
     func checkGameStatus() {
         if gameStatus.confirmWinCondition() {
             winMessage.text = "Wins!"
+            gameStatus.increaseWinTally()
+            scores.text = "Player 1   \(TicTacToeBrain.winTracker.0):\(TicTacToeBrain.winTracker.1)  Player 2"
             GameButton.buttonState(gameButtons, false)
         } else if GameButton.checkIfDraw(gameButtons) {
             winMessage.text = "Draw!"
+            scores.text = "Player 1   \(TicTacToeBrain.winTracker.0):\(TicTacToeBrain.winTracker.1)  Player 2"
         } else {
             gameStatus.alternateTurn()
             turnPlayer.text = gameStatus.displayTurnPlayer()
