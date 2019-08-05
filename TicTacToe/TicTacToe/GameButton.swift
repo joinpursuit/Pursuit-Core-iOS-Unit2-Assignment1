@@ -17,4 +17,17 @@ class GameButton: UIButton {
             button.isEnabled = state
         }
     }
+    
+    static func resetButtonText(_ buttonArray: [GameButton]) {
+        for button in buttonArray {
+            button.setTitle("", for: UIControl.State.normal)
+        }
+    }
+    
+    static func checkIfDraw(_ buttonArray: [GameButton]) -> Bool {
+        for button in buttonArray where button.isEnabled == true {
+            return false
+        }
+        return true
+    }
 }
