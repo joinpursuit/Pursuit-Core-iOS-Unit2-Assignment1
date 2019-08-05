@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     var playerX = Players.playerX
     var playerO = Players.PlayerO
     var turn = 0
+    let X:String = "\u{274C}"
+    let O:String = "\u{2B55}"
+    var board:[String] = Array(repeating: " ", count: 9)
     
 //    let winCombinations = [
 //    [0, 1, 2],
@@ -38,16 +41,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func gameController(_ sender: UIButton) {
-        let X:String = "\u{274C}"
-        let O:String = "\u{2B55}"
-        
         if turn % 2 == 0 {
-            sender.setTitle(X, for: .normal) //unwrap
+            sender.setTitle(X, for: .normal)
+            board[sender.tag-1] = X
         } else {
             sender.setTitle(O, for: .normal)
+            board[sender.tag-1] = O
         }
         turn += 1
-        print(turn, sender.tag)
+        sender.isEnabled = false
+        print(board)
     }
     
 //
