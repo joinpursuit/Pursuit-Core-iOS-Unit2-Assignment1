@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var buttons: [UIButton]!
     
     var currentPlayer: Player = .playerOne
-    
+    var currentBoard = TicTacToeBrain.init()
     
     @IBAction func changeButton(_ sender: UIButton) {
         switch currentPlayer {
@@ -23,14 +23,15 @@ class ViewController: UIViewController {
                 sender.setTitle("o", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player Two's turn!"
-                currentPlayer = .playerTwo
+                currentPlayer.switchPlayer()
+                currentBoard.updateBoard(tag:sender.tag)
             
-                
             case .playerTwo:
                 sender.setTitle("x", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player One's turn!"
-                currentPlayer = .playerOne
+                currentPlayer.switchPlayer()
+                currentBoard.updateBoard(tag: sender.tag)
         }
     }
     

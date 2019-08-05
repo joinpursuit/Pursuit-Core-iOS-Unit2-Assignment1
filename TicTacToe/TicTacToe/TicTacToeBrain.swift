@@ -10,26 +10,30 @@ import Foundation
 
 
 class TicTacToeBrain {
-    var gameBoard: [String] = ["0", "1", "2",
-                               "3", "4", "5",
-                               "6", "7", "8"]
+    var gameBoard: [Tile] = Array.init(repeating: .empty, count: 9)
     var playerOneCounter = 0
     var playerTwoCounter = 0
+    var currentPlayer = Player.playerOne
 
     var currentTile: Tile = .empty
     
-    func updateBoard() {
+    func updateBoard(tag: Int) {
         switch currentTile {
             case .o:
-                print("update board for specific index")
+                break
             case .x:
-                print("update board for specific index")
+                break
             case .empty:
-                print("update board for specific index")
+                if currentPlayer == Player.playerOne {
+                   gameBoard[tag] = .o
+                    currentPlayer = .playerTwo
+                } else if currentPlayer == Player.playerTwo {
+                   gameBoard[tag] = .x
+                    currentPlayer = .playerOne
+            }
         }
+        print (gameBoard)
     }
-    
-    
     
     
     func playerOneWins() -> Bool {
@@ -42,35 +46,35 @@ class TicTacToeBrain {
         return true
     }
     
-    //Update below to reflect new array of strings rather than matrix
+    //Update below to reflect new array of strings rather than matriu
     func checkForWin() {
-        let row1: [String] = [gameBoard[1][1], gameBoard[1][2], gameBoard[1][3]]
-        let row2: [String] = [gameBoard[2][1], gameBoard[2][2], gameBoard[2][3]]
-        let row3: [String] = [gameBoard[3][1], gameBoard[3][2], gameBoard[3][3]]
-        let col1: [String] = [gameBoard[1][1], gameBoard[2][1], gameBoard[3][1]]
-        let col2: [String] = [gameBoard[1][2], gameBoard[2][2], gameBoard[3][2]]
-        let col3: [String] = [gameBoard[1][3], gameBoard[2][3], gameBoard[3][3]]
-        let dia1: [String] = [gameBoard[1][1], gameBoard[2][2], gameBoard[3][3]]
-        let dia2: [String] = [gameBoard[3][1], gameBoard[2][2], gameBoard[1][3]]
+        let row1: [Tile] = [gameBoard[0], gameBoard[1], gameBoard[2]]
+        let row2: [Tile] = [gameBoard[3], gameBoard[4], gameBoard[5]]
+        let row3: [Tile] = [gameBoard[6], gameBoard[7], gameBoard[8]]
+        let col1: [Tile] = [gameBoard[0], gameBoard[3], gameBoard[6]]
+        let col2: [Tile] = [gameBoard[1], gameBoard[4], gameBoard[7]]
+        let col3: [Tile] = [gameBoard[2], gameBoard[5], gameBoard[8]]
+        let dia1: [Tile] = [gameBoard[0], gameBoard[4], gameBoard[8]]
+        let dia2: [Tile] = [gameBoard[6], gameBoard[4], gameBoard[2]]
         
         //horizontal wins
-        if row1 == ["o", "o", "o"] || row2 == ["o", "o", "o"] || row3 == ["o", "o", "o"] {
+        if row1 == [Tile.o, Tile.o, Tile.o] || row2 == [Tile.o, Tile.o, Tile.o] || row3 == [Tile.o, Tile.o, Tile.o] {
             playerOneWins()
-        } else if row1 == ["x", "x", "x"] || row2 == ["x", "x", "x"] || row3 == ["x", "x", "x"] {
+        } else if row1 == [Tile.x, Tile.x, Tile.x] || row2 == [Tile.x, Tile.x, Tile.x] || row3 == [Tile.x, Tile.x, Tile.x] {
             playerTwoWins()
         }
         
         //vertical wins
-        if col1 == ["o", "o", "o"] || col2 == ["o", "o", "o"] || col3 == ["o", "o", "o"] {
+        if col1 == [Tile.o, Tile.o, Tile.o] || col2 == [Tile.o, Tile.o, Tile.o] || col3 == [Tile.o, Tile.o, Tile.o] {
             playerOneWins()
-        } else if col1 == ["x", "x", "x"] || col2 == ["x", "x", "x"] || col3 == ["x", "x", "x"]  {
+        } else if col1 == [Tile.x, Tile.x, Tile.x] || col2 == [Tile.x, Tile.x, Tile.x] || col3 == [Tile.x, Tile.x, Tile.x] {
             playerTwoWins()
         }
         
         //diagonal wins
-        if dia1 == ["o", "o", "o"] || dia2 == ["o", "o", "o"] {
+        if dia1 == [Tile.o, Tile.o, Tile.o] || dia2 == [Tile.o, Tile.o, Tile.o] {
             playerOneWins()
-        } else if dia1 == ["x", "x", "x"] || dia2 == ["x", "x", "x"] {
+        } else if dia1 == [Tile.x, Tile.x, Tile.x] || dia2 == [Tile.x, Tile.x, Tile.x] {
             playerTwoWins()
         }
         

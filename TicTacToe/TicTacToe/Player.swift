@@ -11,4 +11,14 @@ import Foundation
 enum Player {
     case playerOne
     case playerTwo
+    
+    mutating func switchPlayer() {
+        switch self {
+        case .playerOne:
+            self = .playerTwo
+        case .playerTwo:
+            self = .playerOne
+        }
+    }
+    
 }
