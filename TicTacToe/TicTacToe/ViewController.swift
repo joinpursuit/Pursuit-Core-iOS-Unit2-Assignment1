@@ -27,25 +27,26 @@ class ViewController: UIViewController {
                 currentPlayer.switchPlayer()
                 currentBoard.updateBoard(tag:sender.tag)
                 currentBoard.checkForWin()
-            
+
             case .playerTwo:
                 sender.setTitle("x", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player One's turn!"
                 currentPlayer.switchPlayer()
-                currentBoard.updateBoard(tag: sender.tag)
+                currentBoard.updateBoard(tag:sender.tag)
                 currentBoard.checkForWin()
         }
     }
+    
     
 
     func changeLabelWinner() {
         if currentBoard.playerOneWins() {
             playerTurnLabel.text = "Player One wins!"
-            playerOneScore.text = "Player One: \(playerOneScore)"
+            playerOneScore.text = "Player One: \(String(describing: playerOneScore))"
         } else if currentBoard.playerTwoWins() {
             playerTurnLabel.text = "Player Two wins!"
-            playerTwoScore.text = "Player Two: \(playerTwoScore)"
+            playerTwoScore.text = "Player Two: \(String(describing: playerTwoScore))"
 
         }
     }
