@@ -46,8 +46,9 @@ class ViewController: UIViewController {
             
             playerLabel.text = currentPlayer?.printWinningPlayer()
             
-            newGameLabel.titleLabel?.text = "   Reset"
+            newGameLabel.titleLabel?.text = "Reset"
 //            newGameLabel.titleLabel?.textAlignment = .center
+//            newGameLabel.textAlignment = NSTextAlignment.center
             gameState.gameDone = true
             
         } else if gameState.availableSpots == 0 {
@@ -75,6 +76,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newGameLabel.titleLabel?.textAlignment = NSTextAlignment.center
         
         // Do any additional setup after loading the view.
     }
