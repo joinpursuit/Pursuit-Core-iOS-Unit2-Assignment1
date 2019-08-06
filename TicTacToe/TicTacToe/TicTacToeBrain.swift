@@ -14,7 +14,6 @@ class TicTacToeBrain {
     var playerOneCounter = 0
     var playerTwoCounter = 0
     var currentPlayer = Player.playerOne
-
     var currentTile: Tile = .empty
     
     func updateBoard(tag: Int) {
@@ -32,21 +31,22 @@ class TicTacToeBrain {
                     currentPlayer = .playerOne
             }
         }
-        print (gameBoard)
+        print(gameBoard)
     }
     
     
     func playerOneWins() -> Bool {
         playerOneCounter += 1
+        print("Player one", playerOneCounter)
         return true
     }
     
     func playerTwoWins() -> Bool {
         playerTwoCounter += 1
+        print("Player two", playerTwoCounter)
         return true
     }
     
-    //Update below to reflect new array of strings rather than matriu
     func checkForWin() {
         let row1: [Tile] = [gameBoard[0], gameBoard[1], gameBoard[2]]
         let row2: [Tile] = [gameBoard[3], gameBoard[4], gameBoard[5]]
