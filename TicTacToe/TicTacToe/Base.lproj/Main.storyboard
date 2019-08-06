@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s7a-LU-7lu"/>
                                         </connections>
@@ -41,7 +41,7 @@
                                         <rect key="frame" x="225" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRk-H7-FiM"/>
                                         </connections>
@@ -50,7 +50,7 @@
                                         <rect key="frame" x="112" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BEN-te-xQm"/>
                                         </connections>
@@ -59,7 +59,7 @@
                                         <rect key="frame" x="0.0" y="113" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivu-e8-guG"/>
                                         </connections>
@@ -68,7 +68,7 @@
                                         <rect key="frame" x="225" y="113" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kQE-YL-ncX"/>
                                         </connections>
@@ -77,7 +77,7 @@
                                         <rect key="frame" x="112" y="113" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mjY-T5-MBm"/>
                                         </connections>
@@ -86,7 +86,7 @@
                                         <rect key="frame" x="0.0" y="226" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pwd-9b-t5M"/>
                                         </connections>
@@ -95,7 +95,7 @@
                                         <rect key="frame" x="225" y="226" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SS3-zM-abz"/>
                                         </connections>
@@ -104,7 +104,7 @@
                                         <rect key="frame" x="112" y="226" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Button"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <connections>
                                             <action selector="changeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JgT-CT-AgA"/>
                                         </connections>
@@ -150,6 +150,7 @@
                         <outletCollection property="buttons" destination="2uo-PR-KSm" collectionClass="NSMutableArray" id="NfT-rV-hLP"/>
                         <outletCollection property="buttons" destination="p9i-JS-VXk" collectionClass="NSMutableArray" id="vrb-fJ-tS2"/>
                         <outletCollection property="buttons" destination="EpG-Ms-Ddi" collectionClass="NSMutableArray" id="SMw-cF-lLe"/>
+                        <outletCollection property="buttons" destination="cwX-W7-Bqq" collectionClass="NSMutableArray" id="bfu-Fg-cUn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

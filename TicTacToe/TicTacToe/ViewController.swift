@@ -24,40 +24,57 @@ class ViewController: UIViewController {
                 sender.setTitle("o", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player Two's turn!"
-                currentPlayer.switchPlayer()
-                currentBoard.updateBoard(tag:sender.tag)
-                currentBoard.checkForWin()
 
             case .playerTwo:
                 sender.setTitle("x", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player One's turn!"
-                currentPlayer.switchPlayer()
-                currentBoard.updateBoard(tag:sender.tag)
-                currentBoard.checkForWin()
+
+        }
+        currentPlayer.switchPlayer()
+        currentBoard.updateBoard(tag:sender.tag)
+        
+        if currentBoard.checkForWin() {
+            changeLabelWinner()
+            for button in buttons {
+                button.isEnabled = false
+            }
+        } else if currentBoard.totalMoves == 9 {
+            playerTurnLabel.text = "It's a draw!"
         }
     }
     
     
 
     func changeLabelWinner() {
-        if currentBoard.playerOneWins() {
+        switch currentBoard.winner {
+        case 1:
             playerTurnLabel.text = "Player One wins!"
-            playerOneScore.text = "Player One: \(String(describing: playerOneScore))"
-        } else if currentBoard.playerTwoWins() {
+            playerOneScore.text = "Player One: \(currentBoard.playerOneCounter)"
+        case 2:
             playerTurnLabel.text = "Player Two wins!"
-            playerTwoScore.text = "Player Two: \(String(describing: playerTwoScore))"
-
+            playerTwoScore.text = "Player Two: \(currentBoard.playerTwoCounter)"
+        default:
+            print("This shouldn't happen")
         }
     }
     
+    
     @IBAction func startNewGame(_ sender: UIButton) {
+        currentBoard.resetBoard()
+        playerTurnLabel.text = "Player One's turn!"
+        for button in buttons {
+            button.isEnabled = true
+            button.setTitle("", for: .normal)
+        }
+        currentPlayer = Player.playerOne
     }
     
     
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
+    
     
   }
 

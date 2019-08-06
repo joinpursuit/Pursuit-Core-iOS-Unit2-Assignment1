@@ -10,6 +10,8 @@ import Foundation
 
 
 class TicTacToeBrain {
+    var totalMoves: Int = 0
+    var winner : Int = 0
     var gameBoard: [Tile] = Array.init(repeating: .empty, count: 9)
     var playerOneCounter = 0
     var playerTwoCounter = 0
@@ -31,23 +33,26 @@ class TicTacToeBrain {
                     currentPlayer = .playerOne
             }
         }
+        totalMoves += 1
         print(gameBoard)
     }
     
     
     func playerOneWins() -> Bool {
+        winner = 1
         playerOneCounter += 1
         print("Player one", playerOneCounter)
         return true
     }
     
     func playerTwoWins() -> Bool {
+        winner = 2
         playerTwoCounter += 1
         print("Player two", playerTwoCounter)
         return true
     }
     
-    func checkForWin() {
+    func checkForWin()-> Bool {
         let row1: [Tile] = [gameBoard[0], gameBoard[1], gameBoard[2]]
         let row2: [Tile] = [gameBoard[3], gameBoard[4], gameBoard[5]]
         let row3: [Tile] = [gameBoard[6], gameBoard[7], gameBoard[8]]
@@ -59,26 +64,34 @@ class TicTacToeBrain {
         
         //horizontal wins
         if row1 == [Tile.o, Tile.o, Tile.o] || row2 == [Tile.o, Tile.o, Tile.o] || row3 == [Tile.o, Tile.o, Tile.o] {
-            playerOneWins()
+            return playerOneWins()
         } else if row1 == [Tile.x, Tile.x, Tile.x] || row2 == [Tile.x, Tile.x, Tile.x] || row3 == [Tile.x, Tile.x, Tile.x] {
-            playerTwoWins()
+            return playerTwoWins()
         }
         
         //vertical wins
         if col1 == [Tile.o, Tile.o, Tile.o] || col2 == [Tile.o, Tile.o, Tile.o] || col3 == [Tile.o, Tile.o, Tile.o] {
-            playerOneWins()
+            return playerOneWins()
         } else if col1 == [Tile.x, Tile.x, Tile.x] || col2 == [Tile.x, Tile.x, Tile.x] || col3 == [Tile.x, Tile.x, Tile.x] {
-            playerTwoWins()
+            return playerTwoWins()
         }
         
         //diagonal wins
         if dia1 == [Tile.o, Tile.o, Tile.o] || dia2 == [Tile.o, Tile.o, Tile.o] {
-            playerOneWins()
+            return playerOneWins()
         } else if dia1 == [Tile.x, Tile.x, Tile.x] || dia2 == [Tile.x, Tile.x, Tile.x] {
-            playerTwoWins()
+            return playerTwoWins()
         }
-        
+       return false
     }
-
+    
+    
+    func resetBoard() {
+        totalMoves = 0
+        winner = 0
+        gameBoard = Array.init(repeating: .empty, count: 9)
+//        currentPlayer = Player.playerOne
+        currentTile = .empty
+    }
     
 }
