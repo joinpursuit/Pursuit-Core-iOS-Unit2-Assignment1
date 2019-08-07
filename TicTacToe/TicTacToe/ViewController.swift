@@ -21,12 +21,12 @@ class ViewController: UIViewController {
     @IBAction func changeButton(_ sender: UIButton) {
         switch currentPlayer {
             case .playerOne:
-                sender.setTitle("o", for: .normal)
+                sender.setTitle("O", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player Two's turn!"
 
             case .playerTwo:
-                sender.setTitle("x", for: .normal)
+                sender.setTitle("X", for: .normal)
                 sender.isEnabled = false
                 playerTurnLabel.text = "Player One's turn!"
 
