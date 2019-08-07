@@ -6,7 +6,14 @@
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+public struct TicTacToeImageName {
+    static let X = "kanye-west-png-download-kanye-west-png-images-transparent-gallery-advertisement-495"
+    static let O = "Drake-Face-Transparent-PNG"
+}
+
+
 
 class TicTacToeBrain {
   
