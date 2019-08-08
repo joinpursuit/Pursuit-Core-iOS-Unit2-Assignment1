@@ -12,8 +12,9 @@
 		57A2EF4C2194DBAF009B12CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A2EF4A2194DBAF009B12CA /* Main.storyboard */; };
 		57A2EF4E2194DBB0009B12CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57A2EF4D2194DBB0009B12CA /* Assets.xcassets */; };
 		57A2EF512194DBB0009B12CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A2EF4F2194DBB0009B12CA /* LaunchScreen.storyboard */; };
-		57A2EF592194DBFD009B12CA /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2EF582194DBFD009B12CA /* GameButton.swift */; };
 		57A2EF5B2194DC83009B12CA /* TicTacToeBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */; };
+		FCF5E01422FA55E100881812 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5E01322FA55E100881812 /* Player.swift */; };
+		FCF5E01622FA563E00881812 /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5E01522FA563E00881812 /* GameStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +25,9 @@
 		57A2EF4D2194DBB0009B12CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57A2EF502194DBB0009B12CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57A2EF522194DBB0009B12CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57A2EF582194DBFD009B12CA /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeBrain.swift; sourceTree = "<group>"; };
+		FCF5E01322FA55E100881812 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		FCF5E01522FA563E00881812 /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +63,9 @@
 				57A2EF462194DBAF009B12CA /* AppDelegate.swift */,
 				57A2EF482194DBAF009B12CA /* ViewController.swift */,
 				57A2EF4A2194DBAF009B12CA /* Main.storyboard */,
-				57A2EF582194DBFD009B12CA /* GameButton.swift */,
 				57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */,
+				FCF5E01322FA55E100881812 /* Player.swift */,
+				FCF5E01522FA563E00881812 /* GameStatus.swift */,
 				57A2EF4D2194DBB0009B12CA /* Assets.xcassets */,
 				57A2EF4F2194DBB0009B12CA /* LaunchScreen.storyboard */,
 				57A2EF522194DBB0009B12CA /* Info.plist */,
@@ -142,8 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A2EF492194DBAF009B12CA /* ViewController.swift in Sources */,
-				57A2EF592194DBFD009B12CA /* GameButton.swift in Sources */,
 				57A2EF472194DBAF009B12CA /* AppDelegate.swift in Sources */,
+				FCF5E01622FA563E00881812 /* GameStatus.swift in Sources */,
+				FCF5E01422FA55E100881812 /* Player.swift in Sources */,
 				57A2EF5B2194DC83009B12CA /* TicTacToeBrain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
