@@ -19,12 +19,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var button7: GameButton!
     @IBOutlet weak var button8: GameButton!
     @IBOutlet weak var button9: GameButton!
+    
     @IBOutlet weak var whoWillStart: UILabel!
     @IBOutlet weak var player1: UIButton!
     @IBOutlet weak var player2: UIButton!
     @IBOutlet weak var playerTurnStatus: UILabel!
-    var playerTurn1 = ""
-    var playerTurn = WhoGoesFirst()
+    var playerSymbol = ""
     let xIcon:UIImage? = UIImage(named: "x.png")
     let oIcon:UIImage? = UIImage(named: "o.png")
     
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         player1.isHidden = false
         player2.isHidden = false
         playerTurnStatus.isHidden = true
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setu p after loading the view, typically from a nib.
   }
 
     
@@ -42,11 +42,13 @@ class ViewController: UIViewController {
         if symbol == "x" {
             button.setImage(xIcon, for: UIControl.State.normal)
             button.isEnabled = false
-            playerTurn1 = "o"
+            playerSymbol = "o"
+            playerTurnStatus.text = "Player 2, it's your turn!"
         } else if symbol == "o" {
             button.setImage(oIcon, for: UIControl.State.normal)
             button.isEnabled = false
-            playerTurn1 = "x"
+            playerSymbol = "x"
+            playerTurnStatus.text = "Player 1, it's your turn!"
         }
     }
     
@@ -57,23 +59,23 @@ class ViewController: UIViewController {
         
         switch sender.tag {
         case 1:
-            gameStuff(symbol: playerTurn1, button: button1)
+            gameStuff(symbol: playerSymbol, button: button1)
         case 2:
-            gameStuff(symbol: playerTurn1, button: button2)
+            gameStuff(symbol: playerSymbol, button: button2)
         case 3:
-            gameStuff(symbol: playerTurn1, button: button3)
+            gameStuff(symbol: playerSymbol, button: button3)
         case 4:
-            gameStuff(symbol: playerTurn1, button: button4)
+            gameStuff(symbol: playerSymbol, button: button4)
         case 5:
-            gameStuff(symbol: playerTurn1, button: button5)
+            gameStuff(symbol: playerSymbol, button: button5)
         case 6:
-            gameStuff(symbol: playerTurn1, button: button6)
+            gameStuff(symbol: playerSymbol, button: button6)
         case 7:
-            gameStuff(symbol: playerTurn1, button: button7)
+            gameStuff(symbol: playerSymbol, button: button7)
         case 8:
-            gameStuff(symbol: playerTurn1, button: button8)
+            gameStuff(symbol: playerSymbol, button: button8)
         case 9:
-            gameStuff(symbol: playerTurn1, button: button9)
+            gameStuff(symbol: playerSymbol, button: button9)
         default:
             print("nothing happened")
             //check if any win conditions have been met
@@ -84,13 +86,19 @@ class ViewController: UIViewController {
 
     @IBAction func whoGoesFirst(_ sender: UIButton) {
         if sender.tag == 0 {
-            playerTurn1 = "x"
+            playerSymbol = "x"
         } else if sender.tag == 1 {
-            playerTurn1 = "o"
+            playerSymbol = "o"
+        }
+        if playerSymbol == "x"{
+            playerTurnStatus.text = "Player 1, it's your turn!"
+        } else {
+            playerTurnStatus.text = "Player 2, it's your turn!"
         }
         whoWillStart.isHidden = true
         player1.isHidden = true
         player2.isHidden = true
+        playerTurnStatus.isHidden = false
     }
     
     

@@ -8,7 +8,9 @@
 
 import Foundation
 
-class TicTacToeBrain {
-  
+struct TicTacToeBrain {
+    let player1 = "x"
+    let player2 = "o"
+    var winCombos: [Int]
     
 }
