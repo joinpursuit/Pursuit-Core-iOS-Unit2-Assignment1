@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9W-a3-kMt">
-                                <rect key="frame" x="20" y="113" width="374" height="72"/>
+                                <rect key="frame" x="20" y="44" width="374" height="25.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdr-U2-Mxl">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="72"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="25.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Two: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufs-eT-zvn">
-                                        <rect key="frame" x="187" y="0.0" width="187" height="72"/>
+                                        <rect key="frame" x="187" y="0.0" width="187" height="25.5"/>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -44,10 +44,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One's turn!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXI-Yr-FXE">
-                                <rect key="frame" x="85.5" y="205" width="243" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="w9y-Ob-I0p"/>
-                                </constraints>
+                                <rect key="frame" x="85.5" y="69.5" width="243" height="196.5"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -203,10 +200,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jey-oK-uzD">
-                                <rect key="frame" x="159" y="670" width="96" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="Po4-eu-7nP"/>
-                                </constraints>
+                                <rect key="frame" x="159" y="640" width="96" height="222"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
                                 <state key="normal" title="New Game">
                                     <color key="titleColor" red="0.059087293280000001" green="0.52018559639999995" blue="0.1031346989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -219,16 +213,16 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="X9W-a3-kMt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="4oY-nf-vMh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jey-oK-uzD" secondAttribute="bottom" constant="151" id="I7T-Fo-fW3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jey-oK-uzD" secondAttribute="bottom" id="I7T-Fo-fW3"/>
                             <constraint firstItem="X9W-a3-kMt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="PZJ-sB-49W"/>
                             <constraint firstItem="cXI-Yr-FXE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Ph1-6e-h3W"/>
-                            <constraint firstItem="CLm-9r-qpz" firstAttribute="top" secondItem="cXI-Yr-FXE" secondAttribute="bottom" constant="30" id="Qv6-Li-kzu"/>
-                            <constraint firstItem="X9W-a3-kMt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="69" id="VoN-Rp-pta"/>
-                            <constraint firstItem="cXI-Yr-FXE" firstAttribute="top" secondItem="X9W-a3-kMt" secondAttribute="bottom" constant="20" id="d2t-Ua-vhk"/>
+                            <constraint firstItem="CLm-9r-qpz" firstAttribute="top" secondItem="cXI-Yr-FXE" secondAttribute="bottom" id="Qv6-Li-kzu"/>
+                            <constraint firstItem="X9W-a3-kMt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VoN-Rp-pta"/>
+                            <constraint firstItem="cXI-Yr-FXE" firstAttribute="top" secondItem="X9W-a3-kMt" secondAttribute="bottom" id="d2t-Ua-vhk"/>
                             <constraint firstItem="CLm-9r-qpz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="k5X-IZ-3RR"/>
                             <constraint firstItem="CLm-9r-qpz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nn0-gK-jTZ"/>
                             <constraint firstItem="CLm-9r-qpz" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ooI-Iw-9ZC"/>
-                            <constraint firstItem="Jey-oK-uzD" firstAttribute="top" secondItem="CLm-9r-qpz" secondAttribute="bottom" constant="30" id="qCe-27-hDk"/>
+                            <constraint firstItem="Jey-oK-uzD" firstAttribute="top" secondItem="CLm-9r-qpz" secondAttribute="bottom" id="qCe-27-hDk"/>
                             <constraint firstItem="Jey-oK-uzD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uQy-pC-HPA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
