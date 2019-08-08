@@ -128,15 +128,6 @@ class ViewController: UIViewController {
         player2.isHidden = true
         playerTurnStatus.isHidden = false
         
-        button1.isEnabled = true
-        button2.isEnabled = true
-        button3.isEnabled = true
-        button4.isEnabled = true
-        button5.isEnabled = true
-        button6.isEnabled = true
-        button7.isEnabled = true
-        button8.isEnabled = true
-        button9.isEnabled = true
     }
     
     private func checkForGameOver(gameOver: Bool) {
