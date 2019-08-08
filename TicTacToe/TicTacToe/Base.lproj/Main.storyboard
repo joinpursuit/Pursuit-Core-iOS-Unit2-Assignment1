@@ -197,6 +197,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUZ-8d-tqi">
+                                <rect key="frame" x="164" y="459" width="87" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.74483625860000002" green="1" blue="0.78743043660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Play Again?">
+                                    <color key="titleColor" red="0.29538784899999998" green="0.29538784899999998" blue="0.29538784899999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonToPlayAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HO0-HW-9o2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -211,6 +222,7 @@
                         <outlet property="button7" destination="crg-MO-N10" id="avy-KK-KKK"/>
                         <outlet property="button8" destination="xya-7G-lcI" id="dau-DY-2up"/>
                         <outlet property="button9" destination="WVO-EE-XpA" id="ceR-mN-MYP"/>
+                        <outlet property="playAgainButton" destination="FUZ-8d-tqi" id="0GR-BP-Jvo"/>
                         <outlet property="player1" destination="cBC-xc-Khu" id="yfN-4h-4Dg"/>
                         <outlet property="player2" destination="gO6-Gt-9zr" id="a8Q-3M-deH"/>
                         <outlet property="playerTurnStatus" destination="skf-Ll-SE4" id="NZH-dh-l3P"/>
