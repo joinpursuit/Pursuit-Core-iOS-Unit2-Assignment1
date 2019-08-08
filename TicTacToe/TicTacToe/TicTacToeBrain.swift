@@ -6,20 +6,12 @@
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 
 class TicTacToeBrain {
-    let playerArray = ["mike", "john"]
-    var currentPlayer:String = ""
-    var InitiateCurrentPlayer:String {
-        get {
-            return playerArray[0]
-        }
-        set {
-            
-        }
-    }
-//    
+    var playerArray = ["Mike","John"]
 
-    
 }
+
+
