@@ -86,18 +86,18 @@
                                     <action selector="gameController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KUj-55-q8N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX1-IC-V0y">
-                                <rect key="frame" x="291" y="351" width="103" height="77"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="gameController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wcA-SS-Zji"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNZ-2i-WTq">
                                 <rect key="frame" x="159" y="351" width="105" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="gameController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfh-cN-uek"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dX1-IC-V0y">
+                                <rect key="frame" x="291" y="351" width="103" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="gameController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wcA-SS-Zji"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmG-Cc-e2c">
@@ -118,6 +118,10 @@
                                     <action selector="endGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPe-az-FSb"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2019-08-08 at 1.54.21 PM" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7I0-s2-H3g">
+                                <rect key="frame" x="0.0" y="747" width="406" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -125,6 +129,7 @@
                     <connections>
                         <outlet property="ButtonTwo" destination="9gC-Zf-O4T" id="YGj-RS-djL"/>
                         <outlet property="PlayerTurnMessageLabel" destination="lmG-Cc-e2c" id="48J-aK-02t"/>
+                        <outlet property="bottonImage" destination="7I0-s2-H3g" id="S8e-pt-n9c"/>
                         <outlet property="buttonEight" destination="sNZ-2i-WTq" id="3tW-5B-Woa"/>
                         <outlet property="buttonFive" destination="JZZ-aG-O1Q" id="5ZN-79-w4m"/>
                         <outlet property="buttonFour" destination="v3g-zA-mJh" id="FP7-UV-OrU"/>
@@ -140,4 +145,7 @@
             <point key="canvasLocation" x="150.72463768115944" y="20.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2019-08-08 at 1.54.21 PM" width="1130" height="544"/>
+    </resources>
 </document>

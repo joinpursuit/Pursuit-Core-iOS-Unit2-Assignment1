@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-enum Players {
-    case playerX
-    case PlayerO
+struct Players {
+    static let X = "\u{274C}"
+    static let O = "\u{2B55}"
 }
-
-func currentPlayer() -> Void {
-    
-}
-
-

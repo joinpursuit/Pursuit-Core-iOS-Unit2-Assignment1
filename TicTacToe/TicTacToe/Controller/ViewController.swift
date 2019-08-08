@@ -20,84 +20,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonEight: UIButton!
     @IBOutlet weak var buttonNine: UIButton!
     @IBOutlet weak var PlayerTurnMessageLabel: UILabel!
+    @IBOutlet weak var bottonImage: UIImageView!
     
-//    var playerX = Players.playerX
-//    var playerO = Players.PlayerO
-    var turn:Int = 0
-    let X:String = "\u{274C}"
-    let O:String = "\u{2B55}"
-    var board:[String] = Array(repeating: " ", count: 9)
-    var gameHasWinner:Bool = false
-    
-    let winCombinations = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ]
-    
-    func gameStatus() {
-        for winCombination in winCombinations {
-            let winIndexOne = winCombination[0]
-            let winIndexTwo = winCombination[1]
-            let winIndexThree = winCombination[2]
-            
-            //board[winIndexNumber] looks at index that winIndexNumber represents in the  board array based on the current winning combination, i.e the array that is looping through
-            let positionOne = board[winIndexOne]
-            let positionTwo = board[winIndexTwo]
-            let positionThree = board[winIndexThree]
-        
-            if positionOne == X && positionTwo == X && positionThree == X {
-                PlayerTurnMessageLabel.text = "Winner is \(X)"
-                disableButtons()
-                gameHasWinner = true
-            } else if positionOne == O && positionTwo == O && positionThree == O {
-                PlayerTurnMessageLabel.text = "Winner is \(O)"
-                disableButtons()
-                gameHasWinner = true
-            }
-        }
-    }
-    
-    private func boardIsFull() -> Bool {
-        for index in board where index == " " {
-            return false
-        }
-        return true
-    }
+    var game = TicTacToeBrain()
     
     
     @IBAction func gameController(_ sender: UIButton) {
-        if turn % 2 == 0 {
-            sender.setTitle(X, for: .normal)
-            board[sender.tag-1] = X
-            playerTurnMessage(turn: turn)
-        } else {
-            sender.setTitle(O, for: .normal)
-            board[sender.tag-1] = O
-            playerTurnMessage(turn: turn)
-        }
-        gameStatus()
-        turn += 1
-        sender.isEnabled = false
+        sender.setTitle(game.currentPlayer, for: .normal)
+        game.board[sender.tag-1] = game.currentPlayer
+        playerTurnMessage()
         
-        if boardIsFull() && !gameHasWinner {
+        if  game.winner {
+            PlayerTurnMessageLabel.text = "winner is \(game.currentPlayer)"
+            disableButtons()
+        } else if game.boardIsFull {
             PlayerTurnMessageLabel.text = "Cat's game"
             disableButtons()
         }
+        game.turn += 1
+        sender.isEnabled = false
     }
-    
+
     
     @IBAction func endGameButton(_ sender: UIButton) {
         restartGame()
     }
     
-
- 
+   
     private func enableButtons() -> Void {
         buttonOne.isEnabled = true
         ButtonTwo.isEnabled = true
@@ -138,15 +87,13 @@ class ViewController: UIViewController {
     private func restartGame() -> Void {
         resetButtons()
         enableButtons()
-        board = Array(repeating: " ", count: 9)
-        turn = 0
-        gameHasWinner = false
+        game.start()
         PlayerTurnMessageLabel.text = "Player One's Turn"
     }
 
     
-    private func playerTurnMessage(turn: Int) -> Void {
-        if turn % 2 == 0 {
+    private func playerTurnMessage() -> Void {
+        if game.turn % 2 == 0 {
             PlayerTurnMessageLabel.text = "Player Two's Turn"
         } else {
             PlayerTurnMessageLabel.text = "Player One's Turn"
