@@ -5,7 +5,6 @@
 //  Created by Alex Paul on 11/8/18.
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
-
 import Foundation
 struct TicTacToeBrain {
     var counter = 0
@@ -27,12 +26,12 @@ struct TicTacToeBrain {
     func checkWinnerDiagonal ()-> Bool {
         if playerBoard[0][0] == self.player &&  playerBoard[1][1] == self.player && playerBoard[2][2] == self.player{
             return true
-       
+            
         }
             
         else if playerBoard[0][2] == self.player &&  playerBoard[1][1] == self.player && playerBoard[2][0] == self.player{
             return true
-     
+            
         }
         
         return false
@@ -50,21 +49,18 @@ struct TicTacToeBrain {
         }
         return false}
     mutating func updateArray (col: Int, row: Int){
-           print("\(playerNumber)\(counter) first")
+        print("\(playerNumber)\(counter) first")
         if counter % 2 == 0 {
-        self.player = "O"
-        self.playerNumber = "Player Two"
+            self.player = "O"
+            self.playerNumber = "Player Two"
         } else {
-        self.player = "X"
-        self.playerNumber = "Player One"
+            self.player = "X"
+            self.playerNumber = "Player One"
         }
         print(print("\(playerNumber)\(counter) second"))
         playerBoard[row][col] = player
-         counter += 1
+        counter += 1
         print("\(playerNumber)\(counter) third")
     }
     
 }
-
-
-
