@@ -43,8 +43,17 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func restartGame(_ sender: UIButton) {
+        allButtons.forEach { $0.titleLabel?.text = " "}
+        allButtons.forEach({$0.isEnabled = true})
+    }
     
     
+//    func restartGame () {
+//        for button in allButtons {
+//            button.titleLabel?.text! = " "
+//        }
+//    }
   override func viewDidLoad() {
     super.viewDidLoad()
     playerWin.text = ""
