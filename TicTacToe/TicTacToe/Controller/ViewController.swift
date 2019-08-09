@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         playerTurnMessage()
         
         if  game.winner {
-            PlayerTurnMessageLabel.text = "winner is \(game.currentPlayer)"
+            PlayerTurnMessageLabel.text = "Winner is \(game.currentPlayer)"
             disableButtons()
         } else if game.boardIsFull {
             PlayerTurnMessageLabel.text = "Cat's game"

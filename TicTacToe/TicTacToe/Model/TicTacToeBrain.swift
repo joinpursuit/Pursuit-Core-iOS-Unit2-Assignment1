@@ -2,7 +2,7 @@
 //  TicTacToeBrain.swift
 //  TicTacToe
 //
-//  Created by Alex Paul on 11/8/18.
+//  Created by Mariel Hoepelman on 8/8/19.
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
 
