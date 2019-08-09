@@ -23,7 +23,7 @@ let row2: Set<Int> = [4,5,6]
 let row3: Set<Int> = [7,8,9]
 
 //Column Combos
-let row4: Set<Int> = [1,3,6]
+let row4: Set<Int> = [1,4,7]
 let row5: Set<Int> = [2,5,8]
 let row6: Set<Int> = [3,6,9]
 
