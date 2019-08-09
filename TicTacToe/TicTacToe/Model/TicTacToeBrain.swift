@@ -3,8 +3,7 @@
 //  TicTacToe
 //
 //  Created by Mariel Hoepelman on 8/8/19.
-//  Copyright © 2018 Pursuit. All rights reserved.
-//
+//  Copyright © 2019 Mariel Hoepelman. All rights reserved.
 
 import Foundation
 

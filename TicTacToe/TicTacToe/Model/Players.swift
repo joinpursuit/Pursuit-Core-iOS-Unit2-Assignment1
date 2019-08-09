@@ -1,9 +1,9 @@
 //
-//  CurrentPlayer.swift
+//  Players.swift
 //  TicTacToe
 //
-//  Created by Mariel Hoepelman on 8/2/19.
-//  Copyright © 2019 Pursuit. All rights reserved.
+//  Created by Mariel Hoepelman on 8/8/19.
+//  Copyright © 2019 Mariel Hoepelman. All rights reserved.
 //
 
 import Foundation

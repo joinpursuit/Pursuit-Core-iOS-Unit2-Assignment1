@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  TicTacToe
 //
-//  Created by Alex Paul on 11/8/18.
-//  Copyright © 2018 Pursuit. All rights reserved.
+//  Created by Mariel Hoepelman on 8/8/19.
+//  Copyright © 2019 Mariel Hoepelman. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     
     var game = TicTacToeBrain()
     
-    
     @IBAction func gameController(_ sender: UIButton) {
         sender.setTitle(game.currentPlayer, for: .normal)
         game.board[sender.tag-1] = game.currentPlayer
@@ -41,12 +40,10 @@ class ViewController: UIViewController {
         sender.isEnabled = false
     }
 
-    
     @IBAction func endGameButton(_ sender: UIButton) {
         restartGame()
     }
     
-   
     private func enableButtons() -> Void {
         buttonOne.isEnabled = true
         ButtonTwo.isEnabled = true
@@ -71,7 +68,6 @@ class ViewController: UIViewController {
         buttonNine.isEnabled = false
     }
     
-    
     private func resetButtons() -> Void {
         buttonOne.setTitle("", for: .normal)
         ButtonTwo.setTitle("", for: .normal)
@@ -91,7 +87,6 @@ class ViewController: UIViewController {
         PlayerTurnMessageLabel.text = "Player One's Turn"
     }
 
-    
     private func playerTurnMessage() -> Void {
         if game.turn % 2 == 0 {
             PlayerTurnMessageLabel.text = "Player Two's Turn"
@@ -100,7 +95,6 @@ class ViewController: UIViewController {
         }
     }
   
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         restartGame()
