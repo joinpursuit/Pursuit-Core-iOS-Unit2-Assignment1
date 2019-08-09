@@ -26,7 +26,6 @@ struct TicTacToeBrain {
     func checkWinnerDiagonal ()-> Bool {
         if playerBoard[0][0] == self.player &&  playerBoard[1][1] == self.player && playerBoard[2][2] == self.player{
             return true
-            
         }
             
         else if playerBoard[0][2] == self.player &&  playerBoard[1][1] == self.player && playerBoard[2][0] == self.player{
@@ -45,11 +44,14 @@ struct TicTacToeBrain {
         else if playerBoard[0][1] == self.player &&  playerBoard[1][1] == self.player && playerBoard[2][1] == self.player{return true
         }
             
-        else if playerBoard[2][0] == self.player &&  playerBoard[2][1] == self.player && playerBoard[2][2] == self.player{return true
+        else if playerBoard[0][2] == self.player &&  playerBoard[1][2] == self.player && playerBoard[2][2] == self.player{return true
         }
         return false}
     mutating func updateArray (col: Int, row: Int){
-        print("\(playerNumber)\(counter) first")
+        playerBoard[row][col] = player
+    }
+    mutating func updatePlayer (){
+        counter += 1
         if counter % 2 == 0 {
             self.player = "O"
             self.playerNumber = "Player Two"
@@ -57,10 +59,5 @@ struct TicTacToeBrain {
             self.player = "X"
             self.playerNumber = "Player One"
         }
-        print(print("\(playerNumber)\(counter) second"))
-        playerBoard[row][col] = player
-        counter += 1
-        print("\(playerNumber)\(counter) third")
     }
-    
 }

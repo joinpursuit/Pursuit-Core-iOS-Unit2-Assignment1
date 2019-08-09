@@ -211,11 +211,27 @@
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ncf-we-iZc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlayerOne:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4Y-Jn-dbI">
+                                <rect key="frame" x="42" y="44" width="110" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PlayeTwo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Deb-J5-IaG">
+                                <rect key="frame" x="240" y="44" width="110" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="playerOneOut" destination="N4Y-Jn-dbI" id="ndw-r6-Kxa"/>
+                        <outlet property="playerTwoOut" destination="Deb-J5-IaG" id="i9d-ec-bFa"/>
                         <outlet property="ticTacToeStatus" destination="4yV-zM-Tat" id="7Dv-GI-LgQ"/>
                         <outletCollection property="gameButtons" destination="8Zj-dk-VA0" collectionClass="NSMutableArray" id="6Q4-tc-ODs"/>
                         <outletCollection property="gameButtons" destination="bar-5n-sdo" collectionClass="NSMutableArray" id="INc-tQ-ZL1"/>
