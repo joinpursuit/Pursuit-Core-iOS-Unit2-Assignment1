@@ -28,6 +28,7 @@ class TicTacToeBrain {
             gameboard[row][col] = "X"
         }
     }
+
     
     func checkGameState() -> GameState {
         //horizontal check
