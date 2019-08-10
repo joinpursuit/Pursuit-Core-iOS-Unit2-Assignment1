@@ -26,14 +26,14 @@ class ViewController: UIViewController {
         switch result {
         case .player1Wins:
             updateButtons(row: sender.row, col: sender.col, player: player)
-            print("Player 1 Wins")
+            playerTurnWinLose.text = "Player 1 Wins"
         case .player2Wins:
             updateButtons(row: sender.row, col: sender.col, player: player)
-            print("Player 2 Wins")
+            playerTurnWinLose.text = "Player 2 Wins"
         case .ongoing:
             updateButtons(row: sender.row, col: sender.col, player: player)
         case .tie:
-            print("TIE")
+            playerTurnWinLose.text = "TIE"
         }
     }
     override func viewDidLoad() {
