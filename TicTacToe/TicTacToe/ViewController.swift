@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     
     @IBOutlet var allButtons: [GameButton]!
     
-
+    @IBOutlet weak var playerTurnWinLose: UILabel!
+    
+    
+    
     @IBAction func buttonPressed(_ sender: GameButton) {
         player.alternatePlayers()
         model.updateGameBoard(player: player, row: sender.row, col: sender.col)
