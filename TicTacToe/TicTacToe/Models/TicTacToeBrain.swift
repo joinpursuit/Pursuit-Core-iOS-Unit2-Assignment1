@@ -37,6 +37,11 @@ class TicTacToeBrain {
             var column = [String]()
             for rowIndex in 0..<gameBoard.count {
                 column.append(gameBoard[rowIndex][columnIndex])
+                if column == ["X", "X", "X"] {
+                    return .player1Wins
+                } else if column == ["O", "O", "O"] {
+                    return .player2Wins
+                }
             }
         }
         
