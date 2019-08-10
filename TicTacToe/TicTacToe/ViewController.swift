@@ -47,6 +47,8 @@ class ViewController: UIViewController {
     var turnCounterNumber = 1
     var playerNameGame = ""
     var player2NameGame = ""
+    var player1Shape = "O"
+    var player2Shape = "X"
     @IBAction func newGame(_ sender: UIButton) {
         resetButtons()
         ticTacToeBrainInstance.resetGameBoard()
@@ -112,11 +114,11 @@ class ViewController: UIViewController {
             if button.row == row && button.col == col {
                 switch player {
                 case .player1:
-                    button.setTitle("O", for: .normal)
+                    button.setTitle("\(player1Shape)", for: .normal)
                     button.isEnabled = false
                     
                 case .player2:
-                    button.setTitle("X", for: .normal)
+                    button.setTitle("\(player2Shape)", for: .normal)
                     button.isEnabled = false
                 }
             }

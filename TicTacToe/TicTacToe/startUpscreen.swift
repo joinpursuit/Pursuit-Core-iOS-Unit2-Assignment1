@@ -15,7 +15,11 @@ class secondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldOutlet2: UITextField!
     @IBOutlet weak var startGameButton: UIButton!
     
+    @IBOutlet weak var player1XOSwitch: UISegmentedControl!
     @IBOutlet weak var playerNameLabel: UILabel!
+    
+    var player1Shape = "O"
+    var player2Shape = "X"
     var playerName = "Player 1"
     
     @IBOutlet weak var player2NameLabel: UILabel!
@@ -25,6 +29,30 @@ class secondViewController: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "toGame", sender: self)
     }
     
+    @IBAction func player1XOPress(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            player1Shape = "O"
+            player2Shape = "X"
+            playerName = textFieldOutlet.text ?? "Player 1"
+            if playerName.count == 0 {
+                playerName = "Player 1"
+            }
+            playerNameLabel.text = "\(playerName) : [\(player1Shape)]"
+            player2NameLabel.text = "\(player2Name) : [\(player2Shape)]"
+            
+        case 1:
+            player1Shape = "X"
+            player2Shape = "O"
+            playerName = textFieldOutlet.text ?? "Player 1"
+            if playerName.count == 0 {
+                playerName = "Player 1"
+            }
+            playerNameLabel.text = "\(playerName) : [\(player1Shape)]"
+            player2NameLabel.text = "\(player2Name) : [\(player2Shape)]"
+        default: ()
+        }
+    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.location == 0 && (string == " ") { //User cannot enter empty space at the start.
             return false
@@ -42,16 +70,16 @@ class secondViewController: UIViewController, UITextFieldDelegate {
             if let textFieldName = textFieldOutlet.text{
                 if textFieldName.count != 0 {
                     playerName = textFieldName.capitalized
-                    playerNameLabel.text = "P1: \(playerName)"
+                    playerNameLabel.text = "\(playerName) : [\(player1Shape)]"
                 } else {return false}
             }
             textFieldOutlet.resignFirstResponder()
-            textFieldOutlet2.becomeFirstResponder()
+    
         case 1:
             if let textFieldName2 = textFieldOutlet2.text {
                 if textFieldName2.count != 0 {
                     player2Name = textFieldName2.capitalized
-                    player2NameLabel.text = "P2: \(player2Name)"
+                    player2NameLabel.text = "\(player2Name) : [\(player2Shape)]"
                 } else {return false}
             }
             textFieldOutlet2.resignFirstResponder()
@@ -79,8 +107,9 @@ class secondViewController: UIViewController, UITextFieldDelegate {
     
         let destVC : ViewController = segue.destination as! ViewController
         destVC.playerNameGame = playerName
-        
-        let destVCAgain : ViewController = segue.destination as! ViewController
-        destVCAgain.player2NameGame = player2Name
+        destVC.player2NameGame = player2Name
+        destVC.player1Shape = player1Shape
+        destVC.player2Shape = player2Shape
+
     }
 }
