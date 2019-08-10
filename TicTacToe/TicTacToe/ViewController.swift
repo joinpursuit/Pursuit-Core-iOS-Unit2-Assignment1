@@ -31,6 +31,7 @@ class ViewController: UIViewController {
             playerTurnWinLose.text = "Player 2 Wins"
         case .ongoing:
             updateButtons(row: sender.row, col: sender.col, player: player)
+            player.alternatePlayers()
         case .tie:
             playerTurnWinLose.text = "TIE"
         }
@@ -44,10 +45,10 @@ class ViewController: UIViewController {
             if button.row == row && button.col == col {
                 switch player {
                 case .player1:
-                    button.setTitle("O", for: .normal)
+                    button.setTitle("X", for: .normal)
                     button.isEnabled = false
                 case .player2:
-                    button.setTitle("X", for: .normal)
+                    button.setTitle("O", for: .normal)
                     button.isEnabled = false
                 }
             }
