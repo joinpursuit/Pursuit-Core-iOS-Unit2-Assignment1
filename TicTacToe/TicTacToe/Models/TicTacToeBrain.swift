@@ -16,18 +16,18 @@ class TicTacToeBrain {
     func updateGameBoard(player: Players, row: Int, col: Int) {
         switch player {
         case .player1:
-            gameBoard[row][col] = "O"
-        case .player2:
             gameBoard[row][col] = "X"
+        case .player2:
+            gameBoard[row][col] = "O"
         }
     }
     
     func checkGameState() -> GameState {
         // horizontal check
         for row in gameBoard {
-            if row == ["O", "O", "O"] {
+            if row == ["X", "X", "X"] {
                 return .player1Wins
-            } else if row == ["X", "X", "X"] {
+            } else if row == ["O", "O", "O"] {
                 return .player2Wins
             }
         }
@@ -47,9 +47,9 @@ class TicTacToeBrain {
             diagonal1.append(gameBoard[i][i])
             diagonal2.append(gameBoard[i][gameBoard.count - 1 - i])
         }
-        if diagonal1 == ["O", "O", "O"] || diagonal2 == ["O", "O", "O"] {
+        if diagonal1 == ["X", "X", "X"] || diagonal2 == ["X", "X", "X"] {
             return .player1Wins
-        } else if diagonal1 == ["X", "X", "X"] || diagonal2 == ["X", "X", "X"] {
+        } else if diagonal1 == ["O", "O", "O"] || diagonal2 == ["O", "O", "O"] {
             return .player2Wins
         }
         
