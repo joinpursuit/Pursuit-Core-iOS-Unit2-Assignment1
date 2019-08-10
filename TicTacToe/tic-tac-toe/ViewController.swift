@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         b8.isEnabled = true
         b9.isEnabled = true
         turn = 0
-        whosTurn.text = "it's player 1's turn"
+        whosTurn.text = "It's player 1's turn."
     }
     
     
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
                 activePlayer = 2
                 turn += 1
                 print(gameState)
-                whosTurn.text = "it's player 2's turn"
+                whosTurn.text = "It's player 2's turn."
                 if gameState[0] == 1 && gameState[1] == 1 && gameState[2] == 1
                     || gameState[3] == 1 && gameState[4] == 1 && gameState[5] == 1
                     || gameState[6] == 1 && gameState[7] == 1 && gameState[8] == 1
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
                     || gameState[2] == 1 && gameState[5] == 1 && gameState[8] == 1
                     || gameState[0] == 1 && gameState[4] == 1 && gameState[8] == 1
                     || gameState[2] == 1 && gameState[4] == 1 && gameState[6] == 1 {
-                    whosTurn.text = "player 1 wins"
+                    whosTurn.text = "Player 1 wins!"
                     buttonOutlets.isEnabled = false
                     button2.isEnabled = false
                     b3.isEnabled = false
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
                     b7.isEnabled = false
                     b8.isEnabled = false
                     b9.isEnabled = false
-                    whosTurn.text = "it's a tie"
+                    whosTurn.text = "It's a tie!"
                 }
             } else if activePlayer == 2 {
                 
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
                 activePlayer = 1
                 turn += 1
                 print(gameState)
-                whosTurn.text = "it's player 1's turn"
+                whosTurn.text = "It's player 1's turn."
                 if gameState[0] == 2 && gameState[1] == 2 && gameState[2] == 2
                     || gameState[3] == 2 && gameState[4] == 2 && gameState[5] == 2
                     || gameState[6] == 2 && gameState[7] == 2 && gameState[8] == 2
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
                     || gameState[2] == 2 && gameState[5] == 2 && gameState[8] == 2
                     || gameState[0] == 2 && gameState[4] == 2 && gameState[8] == 2
                     || gameState[2] == 2 && gameState[4] == 2 && gameState[6] == 2 {
-                    whosTurn.text = "player 2 wins"
+                    whosTurn.text = "Player 2 wins."
                     buttonOutlets.isEnabled = false
                     button2.isEnabled = false
                     b3.isEnabled = false
@@ -132,7 +132,7 @@ class ViewController: UIViewController {
                     b7.isEnabled = false
                     b8.isEnabled = false
                     b9.isEnabled = false
-                    whosTurn.text = "it's a tie"
+                    whosTurn.text = "It's a tie."
                 }
                 
             }
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        whosTurn.text = "it's player 1's turn"
+        whosTurn.text = "It's player 1's turn."
         // Do any additional setup after loading the view.
     }
 
