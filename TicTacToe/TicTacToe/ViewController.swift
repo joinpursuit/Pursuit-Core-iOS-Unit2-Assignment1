@@ -20,7 +20,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonPressed(_ sender: GameButton) {
-        player.alternatePlayers()
         model.updateGameBoard(player: player, row: sender.row, col: sender.col)
         let result = model.checkGameState()
         switch result {
