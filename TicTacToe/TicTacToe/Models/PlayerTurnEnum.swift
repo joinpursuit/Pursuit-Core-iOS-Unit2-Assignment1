@@ -10,8 +10,8 @@ import Foundation
 
 
 enum Players: String {
-    case player1 = "O"
-    case player2 = "X"
+    case player1 = "X"
+    case player2 = "O"
     
     mutating func alternatePlayers() {
         switch self {
