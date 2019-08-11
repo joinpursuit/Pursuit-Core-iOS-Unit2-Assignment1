@@ -54,6 +54,8 @@ class ViewController: UIViewController {
 //            button.titleLabel?.text! = " "
 //        }
 //    }
+    
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     playerWin.text = ""
