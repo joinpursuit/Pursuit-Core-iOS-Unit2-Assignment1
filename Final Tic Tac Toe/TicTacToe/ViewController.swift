@@ -1,51 +1,54 @@
 //
 //  ViewController.swift
-//  TicTacToeDev
+//  TicTacToe
 //
-//  Created by Jack Wong on 8/1/19.
+//  Created by Jack Wong on 8/8/19.
 //  Copyright © 2019 Jack Wong. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var playerOneWinLabelCounter: UILabel!
-    @IBOutlet weak var playerTwoWinLabelCounter: UILabel!
-    @IBOutlet var allBtns: [UIButton]!
-    @IBOutlet weak var newGame: UIButton!
     
-    @IBOutlet weak var btn1: UIButton!
-    @IBOutlet weak var btn2: UIButton!
-    @IBOutlet weak var btn3: UIButton!
-    @IBOutlet weak var btn4: UIButton!
-    @IBOutlet weak var btn5: UIButton!
-    @IBOutlet weak var btn6: UIButton!
-    @IBOutlet weak var btn7: UIButton!
-    @IBOutlet weak var btn8: UIButton!
-    @IBOutlet weak var btn9: UIButton!
+    @IBOutlet var allButtons: [GameButton]!
+    @IBOutlet weak var blackSubView: UIView!
+    
+    @IBOutlet weak var playerOneScore: UILabel!
+    
+    @IBOutlet weak var playerTwoScore: UILabel!
     
     
-    @IBOutlet weak var someLabel: UILabel!
+    @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var statusLabel: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        btnCSS(allButtons)
+        newGameBtnCSS(newGameButton)
+        setNewGame()
+    }
     
     var playerOne = player(playerName: "Player One", playerMark: "X")
     var playerTwo = player(playerName: "Player Two", playerMark: "O")
+    var playerTurn = 0  //player turn 1-playerOne 2-playerTwp
     
-    var playerTurn: Int = 0
-    
-    @IBAction func userMove(_ sender: UIButton) {
+    @IBAction func moveDecision(_ sender: GameButton) {
+        
         sender.pulsate()
         sender.isEnabled = false
-        
+
         if playerTurn % 2 == 0{
+            sender.setTitleColor(.blue, for: .disabled)
             sender.setTitle("\(playerOne.playerMove(sender.tag))", for: .disabled)
-            
-            someLabel.text = "Player Two's turn! (O)"
-            
+
+            statusLabel.text = "Player Two's turn! (O)"
+
             playerTurn += 1
-            
+
             if playerOne.didPlayerWin(){
-                someLabel.text = "Player One won!"
-                playerOneWinLabelCounter.text = String(playerOne.winCount)
+                statusLabel.text = "Player One won!"
+                playerOneScore.text = String(playerOne.winCount)
                 disableBoard()
                 for i in playerOne.winningCombo{
                     if let button = self.view.viewWithTag(i) as? UIButton
@@ -56,21 +59,22 @@ class ViewController: UIViewController {
                     }
                 }
             }else if !playerOne.didPlayerWin() && playerTurn == 9{
-                
-                someLabel.text = "Draw!"
+
+                statusLabel.text = "Draw!"
                 disableBoard()
             }
-            
+
         }else{
+            sender.setTitleColor(.red, for: .disabled)
             sender.setTitle("\(playerTwo.playerMove(sender.tag))", for: .disabled)
-            
-            someLabel.text = "Player One's turn! (X)"
-            
+
+            statusLabel.text = "Player One's turn! (X)"
+
             playerTurn += 1
-            
+
             if playerTwo.didPlayerWin(){
-                someLabel.text = "Player Two won!"
-                playerTwoWinLabelCounter.text = String(playerTwo.winCount)
+                statusLabel.text = "Player Two won!"
+                playerTwoScore.text = String(playerTwo.winCount)
                 disableBoard()
 
                 for i in playerTwo.winningCombo{
@@ -81,43 +85,40 @@ class ViewController: UIViewController {
                         button.flash()
                     }
                 }
-                
+
             }else if !playerTwo.didPlayerWin() && playerTurn == 9{
-                someLabel.text = "Draw!"
+                statusLabel.text = "Draw!"
                 disableBoard()
             }
         }
-        
     }
     
-    @IBAction func newGame(_ sender: Any) {
-        for button in allBtns{
-            button.backgroundColor = UIColor.lightGray
-            button.isEnabled = true
-            button.setTitle("", for: .normal)
-        }
+    @IBAction func newGamePressed(_ sender: UIButton) {
+        setNewGame()
+    }
+    
+    func setNewGame(){
+        //clear move list
         playerOne.clearMoves()
         playerTwo.clearMoves()
         
-        someLabel.text = "Player One's Turn! (X)"
-        
+        //set player turn and change label to reflect player turn
+        statusLabel.text = "Player 1's Turn!"
         playerTurn = 0
+        
+        //clearing the board
+        for button in allButtons{
+            button.setTitle("", for: .disabled)
+            button.isEnabled = true
+            button.backgroundColor = .lightGray
+//            button.setTitle("", for: .normal)
+        }
+        
     }
-
+    
     func disableBoard(){
-        for button in allBtns{
+        for button in allButtons{
             button.isEnabled = false
         }
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        btnCSS(allBtns)
-        someLabel.text = "Player One's Turn! (X)"
-    }
-    
-    
 }
-
-
