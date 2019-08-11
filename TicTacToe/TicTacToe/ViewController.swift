@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var playerTurnWinLose: UILabel!
     
     
+    @IBAction func buttonPressedForNewGame(_ sender: UIButton) {
+        resetBoard()
+    }
     
     @IBAction func buttonPressed(_ sender: GameButton) {
         model.updateGameBoard(player: player, row: sender.row, col: sender.col)
@@ -26,9 +29,15 @@ class ViewController: UIViewController {
         case .player1Wins:
             updateButtons(row: sender.row, col: sender.col, player: player)
             playerTurnWinLose.text = "Player 1 Wins"
+            for button in allButtons {
+                button.isEnabled = false
+            }
         case .player2Wins:
             updateButtons(row: sender.row, col: sender.col, player: player)
             playerTurnWinLose.text = "Player 2 Wins"
+            for button in allButtons {
+                button.isEnabled = false
+            }
         case .ongoing:
             updateButtons(row: sender.row, col: sender.col, player: player)
             player.alternatePlayers()
@@ -60,6 +69,14 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+//    func resetBoard() {
+//        for button in allButtons {
+//            button.setTitle("", for: .normal)
+//            button.isEnabled = true
+//            playerTurnWinLose.text = "Player 1, it's your turn"
+//        }
+//    }
 
 
 }
