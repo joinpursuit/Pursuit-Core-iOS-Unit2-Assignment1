@@ -32,12 +32,18 @@ class ViewController: UIViewController {
         case .ongoing:
             updateButtons(row: sender.row, col: sender.col, player: player)
             player.alternatePlayers()
+            if Players.player1 == player {
+                playerTurnWinLose.text = "Player 1, it's your turn"
+            } else if Players.player2 == player {
+                playerTurnWinLose.text = "Player 2, it's your turn"
+            }
         case .tie:
             playerTurnWinLose.text = "TIE"
         }
     }
     override func viewDidLoad() {
     super.viewDidLoad()
+        playerTurnWinLose.text = "Player 1, it's your turn"
     // Do any additional setup after loading the view, typically from a nib.
   }
     func updateButtons(row: Int, col: Int, player: Players) {
