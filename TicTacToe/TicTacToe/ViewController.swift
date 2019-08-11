@@ -70,13 +70,15 @@ class ViewController: UIViewController {
         }
     }
     
-//    func resetBoard() {
-//        for button in allButtons {
-//            button.setTitle("", for: .normal)
-//            button.isEnabled = true
-//            playerTurnWinLose.text = "Player 1, it's your turn"
-//        }
-//    }
+    func resetBoard() {
+        for button in allButtons {
+            button.setTitle("", for: .normal)
+            button.isEnabled = true
+            playerTurnWinLose.text = "Player 1, it's your turn"
+            player = Players.player1
+            model = TicTacToeBrain()
+        }
+    }
 
 
 }
