@@ -21,7 +21,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var playerTwoScore: UILabel!
   
   var xo: Int = 0
-  
+//  var playing: Bool = true
   var winningSets: [Set <Int>] = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
   
   @IBAction func button(_ sender: UIButton) {
@@ -52,11 +52,15 @@ class ViewController: UIViewController {
         playerOne.winCount += 1
         self.message.text = "player one wins"
         self.playerOneScore.text = "score: \(playerOne.winCount)"
-      } else {
-        if set.isSubset(of: playerTwo.moves) {
-          playerTwo.winCount += 1
-          self.message.text = "player two wins"
-          self.playerTwoScore.text = "score: \(playerTwo.winCount)"
+        playerOne.moves = [0]
+        playerTwo.moves = [0]
+      }else {
+      if set.isSubset(of: playerTwo.moves) {
+        playerTwo.winCount += 1
+        self.message.text = "player two wins"
+        self.playerTwoScore.text = "score: \(playerTwo.winCount)"
+          playerOne.moves = [0]
+          playerTwo.moves = [0]
        }
     }
   }
