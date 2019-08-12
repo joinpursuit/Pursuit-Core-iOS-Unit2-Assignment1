@@ -27,33 +27,47 @@ class ViewController: UIViewController {
         switch result {
         case .player1wins:
             updateButtons(row: sender.row, col: sender.col, player: player)
-            print("Player 1 wins!!!")
+           // print("Player 1 wins!!!")
             playerWin.text = "Player 1 wins!!!"
+            disabler()
         case .player2wins :
             updateButtons(row: sender.row, col: sender.col, player: player)
-            print("Player 2 wins!!!")
+            //print("Player 2 wins!!!")
             playerWin.text = "Player 2 wins!!!"
+            disabler()
         case .ongoing:
             updateButtons(row: sender.row, col: sender.col, player: player)
             player.alternate()
             playerTurn.text = "Next player's turn!"
+            
         case .tie:
-            print("It's a TIE!")
+            //print("It's a TIE!")
             playerTurn.text = "It's a TIE!"
+            disabler()
         }
     }
     
     @IBAction func restartGame(_ sender: UIButton) {
-        allButtons.forEach { $0.titleLabel?.text = " "}
-        allButtons.forEach({$0.isEnabled = true})
+        allButtons.forEach { $0.setTitle(" ", for: .normal)}
+//        allButtons.forEach({$0.isEnabled = true})
+        enabler()
+        player.alternate()
+        playerWin.text = ""
+        playerTurn.text = "Tap a square to begin!"
+        
     }
     
+    func disabler(){
+        for i in allButtons {
+            i.isEnabled = false
+        }
+    }
     
-//    func restartGame () {
-//        for button in allButtons {
-//            button.titleLabel?.text! = " "
-//        }
-//    }
+    func enabler(){
+        for i in allButtons {
+            i.isEnabled = true
+        }
+    }
     
     
   override func viewDidLoad() {
