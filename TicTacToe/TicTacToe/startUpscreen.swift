@@ -11,7 +11,6 @@ import UIKit
 
 class secondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldOutlet: UITextField!
-    
     @IBOutlet weak var textFieldOutlet2: UITextField!
     @IBOutlet weak var startGameButton: UIButton!
     
@@ -50,13 +49,13 @@ class secondViewController: UIViewController, UITextFieldDelegate {
             }
             playerNameLabel.text = "\(playerName) : [\(player1Shape)]"
             player2NameLabel.text = "\(player2Name) : [\(player2Shape)]"
+            
         default: ()
         }
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if range.location == 0 && (string == " ") { //User cannot enter empty space at the start.
-            return false
-        }
+        if range.location == 0 && (string == " ") { return false }
+        //User cannot enter empty space at the start.
         let currentText = textField.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)

@@ -20,6 +20,7 @@ class TicTacToeBrain {
              ["-", "-", "-"],
              ["-", "-", "-"]]
     }
+    
     func updateGameBoard(player: Player, row: Int, col: Int) {
         switch player {
         case .player1:
