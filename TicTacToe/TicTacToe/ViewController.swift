@@ -55,6 +55,10 @@ class ViewController: UIViewController {
         playerWin.text = ""
         playerTurn.text = "Tap a square to begin!"
         
+//        model.gameBoard ()= [[“_”,“_”,“_”], //row 0
+//            [“_”,“_”,“_”], //row 1
+//            [“_”,“_”,“_”]] //row 2
+//
     }
     
     func disabler(){
