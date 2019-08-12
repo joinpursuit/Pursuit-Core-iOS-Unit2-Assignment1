@@ -106,10 +106,10 @@ class secondViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
         let destVC : ViewController = segue.destination as! ViewController
-        destVC.playerNameGame = playerName
-        destVC.player2NameGame = player2Name
-        destVC.player1Shape = player1Shape
-        destVC.player2Shape = player2Shape
+        destVC.player1.playerName = playerName
+        destVC.player2.playerName = player2Name
+        destVC.player1.playerShape = player1Shape
+        destVC.player2.playerShape = player2Shape
 
     }
 }

@@ -17,6 +17,8 @@
 		9722D64022FDA75C00A5A6BF /* startUpscreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9722D63F22FDA75C00A5A6BF /* startUpscreen.swift */; };
 		9734D4F022FA34DC008742D5 /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9734D4EF22FA34DC008742D5 /* player.swift */; };
 		9734D4F222FA37E7008742D5 /* gameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9734D4F122FA37E7008742D5 /* gameState.swift */; };
+		978E237A2300F714005F6D10 /* playerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E23792300F714005F6D10 /* playerStats.swift */; };
+		978E237C2300F770005F6D10 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 978E237B2300F770005F6D10 /* extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9722D63F22FDA75C00A5A6BF /* startUpscreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startUpscreen.swift; sourceTree = "<group>"; };
 		9734D4EF22FA34DC008742D5 /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		9734D4F122FA37E7008742D5 /* gameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameState.swift; sourceTree = "<group>"; };
+		978E23792300F714005F6D10 /* playerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerStats.swift; sourceTree = "<group>"; };
+		978E237B2300F770005F6D10 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,9 @@
 			children = (
 				57A2EF462194DBAF009B12CA /* AppDelegate.swift */,
 				57A2EF482194DBAF009B12CA /* ViewController.swift */,
+				978E237B2300F770005F6D10 /* extensions.swift */,
 				57A2EF4A2194DBAF009B12CA /* Main.storyboard */,
+				978E23792300F714005F6D10 /* playerStats.swift */,
 				9722D63F22FDA75C00A5A6BF /* startUpscreen.swift */,
 				9734D4EF22FA34DC008742D5 /* player.swift */,
 				57A2EF582194DBFD009B12CA /* GameButton.swift */,
@@ -150,10 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978E237A2300F714005F6D10 /* playerStats.swift in Sources */,
 				57A2EF492194DBAF009B12CA /* ViewController.swift in Sources */,
 				9734D4F222FA37E7008742D5 /* gameState.swift in Sources */,
 				57A2EF592194DBFD009B12CA /* GameButton.swift in Sources */,
 				57A2EF472194DBAF009B12CA /* AppDelegate.swift in Sources */,
+				978E237C2300F770005F6D10 /* extensions.swift in Sources */,
 				9734D4F022FA34DC008742D5 /* player.swift in Sources */,
 				57A2EF5B2194DC83009B12CA /* TicTacToeBrain.swift in Sources */,
 				9722D64022FDA75C00A5A6BF /* startUpscreen.swift in Sources */,
