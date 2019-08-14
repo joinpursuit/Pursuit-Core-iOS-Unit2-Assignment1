@@ -29,14 +29,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="topLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mJ1-Dr-beh"/>
                                 </connections>
@@ -48,14 +40,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="topMiddleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dK6-ib-EIo"/>
                                 </connections>
@@ -67,14 +51,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="centerMiddleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhr-zB-ocX"/>
                                 </connections>
@@ -86,14 +62,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="centerRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uBr-cc-t0g"/>
                                 </connections>
@@ -105,14 +73,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="bottomLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sDi-oC-vcb"/>
                                 </connections>
@@ -124,14 +84,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="bottomMiddleButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8oy-v5-oXe"/>
                                 </connections>
@@ -143,14 +95,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="bottomRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cdA-I3-Fk2"/>
                                 </connections>
@@ -230,14 +174,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="topRightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9t1-xt-ciK"/>
                                 </connections>
@@ -257,14 +193,6 @@
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="row">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="col">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="centerLeftButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R5y-Rj-o6t"/>
                                 </connections>
@@ -286,6 +214,15 @@
                         <outlet property="topLeftOutlet" destination="ea0-Am-b9F" id="hqb-4X-Cio"/>
                         <outlet property="topMiddleOutlet" destination="aKp-Ct-eSk" id="Nhq-iR-VCT"/>
                         <outlet property="topRightOutlet" destination="Kxe-Ff-S1s" id="xEN-9g-j4K"/>
+                        <outletCollection property="allButtons" destination="ea0-Am-b9F" collectionClass="NSMutableArray" id="h6R-4m-cie"/>
+                        <outletCollection property="allButtons" destination="aKp-Ct-eSk" collectionClass="NSMutableArray" id="Eem-Y1-RSw"/>
+                        <outletCollection property="allButtons" destination="Kxe-Ff-S1s" collectionClass="NSMutableArray" id="5In-pT-v0i"/>
+                        <outletCollection property="allButtons" destination="akW-3D-wAI" collectionClass="NSMutableArray" id="AxZ-Vy-ncu"/>
+                        <outletCollection property="allButtons" destination="fSE-6E-wVQ" collectionClass="NSMutableArray" id="qvV-oa-LXl"/>
+                        <outletCollection property="allButtons" destination="60A-NY-Pyt" collectionClass="NSMutableArray" id="r9i-VY-qxY"/>
+                        <outletCollection property="allButtons" destination="c8k-cf-8ap" collectionClass="NSMutableArray" id="9kL-Bz-dAc"/>
+                        <outletCollection property="allButtons" destination="VP9-je-8Ry" collectionClass="NSMutableArray" id="thv-qJ-V38"/>
+                        <outletCollection property="allButtons" destination="GeS-7I-qNJ" collectionClass="NSMutableArray" id="G3b-W5-NAg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

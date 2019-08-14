@@ -24,3 +24,26 @@ enum Player {
         }
     }
 }
+
+
+
+var currentPlayer = Player.p1
+var currentLetter = ""
+var p1Score = 0
+var p2Score = 0
+var switchedScore = 0
+
+
+func changeLetter() {
+    switch currentPlayer {
+    case .p1:
+        currentLetter = "X"
+    case .p2:
+        currentLetter = "O"
+    }
+}
+
+func resetPlayerScores() {
+    p1Score = 0
+    p2Score = 0
+}
