@@ -14,6 +14,12 @@ class TicTacToeBrain {
         ["_","_","_"], //row 1
         ["_","_","_"]] //row 2
     
+    func resetGameBoard() {
+        gameBoard = [["_","_","_"], //row 0
+            ["_","_","_"], //row 1
+            ["_","_","_"]]
+    }
+    
     func updateGameBoard(player: Player, row: Int, col: Int){
         switch player {
         case .player1:

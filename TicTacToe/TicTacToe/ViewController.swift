@@ -48,20 +48,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func restartGame(_ sender: UIButton) {
+        model.resetGameBoard ()
         allButtons.forEach { $0.setTitle(" ", for: .normal)}
-//        allButtons.forEach({$0.isEnabled = true})
         enabler()
-        player.alternate()
         playerWin.text = ""
         playerTurn.text = "Tap a square to begin!"
-        
-//        model.gameBoard ()= [[“_”,“_”,“_”], //row 0
-//            [“_”,“_”,“_”], //row 1
-//            [“_”,“_”,“_”]] //row 2
-//
+//        buttonPressed()
     }
     
-    func disabler(){
+    func disabler() {
         for i in allButtons {
             i.isEnabled = false
         }
