@@ -58,14 +58,14 @@
 		57A2EF452194DBAF009B12CA /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				57A2EF522194DBB0009B12CA /* Info.plist */,
 				57A2EF462194DBAF009B12CA /* AppDelegate.swift */,
-				57A2EF482194DBAF009B12CA /* ViewController.swift */,
-				57A2EF4A2194DBAF009B12CA /* Main.storyboard */,
 				57A2EF582194DBFD009B12CA /* GameButton.swift */,
 				57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */,
+				57A2EF482194DBAF009B12CA /* ViewController.swift */,
 				57A2EF4D2194DBB0009B12CA /* Assets.xcassets */,
 				57A2EF4F2194DBB0009B12CA /* LaunchScreen.storyboard */,
-				57A2EF522194DBB0009B12CA /* Info.plist */,
+				57A2EF4A2194DBAF009B12CA /* Main.storyboard */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -102,6 +102,7 @@
 				TargetAttributes = {
 					57A2EF422194DBAF009B12CA = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -299,7 +300,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.pursuit.TicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -317,7 +318,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.pursuit.TicTacToe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
