@@ -11,6 +11,8 @@ import UIKit
 @available(iOS 13.0, *)
 class TicTacToeBrain {
     static var xTurn: Bool = true
+    static var scoreOne = 0
+    static var scoreTwo = 0
     //    static var gameButtonArray: [GameButton]
     
     static func xOrO (_ button: GameButton) {
@@ -105,11 +107,13 @@ class TicTacToeBrain {
                 button.isEnabled = false
             }
             displayLabel.text = "Player 1 Won!"
+            scoreOne += 1
         } else if row1 == -3 || row2 == -3 || row3 == -3 || col1 == -3 || col2 == -3 || col3 == -3 || diag1 == -3 || diag2 == -3 {
             for button in xOButtons {
                 button.isEnabled = false
             }
             displayLabel.text = "Player 2 Won!"
+            scoreTwo += 1
         }
         print(diag2)
     }

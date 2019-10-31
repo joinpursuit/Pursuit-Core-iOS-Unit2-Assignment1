@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var xOrOButtons: [GameButton]!
     @IBOutlet weak var playTurnDisplay: UILabel!
+    @IBOutlet weak var player1Score: UILabel!
+    @IBOutlet weak var player2Score: UILabel!
     var x = 0
     
     override func viewDidLoad() {
@@ -32,6 +34,8 @@ class ViewController: UIViewController {
         if x == 9 && (playTurnDisplay.text != "Player 1 Won!" && playTurnDisplay.text != "Player 2 Won!") {
             playTurnDisplay.text = "Draw! Play Again?"
         }
+        player1Score.text = "\(TicTacToeBrain.scoreOne)"
+        player2Score.text = "\(TicTacToeBrain.scoreTwo)"
         // Fallback on earlier versions
     }
     
@@ -39,7 +43,6 @@ class ViewController: UIViewController {
         x = 0
         TicTacToeBrain.xTurn = true
         TicTacToeBrain.playerTurn(playTurnDisplay)
-        
         for button in xOrOButtons {
             button.isEnabled = true
             button.setBackgroundImage(nil, for: .disabled)
