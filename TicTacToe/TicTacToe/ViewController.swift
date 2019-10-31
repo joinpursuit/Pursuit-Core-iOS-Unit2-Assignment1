@@ -10,6 +10,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var xOrOButtons: [GameButton]!
+    @IBOutlet weak var playTurnDisplay: UILabel!
+    
     var xOrO = true
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,17 +22,10 @@ class ViewController: UIViewController {
     
     @IBAction func buttonPressXorO(_ sender: GameButton) {
         
-        if #available(iOS 13.0, *) {
-            if xOrO {
-            sender.setBackgroundImage(UIImage(systemName: "xmark"), for: .normal)
-            } else {
-            sender.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
-            }
-        } else {
-            // Fallback on earlier versions
-        }
+        TicTacToeBrain.xOrO(sender)
+        TicTacToeBrain.xTurn.toggle()
         
-        xOrO.toggle()
+        sender.isEnabled.toggle()
         // Fallback on earlier versions
     }
     

@@ -34,7 +34,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sC0-8K-nf4" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="145" y="290" width="84" height="80"/>
+                                <rect key="frame" x="146" y="293" width="84" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Button"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlB-zu-O3P" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="250" y="290" width="84" height="80"/>
+                                <rect key="frame" x="250" y="293" width="84" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Button"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7X-CB-oWr" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="40" y="290" width="84" height="80"/>
+                                <rect key="frame" x="40" y="293" width="84" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Button"/>
@@ -87,17 +87,8 @@
                                     <action selector="buttonPressXorO:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kKg-Nb-UFW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQP-bY-g82" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="250" y="391" width="84" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="buttonPressXorO:" destination="BYZ-38-t0r" eventType="touchUpInside" id="25s-yt-6sX"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sn-J2-gcg" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="145" y="391" width="84" height="80"/>
+                                <rect key="frame" x="146" y="397" width="84" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Button"/>
@@ -106,7 +97,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-MQ-9Ip" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
-                                <rect key="frame" x="40" y="391" width="84" height="80"/>
+                                <rect key="frame" x="40" y="397" width="84" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <state key="normal" title="Button"/>
@@ -114,10 +105,31 @@
                                     <action selector="buttonPressXorO:" destination="BYZ-38-t0r" eventType="touchUpInside" id="waC-md-JZj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQP-bY-g82" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="250" y="397" width="84" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPressXorO:" destination="BYZ-38-t0r" eventType="touchUpInside" id="25s-yt-6sX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="playTurnDisplay" destination="KgC-PW-6L2" id="ea3-OE-TNC"/>
+                        <outletCollection property="xOrOButtons" destination="TPl-Na-ypG" collectionClass="NSMutableArray" id="vVD-ig-DwY"/>
+                        <outletCollection property="xOrOButtons" destination="jHw-G0-3V5" collectionClass="NSMutableArray" id="t1t-kg-Vjf"/>
+                        <outletCollection property="xOrOButtons" destination="sO5-bK-wur" collectionClass="NSMutableArray" id="yvf-Cg-vCi"/>
+                        <outletCollection property="xOrOButtons" destination="OlB-zu-O3P" collectionClass="NSMutableArray" id="hcc-cf-WqZ"/>
+                        <outletCollection property="xOrOButtons" destination="sC0-8K-nf4" collectionClass="NSMutableArray" id="370-xB-oyQ"/>
+                        <outletCollection property="xOrOButtons" destination="R7X-CB-oWr" collectionClass="NSMutableArray" id="ECf-9p-7Cp"/>
+                        <outletCollection property="xOrOButtons" destination="AQP-bY-g82" collectionClass="NSMutableArray" id="7nL-9e-6bS"/>
+                        <outletCollection property="xOrOButtons" destination="4sn-J2-gcg" collectionClass="NSMutableArray" id="MAy-ms-qAG"/>
+                        <outletCollection property="xOrOButtons" destination="7hY-MQ-9Ip" collectionClass="NSMutableArray" id="Rit-4z-Csj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

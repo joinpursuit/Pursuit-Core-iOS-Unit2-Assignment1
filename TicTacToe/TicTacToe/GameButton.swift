@@ -13,4 +13,5 @@ class GameButton: UIButton {
   @IBInspectable var col: Int = 0
     let image = "➕"
     let image2 = "➖"
+    
 }
