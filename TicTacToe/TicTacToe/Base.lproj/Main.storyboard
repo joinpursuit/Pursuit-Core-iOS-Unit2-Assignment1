@@ -111,6 +111,27 @@
                                     <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2q-Zm-WSp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBP-gw-VqE">
+                                <rect key="frame" x="108" y="509" width="199" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQQ-PC-wkV">
+                                <rect key="frame" x="108" y="574" width="199" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-qp-OWs">
+                                <rect key="frame" x="108" y="639" width="199" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -123,9 +144,12 @@
                         <outlet property="midMid" destination="fjg-D0-jXO" id="xB8-fe-gTR"/>
                         <outlet property="midRight" destination="rbI-O8-tNy" id="cnn-ju-CIM"/>
                         <outlet property="newGameButton" destination="7uX-0r-yNn" id="uw4-bl-jJ8"/>
+                        <outlet property="oWinsIndicator" destination="8mG-qp-OWs" id="3v7-Gz-RXt"/>
                         <outlet property="topLeft" destination="m22-PL-69Q" id="6T8-VV-lxF"/>
                         <outlet property="topMid" destination="JJf-r1-bcS" id="NUg-UW-9Rz"/>
                         <outlet property="topRight" destination="MGk-ny-0EE" id="zez-lE-9c0"/>
+                        <outlet property="turnIndicator" destination="KBP-gw-VqE" id="Jt6-fG-XZN"/>
+                        <outlet property="xWinsIndicator" destination="BQQ-PC-wkV" id="owf-Jc-vWs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

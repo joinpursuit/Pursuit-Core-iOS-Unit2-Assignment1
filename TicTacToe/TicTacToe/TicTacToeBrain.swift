@@ -9,34 +9,118 @@
 import Foundation
 
 class TicTacToeBrain {
-//    private var topLeft = GameButton()
-//    private var midLeft = GameButton()
-//    private var bottomLeft = GameButton()
-//    private var topMid = GameButton()
-//    private var midMid = GameButton()
-//    private var bottomMid = GameButton()
-//    private var topRight = GameButton()
-//    private var midRight = GameButton()
-//    private var bottomRight = GameButton()
-//
-//    // MARK: Initializer of TicTacToeBrain Class
-//    init(){
-//        self.topLeft.setRowAndCol(row: 0, col: 0)
-//        self.midLeft.setRowAndCol(row: 1, col: 0)
-//        self.bottomLeft.setRowAndCol(row: 2, col: 0)
-//        self.topMid.setRowAndCol(row: 0, col: 1)
-//        self.midMid.setRowAndCol(row: 1, col: 1)
-//        self.bottomMid.setRowAndCol(row: 2, col: 1)
-//        self.topRight.setRowAndCol(row: 0, col: 2)
-//        self.midRight.setRowAndCol(row: 1, col: 2)
-//        self.bottomRight.setRowAndCol(row: 2, col: 2)
-//    }
+    
+    //MARK: Helper Functions
+    private func checkRows(_ matrix: [[GameButton]], _ str: String) ->  Bool{
+        var win = true
+        
+        for i in 0..<matrix.count{
+            win = true
+            for j in 0..<matrix.count{
+                if let unwrappedLabel = matrix[i][j].titleLabel{
+                    if unwrappedLabel.text != str{
+                        win = false
+                        break
+                    }
+                }
+            }
+            if win {
+                return true
+            }
+        }
+        
+        return win
+    }
+    
+    private func checkColumns(_ matrix: [[GameButton]], _ str: String) -> Bool{
+        var win = true
+        
+        for i in 0..<matrix.count{
+            win = true
+            for j in 0..<matrix.count{
+                if let unwrappedLabel = matrix[j][i].titleLabel{
+                    if unwrappedLabel.text != str{
+                        win = false
+                    }
+                }
+            }
+            if win {
+                return true
+            }
+        }
+        
+           
+        return win
+    }
+    
+    private func checkDiagnols(_ matrix: [[GameButton]], _ str: String) -> Bool{
+        var win = false
+        
+        if let unwrappedOne = matrix[0][0].titleLabel, let unwrappedTwo = matrix[1][1].titleLabel, let unwrappedThree = matrix[2][2].titleLabel{
+            if unwrappedOne.text == str && unwrappedTwo.text == str && unwrappedThree.text == str{
+                win = true
+            }
+        }
+        
+        if let unwrappedOne = matrix[0][2].titleLabel, let unwrappedTwo = matrix[1][1].titleLabel, let unwrappedThree = matrix[2][0].titleLabel{
+            if unwrappedOne.text == str && unwrappedTwo.text == str && unwrappedThree.text == str{
+                win = true
+            }
+        }
+        
+        return win
+    }
     
     //MARK: Methods of TicTacToeBrain
-    func resetToNothing(_ arr: [GameButton]){
-        for element in arr{
+    
+    func didSomeoneWinYet(_ matrix: [[GameButton]], _ str: String) -> Bool{
+        var winConditionMet = false
+        
+        winConditionMet = checkRows(matrix, str)
+        
+        if winConditionMet{
+            return true
+            
+        }
+        
+        winConditionMet = checkColumns(matrix, str)
+        
+        if winConditionMet {
+            return true
+            
+        }
+        
+        winConditionMet = checkDiagnols(matrix, str)
+        
+        if winConditionMet {
+            return true
+            
+        }
+        
+        return winConditionMet
+    }
+    
+    func noMovesLeft(_ matrix: [[GameButton]]) -> Bool{
+        let noMoves = true
+        
+        for array in matrix{
+            for element in array{
+                if element.isUserInteractionEnabled == true{
+                    return false
+                }
+            }
+        }
+        
+        return noMoves
+    }
+    
+    func resetToNothing(_ matrix: [[GameButton]]){
+        for array in matrix{
+            for element in array{
             element.setTitle("", for: .normal)
+            element.titleLabel?.text = ""
             element.isUserInteractionEnabled = true
+            }
         }
     }
     
@@ -48,5 +132,9 @@ class TicTacToeBrain {
     func oh(_ button: GameButton){
         button.setTitle("O", for: .normal)
         button.isUserInteractionEnabled = false
+    }
+    
+    func switchTurn(_ x: Bool) -> Bool {
+        return !x
     }
 }
