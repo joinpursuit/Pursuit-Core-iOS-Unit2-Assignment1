@@ -13,7 +13,7 @@ class TicTacToeBrain {
     static var xTurn: Bool = true
     static var scoreOne = 0
     static var scoreTwo = 0
-    //    static var gameButtonArray: [GameButton]
+    static var movesMade = 0
     
     static func xOrO (_ button: GameButton) {
         if xTurn {
@@ -38,47 +38,12 @@ class TicTacToeBrain {
         var diag2 = 0
         
         for button in xOButtons {
-            if button.row == 0 {
-                if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
-                    row1 += 1
-                } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
-                    row1 -= 1
-                }
-            } else if button.row == 1 {
-                if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
-                    row2 += 1
-                } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
-                    row2 -= 1
-                }
-            } else if button.row == 2 {
-                if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
-                    row3 += 1
-                } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
-                    row3 -= 1
-                }
-            }
-        }
-        
-        for button in xOButtons {
-            if button.col == 0 {
-                if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
-                    col1 += 1
-                } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
-                    col1 -= 1
-                }
-            } else if button.col == 1 {
-                if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
-                    col2 += 1
-                } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
-                    col2 -= 1
-                }
-            } else if button.col == 2 {
-                if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
-                    col3 += 1
-                } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
-                    col3 -= 1
-                }
-            }
+            checkButton(button, 0, &row1)
+            checkButton(button, 1, &row2)
+            checkButton(button, 2, &row3)
+            checkButton2(button, 0, &col1)
+            checkButton2(button, 1, &col2)
+            checkButton2(button, 2, &col3)
         }
         
         for button in xOButtons {
@@ -115,7 +80,23 @@ class TicTacToeBrain {
             displayLabel.text = "Player 2 Won!"
             scoreTwo += 1
         }
-        print(diag2)
+    }
+    static func checkButton(_ button: GameButton, _ num: Int,_ desig:inout Int) {
+        if button.row == num {
+            if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
+                desig += 1
+            } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
+                desig -= 1
+            }
+        }
+    }
+    static func checkButton2(_ button: GameButton, _ num: Int,_ desig:inout Int) {
+        if button.col == num {
+            if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
+                desig += 1
+            } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
+                desig -= 1
+            }
+        }
     }
 }
-
