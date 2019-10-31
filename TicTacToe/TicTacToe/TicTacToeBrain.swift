@@ -56,6 +56,7 @@ class TicTacToeBrain {
                 }
             }
         }
+        
         for button in xOButtons {
             if button.col == 0 {
                 if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
@@ -77,14 +78,20 @@ class TicTacToeBrain {
                 }
             }
         }
+        
         for button in xOButtons {
             if button.col == button.row {
                 if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
                     diag1 += 1
+                    if button.rowCol == (1, 1) {
+                        diag2 += 1
+                    }
                 } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
                     diag1 -= 1
-                }
-            } else if button.rowCol == (2, 0) || button.rowCol == (1,1) || button.rowCol == (0,2) {
+                    if button.rowCol == (1, 1) {
+                        diag2 -= 1
+                    }                }
+            } else if button.rowCol == (2, 0) || button.rowCol == (0,2) {
                 if button.backgroundImage(for: .disabled) == UIImage(systemName: "xmark") {
                     diag2 += 1
                 } else if button.backgroundImage(for: .disabled) == UIImage(systemName: "circle") {
@@ -104,6 +111,7 @@ class TicTacToeBrain {
             }
             displayLabel.text = "Player 2 Won!"
         }
+        print(diag2)
     }
 }
 

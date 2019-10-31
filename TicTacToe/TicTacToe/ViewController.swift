@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var xOrOButtons: [GameButton]!
     @IBOutlet weak var playTurnDisplay: UILabel!
+    var x = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,15 @@ class ViewController: UIViewController {
         TicTacToeBrain.playerTurn(playTurnDisplay)
         sender.isEnabled.toggle()
         TicTacToeBrain.winCheck(xOrOButtons, playTurnDisplay)
-
+        x += 1
+        if x == 9 && (playTurnDisplay.text != "Player 1 Won!" && playTurnDisplay.text != "Player 2 Won!") {
+            playTurnDisplay.text = "Draw! Play Again?"
+        }
         // Fallback on earlier versions
     }
     
     @IBAction func playAgain(_ sender: UIButton) {
+        x = 0
         TicTacToeBrain.xTurn = true
         TicTacToeBrain.playerTurn(playTurnDisplay)
         
