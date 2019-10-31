@@ -11,7 +11,5 @@ import UIKit
 class GameButton: UIButton {
   @IBInspectable var row: Int = 0
   @IBInspectable var col: Int = 0
-    let image = "➕"
-    let image2 = "➖"
-    
+    lazy var rowCol: (Int, Int) = (row, col)
 }

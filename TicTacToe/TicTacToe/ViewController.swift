@@ -9,12 +9,12 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class ViewController: UIViewController {
     
     @IBOutlet var xOrOButtons: [GameButton]!
     @IBOutlet weak var playTurnDisplay: UILabel!
     
-    var xOrO = true
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,10 +24,21 @@ class ViewController: UIViewController {
         
         TicTacToeBrain.xOrO(sender)
         TicTacToeBrain.xTurn.toggle()
-        
+        TicTacToeBrain.playerTurn(playTurnDisplay)
         sender.isEnabled.toggle()
+        TicTacToeBrain.winCheck(xOrOButtons, playTurnDisplay)
+
         // Fallback on earlier versions
     }
     
+    @IBAction func playAgain(_ sender: UIButton) {
+        TicTacToeBrain.xTurn = true
+        TicTacToeBrain.playerTurn(playTurnDisplay)
+        
+        for button in xOrOButtons {
+            button.isEnabled = true
+            button.setBackgroundImage(nil, for: .disabled)
+        }
+    }
 }
 
