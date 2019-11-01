@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet var xoButtons: [UIButton]!
     @IBOutlet weak var gameStatus: UILabel!
+    @IBOutlet var player1Score: UILabel!
+    @IBOutlet var player2Score: UILabel!
     
     var gameBrain = TicTacToeBrain()
 
@@ -34,7 +36,7 @@ class ViewController: UIViewController {
             sender.isEnabled = false
             gameStatus.text = "It's Player1's Turn"
         }
-        gameBrain.winningPatern(xoButtons, gameStatus)
+        gameBrain.winningPatern(xoButtons, gameStatus, player1Score, player2Score)
     }
     
     @IBAction func reset(_ sender: UIButton) {
