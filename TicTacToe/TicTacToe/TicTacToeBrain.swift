@@ -100,6 +100,19 @@ class TicTacToeBrain {
         return winConditionMet
     }
     
+    func makeRandomMove(_ matrix: [[GameButton]]){
+        var validMove: Bool = false
+        var tempTuple: (row:Int,col:Int) = (0,0)
+        
+        while !validMove && !noMovesLeft(matrix){
+            tempTuple = (row: Int.random(in: 0...2), col: Int.random(in: 0...2))
+            if matrix[tempTuple.row][tempTuple.col].isUserInteractionEnabled {
+                validMove = true
+                oh(matrix[tempTuple.row][tempTuple.col])
+            }
+        }
+    }
+    
     func noMovesLeft(_ matrix: [[GameButton]]) -> Bool{
         let noMoves = true
         
@@ -120,6 +133,14 @@ class TicTacToeBrain {
             element.setTitle("", for: .normal)
             element.titleLabel?.text = ""
             element.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
+    func setRowsAndColumns(_ matrix: [[GameButton]]){
+        for i in 0..<matrix.count{
+            for j in 0..<matrix.count{
+                matrix[i][j].setRowAndCol(row: i, col: j)
             }
         }
     }
