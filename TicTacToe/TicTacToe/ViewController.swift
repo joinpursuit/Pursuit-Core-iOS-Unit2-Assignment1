@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var turnIndicator: UILabel!
     @IBOutlet weak var xWinsIndicator: UILabel!
     @IBOutlet weak var oWinsIndicator: UILabel!
+    @IBOutlet weak var option1: UIButton!
+    @IBOutlet weak var option2: UIButton!
     
     var buttonMatrix: [[GameButton]] = [[]]
     let functionHandler = TicTacToeBrain()
@@ -36,27 +38,40 @@ class ViewController: UIViewController {
     var oWins: Int = 0
     var playerWins: Int = 0
     var computerTriumphs: Int = 0
+    var options: Int = 0
+    var userChoice: String = ""
     
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     buttonMatrix = [[topLeft, topMid, topRight], [midLeft, midMid, midRight], [bottomLeft, bottomMid, bottomRight]]
-    functionHandler.resetToNothing(buttonMatrix)
+    functionHandler.startGame(buttonMatrix)
     functionHandler.setRowsAndColumns(buttonMatrix)
+    functionHandler.disable(buttonMatrix)
     newGameButton.titleLabel?.text = "New Two Player Game"
     newGameComputer.titleLabel?.text = "New Game Vs The Computer"
-    turnIndicator.text = "It is X's move."
+    turnIndicator.text = ""
     xWinsIndicator.text = "Number of X wins: \(xWins)"
     oWinsIndicator.text = "Number of O wins: \(oWins)"
+    option1.isHidden = true
+    option1.isUserInteractionEnabled = false
+    option2.isHidden = true
+    option2.isUserInteractionEnabled = false
   }
 
     @IBAction func pressedButton(_ sender: GameButton){
         if vsComputer{
             if !ohTurn && !gameOver {
-                turnIndicator.text = "It is the Player's Move."
+                turnIndicator.text = "It is the Computer's Move."
+                if userChoice == "X"{
                 functionHandler.exe(sender)
-                ohTurn = functionHandler.switchTurn(ohTurn)
                 gameOver  = functionHandler.didSomeoneWinYet(buttonMatrix, "X")
+                } else if userChoice == "O"{
+                    functionHandler.oh(sender)
+                    gameOver  = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
+                }
+                ohTurn = functionHandler.switchTurn(ohTurn)
+                
                 
                 
                 if gameOver{
@@ -65,10 +80,15 @@ class ViewController: UIViewController {
                 }
                 
                 if !gameOver {
-                    turnIndicator.text = "The computer's move."
-                    functionHandler.makeRandomMove(buttonMatrix)
+                    turnIndicator.text = "It is the Player's move."
+                    if userChoice == "X"{
+                        functionHandler.makeRandomMove(buttonMatrix, "O")
+                        gameOver  = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
+                    } else if userChoice == "O"{
+                        functionHandler.makeRandomMove(buttonMatrix, "X")
+                        gameOver  = functionHandler.didSomeoneWinYet(buttonMatrix, "X")
+                    }
                     ohTurn = functionHandler.switchTurn(ohTurn)
-                    gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
                     
                     if gameOver{
                         computerTriumphs += 1
@@ -109,12 +129,10 @@ class ViewController: UIViewController {
         if functionHandler.noMovesLeft(buttonMatrix) && !gameOver{
             turnIndicator.text = "Draw"
         }
-
-        
     }
     
     @IBAction func resetTwoPlayerGame(_ sender: UIButton){
-        functionHandler.resetToNothing(buttonMatrix)
+        functionHandler.startGame(buttonMatrix)
         ohTurn = false
         gameOver = false
         turnIndicator.text = "It is X's move."
@@ -125,13 +143,101 @@ class ViewController: UIViewController {
     }
     
      @IBAction func resetVsComputer(_ sender: UIButton){
-        functionHandler.resetToNothing(buttonMatrix)
-        ohTurn = false
+    functionHandler.disable(buttonMatrix)
+        option1.isUserInteractionEnabled = true
+        option1.isHidden = false
+        option2.isUserInteractionEnabled = true
+        option2.isHidden = false
         gameOver = false
-        turnIndicator.text = "It is the player's move."
+        turnIndicator.text = "Who goes first?"
         vsComputer = true
+        option1.setTitle("Player", for: .normal)
+        option2.setTitle("Computer", for: .normal)
         xWinsIndicator.text = "Number of Player wins: \(playerWins)"
         oWinsIndicator.text = "Number of Computer wins: \(computerTriumphs)"
+        options = 0
+        
+    }
+    
+    @IBAction func option1Function(_ sender: UIButton){
+        
+        switch options{
+        case 0:
+            ohTurn = false
+            turnIndicator.text = "Would you like to be X or O?"
+            option1.setTitle("X", for: .normal)
+            option2.setTitle("O", for: .normal)
+            options += 1
+        case 1:
+            userChoice = "X"
+            option1.isUserInteractionEnabled = false
+            option1.isHidden = true
+            option2.isUserInteractionEnabled = false
+            option2.isHidden = true
+            functionHandler.startGame(buttonMatrix)
+            if !ohTurn{
+                turnIndicator.text = "It is the Player's move."
+            } else {
+                turnIndicator.text = "It is the Computer's move."
+                    if userChoice == "X"{
+                        functionHandler.makeRandomMove(buttonMatrix, "O")
+                        gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
+                    } else if userChoice == "O"{
+                        functionHandler.makeRandomMove(buttonMatrix,"X")
+                        gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "X")
+                    }
+                ohTurn = functionHandler.switchTurn(ohTurn)
+                
+                
+                if gameOver{
+                    computerTriumphs += 1
+                    turnIndicator.text = "The Computer Wins"
+                    }
+            }
+        default:
+            break
+        }
+        
+    }
+    
+    @IBAction func option2Function(_ sender: UIButton){
+        switch options{
+        case 0:
+            ohTurn = true
+            turnIndicator.text = "Would you like to be X or O?"
+            option1.setTitle("X", for: .normal)
+            option2.setTitle("O", for: .normal)
+            options += 1
+        case 1:
+            userChoice = "O"
+            option1.isUserInteractionEnabled = false
+            option1.isHidden = true
+            option2.isUserInteractionEnabled = false
+            option2.isHidden = true
+            functionHandler.startGame(buttonMatrix)
+            if ohTurn{
+            turnIndicator.text = "It is the Computer's move."
+                if userChoice == "X"{
+                    functionHandler.makeRandomMove(buttonMatrix, "O")
+                    gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
+                } else if userChoice == "O"{
+                    functionHandler.makeRandomMove(buttonMatrix,"X")
+                    gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "X")
+                }
+            ohTurn = functionHandler.switchTurn(ohTurn)
+            
+            
+            if gameOver{
+                computerTriumphs += 1
+                turnIndicator.text = "The Computer Wins"
+                }
+            } else {
+                turnIndicator.text = "It is the Player's move."
+            }
+            default:
+            break
+        }
+        
     }
 
 }

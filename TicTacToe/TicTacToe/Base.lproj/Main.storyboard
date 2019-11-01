@@ -118,14 +118,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBP-gw-VqE">
-                                <rect key="frame" x="108" y="581" width="206" height="57"/>
+                                <rect key="frame" x="20" y="581" width="374" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQQ-PC-wkV">
-                                <rect key="frame" x="108" y="646" width="206" height="57"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-qp-OWs">
+                                <rect key="frame" x="57" y="711" width="300" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -139,8 +139,25 @@
                                     <action selector="resetVsComputer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JN7-EA-Ojg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mG-qp-OWs">
-                                <rect key="frame" x="57" y="711" width="300" height="58"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHH-FY-fGc">
+                                <rect key="frame" x="0.0" y="777" width="201" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="button"/>
+                                <connections>
+                                    <action selector="option1Function:" destination="BYZ-38-t0r" eventType="touchUpInside" id="APE-Mx-gc1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gnm-n3-648">
+                                <rect key="frame" x="209" y="777" width="205" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="button"/>
+                                <connections>
+                                    <action selector="option2Function:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iF8-e7-Gaz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQQ-PC-wkV">
+                                <rect key="frame" x="104" y="646" width="206" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -160,6 +177,8 @@
                         <outlet property="newGameButton" destination="7uX-0r-yNn" id="uw4-bl-jJ8"/>
                         <outlet property="newGameComputer" destination="KMb-eA-ply" id="fEK-Sg-qGN"/>
                         <outlet property="oWinsIndicator" destination="8mG-qp-OWs" id="3v7-Gz-RXt"/>
+                        <outlet property="option1" destination="oHH-FY-fGc" id="P4A-hO-zIg"/>
+                        <outlet property="option2" destination="Gnm-n3-648" id="MRT-dm-98a"/>
                         <outlet property="topLeft" destination="m22-PL-69Q" id="6T8-VV-lxF"/>
                         <outlet property="topMid" destination="JJf-r1-bcS" id="NUg-UW-9Rz"/>
                         <outlet property="topRight" destination="MGk-ny-0EE" id="zez-lE-9c0"/>

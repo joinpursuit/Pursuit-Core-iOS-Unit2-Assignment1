@@ -17,12 +17,10 @@ class TicTacToeBrain {
         for i in 0..<matrix.count{
             win = true
             for j in 0..<matrix.count{
-                if let unwrappedLabel = matrix[i][j].titleLabel{
-                    if unwrappedLabel.text != str{
+                    if matrix[i][j].titleLabel?.text != str{
                         win = false
                         break
                     }
-                }
             }
             if win {
                 return true
@@ -38,10 +36,8 @@ class TicTacToeBrain {
         for i in 0..<matrix.count{
             win = true
             for j in 0..<matrix.count{
-                if let unwrappedLabel = matrix[j][i].titleLabel{
-                    if unwrappedLabel.text != str{
+               if matrix[j][i].titleLabel?.text != str{
                         win = false
-                    }
                 }
             }
             if win {
@@ -55,17 +51,13 @@ class TicTacToeBrain {
     
     private func checkDiagnols(_ matrix: [[GameButton]], _ str: String) -> Bool{
         var win = false
-        
-        if let unwrappedOne = matrix[0][0].titleLabel, let unwrappedTwo = matrix[1][1].titleLabel, let unwrappedThree = matrix[2][2].titleLabel{
-            if unwrappedOne.text == str && unwrappedTwo.text == str && unwrappedThree.text == str{
+
+            if matrix[0][0].titleLabel?.text == str && matrix[1][1].titleLabel?.text == str && matrix[2][2].titleLabel?.text == str{
                 win = true
             }
-        }
         
-        if let unwrappedOne = matrix[0][2].titleLabel, let unwrappedTwo = matrix[1][1].titleLabel, let unwrappedThree = matrix[2][0].titleLabel{
-            if unwrappedOne.text == str && unwrappedTwo.text == str && unwrappedThree.text == str{
-                win = true
-            }
+        if matrix[0][2].titleLabel?.text == str && matrix[1][1].titleLabel?.text == str && matrix[2][0].titleLabel?.text == str{
+            win = true
         }
         
         return win
@@ -100,7 +92,7 @@ class TicTacToeBrain {
         return winConditionMet
     }
     
-    func makeRandomMove(_ matrix: [[GameButton]]){
+    func makeRandomMove(_ matrix: [[GameButton]], _ str: String){
         var validMove: Bool = false
         var tempTuple: (row:Int,col:Int) = (0,0)
         
@@ -108,7 +100,12 @@ class TicTacToeBrain {
             tempTuple = (row: Int.random(in: 0...2), col: Int.random(in: 0...2))
             if matrix[tempTuple.row][tempTuple.col].isUserInteractionEnabled {
                 validMove = true
-                oh(matrix[tempTuple.row][tempTuple.col])
+                if str == "O"{
+                    oh(matrix[tempTuple.row][tempTuple.col])
+                } else if str == "X"{
+                    exe(matrix[tempTuple.row][tempTuple.col])
+                }
+                
             }
         }
     }
@@ -127,12 +124,22 @@ class TicTacToeBrain {
         return noMoves
     }
     
-    func resetToNothing(_ matrix: [[GameButton]]){
+    func startGame(_ matrix: [[GameButton]]){
         for array in matrix{
             for element in array{
             element.setTitle("", for: .normal)
             element.titleLabel?.text = ""
             element.isUserInteractionEnabled = true
+            }
+        }
+    }
+    
+    func disable(_ matrix: [[GameButton]]){
+        for array in matrix{
+            for element in array{
+                element.setTitle("", for: .normal)
+                element.titleLabel?.text = ""
+                element.isUserInteractionEnabled = false
             }
         }
     }
