@@ -9,5 +9,11 @@
 import Foundation
 
 class TicTacToeBrain {
-  
+    var playerX : Bool
+    var playerO : Bool
+    
+    init(playerX: Bool, playerO: Bool ) {
+        self.playerX = playerX
+        self.playerO = playerO
+    }
 }
