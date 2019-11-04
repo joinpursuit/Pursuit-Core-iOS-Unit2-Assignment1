@@ -8,6 +8,17 @@
 
 import Foundation
 
-class TicTacToeBrain {
-  
+
+
+struct TicTacToeBrain {
+  let position: [GamePiece]
+  let turn: GamePiece
+
+    init(position: [GamePiece] = [.Empty, .Empty, .Empty, .Empty, .Empty, .Empty, .Empty, .Empty, .Empty], turn: GamePiece = .X) {
+           self.position = position
+           self.turn = turn
+           
+       }
+    
+
 }
