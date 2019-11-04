@@ -8,10 +8,10 @@
 
 import Foundation
 
-enum GamePiece: String {
-    case X = "X"
-    case O = "O"
-    case Empty = " "
+enum GamePiece {
+    case x
+    case o
+    case empty
    
     
 }

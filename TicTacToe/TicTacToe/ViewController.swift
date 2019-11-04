@@ -9,18 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-var playerNumber = 1
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        if playerNumber == 1 {
-        sender.setBackgroundImage(UIImage(systemName: "sun.max"), for: .normal)
-            playerNumber = 2
-        } else {
-            sender.setBackgroundImage(UIImage(systemName: "moon"), for: .normal)
-            playerNumber = 1
-        }
+
+var game = TicTacToeBrain()
+    
+    
+    @IBOutlet var gamePieceButtons: [GameButton]!
+    @IBAction func buttonPressed(_ sender: GameButton) {
+        game.placePiece(sender)
     }
     @IBOutlet weak var gameStatusLabel: UILabel!
     @IBAction func newGameButton(_ sender: UIButton) {
+        game.gameRestart()
+        for button in gamePieceButtons {
+            button.setBackgroundImage(nil, for: .normal)
+        }
     }
     
     override func viewDidLoad() {
