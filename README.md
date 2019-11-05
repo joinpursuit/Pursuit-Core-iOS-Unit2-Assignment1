@@ -82,4 +82,4 @@ For some extra reading on this subject, check out: http://nshipster.com/ibinspec
 
 ## Big stretch!!!!
 
-1. Tic Tac Toe is a solved game. A [solved game](https://github.com/joinpursuit/Pursuit-Core-iOS-Unit2-Assignment1) is one where the best possible move at any point can be determined. Implement the best possible move for the Computer's turns to make your game super-hard.
+1. Tic Tac Toe is a solved game. A [solved game](https://en.wikipedia.org/wiki/Solved_game) is one where the best possible move at any point can be determined. Implement the best possible move for the Computer's turns to make your game super-hard.
