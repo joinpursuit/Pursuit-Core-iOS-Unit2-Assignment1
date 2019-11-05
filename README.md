@@ -37,6 +37,10 @@ Yup|Some might not like this
 ![Smooth moves](Images/player-two-turn.png)|![Yay](Images/player-two-turn-1.png)
 
 
+## Rubric
+
+![tictactoerubric](./images/tictactoerubric.png)
+
 #### Hints:
 
 1. You should use buttons for each square.
