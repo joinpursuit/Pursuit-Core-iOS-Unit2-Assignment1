@@ -9,34 +9,54 @@
 import UIKit
 
 
+
 class ViewController: UIViewController {
 
+    
     
     @IBOutlet var gameButtons: [GameButton]!
     
     
     @IBOutlet weak var board: UIImageView!
     
+    @IBOutlet weak var gameStatsLabel: UILabel!
     
     
   override func viewDidLoad() {
     super.viewDidLoad()
-  
+    gameStatsLabel.text = "Tic Tac Toe"
+    
   }
     
+    
+    @IBAction func playAgain(_ sender: UIButton) {
+        
+    }
+    
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
-        print("row : \(gameButton.row) column : \(gameButton.col) was picked")
         
-        //TODO: Ask why the error message popped up
-
-            let board = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
-            let xMark = UIImage(systemName: "xmark", withConfiguration: board)
+        let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
+        
+        let xmarkImage = UIImage(systemName: "xmark", withConfiguration: config)
+        let omarkImage = UIImage(systemName: "circle", withConfiguration: config)
+        
+        playerX.toggle()
+        
+        if playerX {
+            gameButton.setImage(xmarkImage, for: .normal)
+            gameButton.isEnabled = false
+            gameStatsLabel.text = "Player 2's turn"
             
-            let oMark = UIImage(systemName: "circle", withConfiguration: board)
+        } else {
+            gameButton.setImage(omarkImage, for: .normal)
+            gameStatsLabel.text = "Player 1's turn"
+            gameButton.isEnabled = false
+        }
+        
+        
+        
+        
 
-        
-        
-        
     }
     
 
