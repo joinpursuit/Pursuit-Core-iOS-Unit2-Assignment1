@@ -14,7 +14,7 @@ import UIKit
 struct TicTacToeBrain {
     var gameBoard: [GamePiece]
     var player: Int = 1
-    var turnCount = 0
+ private var turnCount = 0
     var draw: Bool
     var isWin: Bool {
            return
@@ -37,12 +37,12 @@ struct TicTacToeBrain {
         if gameBoard[button.position] == .empty {
             if player == 1 {
                 gameBoard[button.position] = .x
-                button.setBackgroundImage(UIImage(systemName: "sun.max"), for: .normal)
+                button.setBackgroundImage(UIImage(systemName: "sun.max.fill"), for: .normal)
                 turnCount += 1
                 player += 1
             } else {
                 gameBoard[button.position] = .o
-                button.setBackgroundImage(UIImage(systemName: "moon"), for: .normal)
+                button.setBackgroundImage(UIImage(systemName: "moon.fill"), for: .normal)
                 turnCount += 1
                 player -= 1
             }
