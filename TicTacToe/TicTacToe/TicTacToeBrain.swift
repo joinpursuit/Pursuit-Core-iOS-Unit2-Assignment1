@@ -13,9 +13,9 @@ import UIKit
 
 struct TicTacToeBrain {
     var gameBoard: [GamePiece]
-    let turn: GamePiece
     var player: Int = 1
     var turnCount = 0
+    var draw: Bool
     var isWin: Bool {
            return
                gameBoard[0] == gameBoard[1] && gameBoard[0] == gameBoard[2] && gameBoard[0] != .empty ||
@@ -28,9 +28,9 @@ struct TicTacToeBrain {
                gameBoard[2] == gameBoard[4] && gameBoard[2] == gameBoard[6] && gameBoard[2] != .empty
     }
     
-    init(gameBoard: [GamePiece] = [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty], turn: GamePiece = .x) {
+    init(gameBoard: [GamePiece] = [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty], draw: Bool = false) {
            self.gameBoard = gameBoard
-           self.turn = turn
+            self.draw = draw
            }
     
     mutating func placePiece(_ button: GameButton) {
@@ -55,7 +55,28 @@ struct TicTacToeBrain {
         turnCount = 0
     }
     
+    mutating func drawOrNot() -> Bool {
+        if turnCount == 9 {
+            if isWin == false {
+                draw = true
+            }
+        } else {
+            draw = false
+        }
+        return draw
+    }
     
+    func win() -> String {
+        var winMessage: String = ""
+        if isWin {
+            if player == 1 {
+                winMessage = "Player 2 Wins!"
+            } else {
+                winMessage = "Player 1 Wins!"
+            }
+        }
+        return winMessage
+    }
 }
 
 
