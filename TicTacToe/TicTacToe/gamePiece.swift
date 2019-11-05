@@ -12,6 +12,4 @@ enum GamePiece {
     case x
     case o
     case empty
-   
-    
 }

@@ -33,7 +33,7 @@ struct TicTacToeBrain {
             self.draw = draw
            }
     
-    mutating func placePiece(_ button: GameButton) {
+  mutating func placePiece(_ button: GameButton) {
         if gameBoard[button.position] == .empty {
             if player == 1 {
                 gameBoard[button.position] = .x
