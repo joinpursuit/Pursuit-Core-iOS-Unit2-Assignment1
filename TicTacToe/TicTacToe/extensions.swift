@@ -14,7 +14,7 @@ extension UIView {
 func attributes() {
     layer.cornerRadius = 5.0
     layer.masksToBounds = true
-    layer.borderWidth = 1
+    layer.borderWidth = 4
     layer.borderColor = UIColor.black.cgColor
 }
 }
