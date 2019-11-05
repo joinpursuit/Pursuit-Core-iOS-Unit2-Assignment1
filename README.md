@@ -39,7 +39,7 @@ Yup|Some might not like this
 
 ## Rubric
 
-![tictactoerubric](./images/tictactoerubric.png)
+![tictactoerubric](./Images/tictactoerubric.png)
 
 #### Hints:
 
