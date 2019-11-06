@@ -12,45 +12,78 @@ var playerX = false
 
 
 class TicTacToeBrain {
-    //where you win. array matrix
-    //list how the board should look to win
-    var boardMatrix = [["","",""],
-                       ["","",""],
-                       ["","",""]]
-    //create new thing to populate empty matrix
+
+    var boardMatrix = [[String]]()
+    
     var gameView = ViewController()
-    var printStatement : UILabel
     
-    init(boardMatrix: [[String]], printStatement: UILabel) {
-        self.boardMatrix = boardMatrix
-        self.printStatement = printStatement
-    }
+        init(){
+        }
     
-    func populate(_ gameButton: GameButton) -> String {
+    func populate(_ gameButton: GameButton) {
         if playerX {
-            boardMatrix[gameButton.row][gameButton.col] = "xmark"
-            gameView.gameStatsLabel.text = "Player 1 won!"
+            boardMatrix[gameButton.row][gameButton.col] = "x"
+            print(boardMatrix)
         } else {
-            boardMatrix[gameButton.row][gameButton.col] = "circle"
-            gameView.gameStatsLabel.text = "Player 2 won!"
+            boardMatrix[gameButton.row][gameButton.col] = "o"
+            print(boardMatrix)
+            
         }
-        return gameView.gameStatsLabel.text ?? ""
     }
     
-    func winCondition() {
+    
+    func winCondition() -> String {
+        var text = gameView.gameStatsLabel.text ?? ""
         if boardMatrix[0][0] == boardMatrix[0][1] && boardMatrix[0][0] == boardMatrix[0][2] {
-            
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
         } else if boardMatrix[1][0] == boardMatrix[1][1] && boardMatrix[1][0] == boardMatrix[1][2] {
-            print()
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+               text = "Player 2 wins"
+            }
         } else if boardMatrix[2][0] == boardMatrix[2][1] && boardMatrix[2][0] == boardMatrix[2][2] {
-            print()
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
         } else if boardMatrix[0][0] == boardMatrix[1][0] && boardMatrix[0][0] == boardMatrix[2][0] {
-            print()
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
         } else if boardMatrix[0][1] == boardMatrix[1][1] && boardMatrix[0][1] == boardMatrix[2][1] {
-            print()
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
         } else if boardMatrix[0][2] == boardMatrix[1][2] && boardMatrix[0][2] == boardMatrix[2][2] {
-            print()
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
+            } else if boardMatrix[0][0] == boardMatrix[1][1] && boardMatrix[0][0] == boardMatrix [2][2] {
+            if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
+        } else if boardMatrix[0][2] == boardMatrix[1][1] && boardMatrix[0][2] == boardMatrix[2][0] {
+           if boardMatrix.contains(["x"]) {
+                text = "Player 1 wins"
+            } else if boardMatrix.contains(["o"]) {
+                text = "Player 2 wins"
+            }
         }
+        return text
     }
     
     

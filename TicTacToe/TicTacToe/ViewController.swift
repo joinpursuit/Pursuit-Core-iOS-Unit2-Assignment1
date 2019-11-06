@@ -12,7 +12,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
+    var brain = TicTacToeBrain.init().winCondition()
     
     @IBOutlet var gameButtons: [GameButton]!
     
@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var gameStatsLabel: UILabel!
     
+    
+
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +38,6 @@ class ViewController: UIViewController {
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
         
         let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
-        
         let xmarkImage = UIImage(systemName: "xmark", withConfiguration: config)
         let omarkImage = UIImage(systemName: "circle", withConfiguration: config)
         
@@ -46,14 +47,14 @@ class ViewController: UIViewController {
             gameButton.setImage(xmarkImage, for: .normal)
             gameButton.isEnabled = false
             gameStatsLabel.text = "Player 2's turn"
-            
         } else {
             gameButton.setImage(omarkImage, for: .normal)
             gameStatsLabel.text = "Player 1's turn"
             gameButton.isEnabled = false
+            
         }
         
-        
+        gameStatsLabel.text = brain
         
         
 
