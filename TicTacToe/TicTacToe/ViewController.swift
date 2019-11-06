@@ -11,6 +11,8 @@ import UIKit
 
 
 class ViewController: UIViewController {
+    
+    var game = TicTacToeBrain() // instance 
 
     var brain = TicTacToeBrain.init().winCondition()
     
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var gameStatsLabel: UILabel!
     
     
-
+//TODO: create an instance of brain class
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,7 +44,8 @@ class ViewController: UIViewController {
         let omarkImage = UIImage(systemName: "circle", withConfiguration: config)
         
         playerX.toggle()
-        
+        game.populate(gameButton)
+
         if playerX {
             gameButton.setImage(xmarkImage, for: .normal)
             gameButton.isEnabled = false
@@ -55,8 +58,6 @@ class ViewController: UIViewController {
         }
         
         gameStatsLabel.text = brain
-        
-        
 
     }
     
