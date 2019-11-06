@@ -8,7 +8,6 @@
 
 import UIKit
 
-class GameButton: UIButton {
-  @IBInspectable var row: Int = 0
-  @IBInspectable var col: Int = 0
+final class GameButton: UIButton {
+    @IBInspectable var position: Int = 0
 }

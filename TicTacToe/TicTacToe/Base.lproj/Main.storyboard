@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +11,241 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="grid" catalog="system" id="dFS-cC-OyQ">
+                                <rect key="frame" x="10" y="157" width="394" height="513"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.60846801827358798" green="0.43967435404328015" blue="0.84267407655715942" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player One's Turn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5W-qp-TIZ">
+                                <rect key="frame" x="30" y="94" width="354" height="50"/>
+                                <color key="backgroundColor" red="0.92133218050003052" green="0.60985522779388601" blue="0.8649530654517823" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cq1-MO-7Nh">
+                                <rect key="frame" x="152" y="732" width="111" height="67"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="28"/>
+                                <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sSF-ob-O7b"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnP-jB-D8a" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="50" y="264.5" width="76" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="UA4-lj-gQS"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aZv-NP-hue"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qx5-Kg-oSs" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="170" y="264.5" width="74" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="74" id="jBR-NK-2IQ"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pwd-JK-iy0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8L-Vb-y8G" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="290" y="264.5" width="74" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daG-Wu-ZEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8h-Y0-a4B" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="50" y="379.5" width="76" height="69"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="9LS-X9-sVO"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BsJ-lN-ex8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BS5-LY-y9t" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="170" y="380" width="74" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRY-Xr-TiQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hT-4M-Hmt" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="290" y="497" width="74" height="69"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W6l-7B-51d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bd-hg-3RY" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="170" y="497" width="74" height="71"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O9V-vh-30l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0X-dR-YTB" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="50" y="497" width="76" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oIb-S5-R3f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aha-Jc-HSY" customClass="GameButton" customModule="TicTacToe" customModuleProvider="target">
+                                <rect key="frame" x="290" y="379.5" width="74" height="69"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="position">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SpJ-RK-RGN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0bd-hg-3RY" firstAttribute="top" secondItem="BS5-LY-y9t" secondAttribute="bottom" constant="47" id="0ZN-fu-PSW"/>
+                            <constraint firstItem="BS5-LY-y9t" firstAttribute="firstBaseline" secondItem="a8h-Y0-a4B" secondAttribute="firstBaseline" id="3sV-jc-ci3"/>
+                            <constraint firstItem="j0X-dR-YTB" firstAttribute="centerY" secondItem="2hT-4M-Hmt" secondAttribute="centerY" id="6LX-G5-t1u"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="top" secondItem="jnP-jB-D8a" secondAttribute="bottom" constant="45" id="6zY-Cd-nKl"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="top" secondItem="o8L-Vb-y8G" secondAttribute="top" id="7W4-8a-KoJ"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="trailing" secondItem="j0X-dR-YTB" secondAttribute="trailing" id="8XU-Nk-leb"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="leading" secondItem="j0X-dR-YTB" secondAttribute="leading" id="92s-3N-d5n"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="leading" secondItem="BS5-LY-y9t" secondAttribute="leading" id="By0-jF-PrP"/>
+                            <constraint firstItem="j0X-dR-YTB" firstAttribute="firstBaseline" secondItem="2hT-4M-Hmt" secondAttribute="firstBaseline" id="CHV-tk-bfo"/>
+                            <constraint firstItem="j0X-dR-YTB" firstAttribute="centerY" secondItem="0bd-hg-3RY" secondAttribute="centerY" id="CbV-CA-h4R"/>
+                            <constraint firstItem="jnP-jB-D8a" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="FSA-OC-xqb"/>
+                            <constraint firstItem="jnP-jB-D8a" firstAttribute="top" secondItem="Qx5-Kg-oSs" secondAttribute="top" id="GYj-Yj-8jM"/>
+                            <constraint firstItem="o8L-Vb-y8G" firstAttribute="firstBaseline" secondItem="Qx5-Kg-oSs" secondAttribute="firstBaseline" id="HDZ-e8-8hE"/>
+                            <constraint firstItem="Q5W-qp-TIZ" firstAttribute="centerX" secondItem="Qx5-Kg-oSs" secondAttribute="centerX" id="JFI-cw-8Us"/>
+                            <constraint firstItem="Cq1-MO-7Nh" firstAttribute="top" secondItem="dFS-cC-OyQ" secondAttribute="bottom" constant="63" id="K1R-sU-xw3"/>
+                            <constraint firstItem="dFS-cC-OyQ" firstAttribute="top" secondItem="Q5W-qp-TIZ" secondAttribute="bottom" constant="14.5" id="KOc-QB-V3d"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="baseline" secondItem="o8L-Vb-y8G" secondAttribute="baseline" id="KVg-IX-1hh"/>
+                            <constraint firstItem="o8L-Vb-y8G" firstAttribute="leading" secondItem="Qx5-Kg-oSs" secondAttribute="trailing" constant="46" id="Mpr-1w-832"/>
+                            <constraint firstItem="0bd-hg-3RY" firstAttribute="top" secondItem="2hT-4M-Hmt" secondAttribute="top" id="NDW-mK-1pJ"/>
+                            <constraint firstItem="Aha-Jc-HSY" firstAttribute="leading" secondItem="2hT-4M-Hmt" secondAttribute="leading" id="OeJ-7W-NjF"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="centerY" secondItem="BS5-LY-y9t" secondAttribute="centerY" id="Q17-sS-0Fe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="o8L-Vb-y8G" secondAttribute="trailing" constant="50" id="Q96-uv-uVH"/>
+                            <constraint firstItem="Aha-Jc-HSY" firstAttribute="trailing" secondItem="2hT-4M-Hmt" secondAttribute="trailing" id="TXS-uX-mBW"/>
+                            <constraint firstItem="jnP-jB-D8a" firstAttribute="bottom" secondItem="Qx5-Kg-oSs" secondAttribute="bottom" id="VuG-Ku-TyG"/>
+                            <constraint firstItem="Q5W-qp-TIZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="X1a-Z0-y6S"/>
+                            <constraint firstItem="BS5-LY-y9t" firstAttribute="top" secondItem="Aha-Jc-HSY" secondAttribute="top" id="XEo-64-dZ8"/>
+                            <constraint firstItem="j0X-dR-YTB" firstAttribute="firstBaseline" secondItem="0bd-hg-3RY" secondAttribute="firstBaseline" id="XTc-rN-haz"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="centerY" secondItem="dFS-cC-OyQ" secondAttribute="centerY" id="Xve-3d-JeT"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="trailing" secondItem="BS5-LY-y9t" secondAttribute="trailing" id="ahA-oF-mPf"/>
+                            <constraint firstItem="Aha-Jc-HSY" firstAttribute="baseline" secondItem="BS5-LY-y9t" secondAttribute="baseline" id="azn-Ia-g0H"/>
+                            <constraint firstItem="BS5-LY-y9t" firstAttribute="baseline" secondItem="a8h-Y0-a4B" secondAttribute="baseline" id="bXb-zL-wGI"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="firstBaseline" secondItem="Aha-Jc-HSY" secondAttribute="firstBaseline" id="dEq-kD-tVV"/>
+                            <constraint firstItem="Cq1-MO-7Nh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="eGN-w6-reV"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="baseline" secondItem="Aha-Jc-HSY" secondAttribute="baseline" id="fqq-3x-mul"/>
+                            <constraint firstItem="jnP-jB-D8a" firstAttribute="leading" secondItem="a8h-Y0-a4B" secondAttribute="leading" id="fvq-8U-QnM"/>
+                            <constraint firstItem="o8L-Vb-y8G" firstAttribute="leading" secondItem="Aha-Jc-HSY" secondAttribute="leading" id="fxG-fF-s9c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j0X-dR-YTB" secondAttribute="bottom" constant="295" id="ghT-Qt-5W7"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="top" secondItem="BS5-LY-y9t" secondAttribute="top" id="hR2-l9-JxH"/>
+                            <constraint firstItem="BS5-LY-y9t" firstAttribute="leading" secondItem="0bd-hg-3RY" secondAttribute="leading" id="hY8-NS-Cue"/>
+                            <constraint firstItem="0bd-hg-3RY" firstAttribute="baseline" secondItem="2hT-4M-Hmt" secondAttribute="baseline" id="ikf-I8-cVd"/>
+                            <constraint firstItem="0bd-hg-3RY" firstAttribute="centerX" secondItem="Cq1-MO-7Nh" secondAttribute="centerX" id="izW-b9-qAj"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="centerX" secondItem="dFS-cC-OyQ" secondAttribute="centerX" id="jl9-nZ-P6O"/>
+                            <constraint firstItem="2hT-4M-Hmt" firstAttribute="baseline" secondItem="j0X-dR-YTB" secondAttribute="baseline" id="lyu-Tr-g7o"/>
+                            <constraint firstItem="a8h-Y0-a4B" firstAttribute="bottom" secondItem="Aha-Jc-HSY" secondAttribute="bottom" id="nJb-oN-RxD"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="bottom" secondItem="o8L-Vb-y8G" secondAttribute="bottom" id="nV5-vB-VVj"/>
+                            <constraint firstItem="Q5W-qp-TIZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="p0i-Pv-apu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cq1-MO-7Nh" secondAttribute="bottom" constant="63" id="qTe-w3-k4s"/>
+                            <constraint firstItem="2hT-4M-Hmt" firstAttribute="firstBaseline" secondItem="0bd-hg-3RY" secondAttribute="firstBaseline" id="qXr-xm-K6j"/>
+                            <constraint firstItem="Qx5-Kg-oSs" firstAttribute="leading" secondItem="jnP-jB-D8a" secondAttribute="trailing" constant="44" id="s1s-X1-KIw"/>
+                            <constraint firstItem="BS5-LY-y9t" firstAttribute="trailing" secondItem="0bd-hg-3RY" secondAttribute="trailing" id="s8T-wE-nSw"/>
+                            <constraint firstItem="j0X-dR-YTB" firstAttribute="baseline" secondItem="0bd-hg-3RY" secondAttribute="baseline" id="uON-3d-pML"/>
+                            <constraint firstItem="o8L-Vb-y8G" firstAttribute="trailing" secondItem="Aha-Jc-HSY" secondAttribute="trailing" id="uP0-Kt-Cqk"/>
+                            <constraint firstItem="jnP-jB-D8a" firstAttribute="trailing" secondItem="a8h-Y0-a4B" secondAttribute="trailing" id="vFh-Mn-Sdn"/>
+                            <constraint firstItem="BS5-LY-y9t" firstAttribute="firstBaseline" secondItem="Aha-Jc-HSY" secondAttribute="firstBaseline" id="yE9-so-MK1"/>
+                            <constraint firstItem="j0X-dR-YTB" firstAttribute="top" secondItem="0bd-hg-3RY" secondAttribute="top" id="yqE-Wo-RMK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="gameStatusLabel" destination="Q5W-qp-TIZ" id="140-ik-NYN"/>
+                        <outlet property="newGameButtonOutlet" destination="Cq1-MO-7Nh" id="SJc-IZ-w1a"/>
+                        <outletCollection property="gamePieceButtons" destination="Qx5-Kg-oSs" collectionClass="NSMutableArray" id="r1b-lh-Blh"/>
+                        <outletCollection property="gamePieceButtons" destination="o8L-Vb-y8G" collectionClass="NSMutableArray" id="1nh-GB-wse"/>
+                        <outletCollection property="gamePieceButtons" destination="jnP-jB-D8a" collectionClass="NSMutableArray" id="yuH-1G-CpQ"/>
+                        <outletCollection property="gamePieceButtons" destination="a8h-Y0-a4B" collectionClass="NSMutableArray" id="Za1-4B-b1Q"/>
+                        <outletCollection property="gamePieceButtons" destination="BS5-LY-y9t" collectionClass="NSMutableArray" id="5Cv-4z-867"/>
+                        <outletCollection property="gamePieceButtons" destination="2hT-4M-Hmt" collectionClass="NSMutableArray" id="cvb-4e-iKb"/>
+                        <outletCollection property="gamePieceButtons" destination="0bd-hg-3RY" collectionClass="NSMutableArray" id="9Up-53-UrQ"/>
+                        <outletCollection property="gamePieceButtons" destination="j0X-dR-YTB" collectionClass="NSMutableArray" id="LGQ-Z7-J6e"/>
+                        <outletCollection property="gamePieceButtons" destination="Aha-Jc-HSY" collectionClass="NSMutableArray" id="9fm-LJ-TSh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="grid" catalog="system" width="64" height="56"/>
+    </resources>
 </document>
