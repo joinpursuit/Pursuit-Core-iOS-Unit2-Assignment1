@@ -74,7 +74,14 @@ class TicTacToeBrain {
     //Cycles through an array meant to present game board.
     //Board is not filled if there are any null instances.
     func checkBoardFilled() -> Bool{
-        if self.board.isEmpty{
+        
+        if self.board.contains(where: { (row) -> Bool in
+            if row.contains("_"){
+                return true
+            } else {
+                return false
+            }
+        }){
             return false
         } else {
             return true
