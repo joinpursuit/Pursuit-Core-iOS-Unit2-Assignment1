@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var gameButtons: [GameButton]!
     
+    @IBOutlet weak var ticTacToe: UILabel!
     
     @IBOutlet weak var board: UIImageView!
     
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    gameStatsLabel.text = "Tic Tac Toe"
+    ticTacToe.text = "Tic Tac Toe"
     
   }
     

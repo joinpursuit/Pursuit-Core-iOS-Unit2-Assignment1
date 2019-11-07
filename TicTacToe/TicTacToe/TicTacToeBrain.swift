@@ -13,11 +13,15 @@ var playerX = false
 //var gameView = ViewController()
 
 class TicTacToeBrain {
-
-    var boardMatrix = [["","",""],["","",""],["","",""]]
     
-        init() {
-        }
+    var boardMatrix = [["","",""],["","",""],["","",""]]
+    var winningX = ["x","x","x"]
+    var winningO = ["o","o","o"]
+    var compareColX = [""]
+    var compareColO = [""]
+    
+    init() {
+    }
     
     func populate(_ gameButton: GameButton) {
         if playerX {
@@ -34,34 +38,43 @@ class TicTacToeBrain {
     func winCondition() -> String {
         //var text = gameView.gameStatsLabel.text ?? ""
         //use for loop to go through array matrix
+        var boardcount = boardMatrix.count - 1
+        var count = 0
         for arr in boardMatrix {
-            for index in arr {
-                if index == "x" {
-                    return "Player 1 wins"
-                } else if index == "o" {
-                    return "Player 2 wins"
-                }
+            
+            //comparing rows
+            if arr == winningX {
+                return "Player 1 wins"
+            } else if arr == winningO {
+                return "Player 2 wins"
             }
-        }
-//        if boardMatrix[0][0] == boardMatrix[0][1] && boardMatrix[0][0] == boardMatrix[0][2] {
-//
-//        } else if boardMatrix[1][0] == boardMatrix[1][1] && boardMatrix[1][0] == boardMatrix[1][2] {
-//
-//        } else if boardMatrix[2][0] == boardMatrix[2][1] && boardMatrix[2][0] == boardMatrix[2][2] {
-//
-//        } else if boardMatrix[0][0] == boardMatrix[1][0] && boardMatrix[0][0] == boardMatrix[2][0] {
-//
-//        } else if boardMatrix[0][1] == boardMatrix[1][1] && boardMatrix[0][1] == boardMatrix[2][1] {
-//
-//        } else if boardMatrix[0][2] == boardMatrix[1][2] && boardMatrix[0][2] == boardMatrix[2][2] {
-//
-//        } else if boardMatrix[0][0] == boardMatrix[1][1] && boardMatrix[0][0] == boardMatrix [2][2] {
-//
-//        } else if boardMatrix[0][2] == boardMatrix[1][1] && boardMatrix[0][2] == boardMatrix[2][0] {
-//
-//        }
+            
+            //comparing colums
+            for str in arr {
+                if count < boardcount {
+                 count += 1
+                    
+                }
+                
+                
+//                if str == "x" {
+//                    compareColX.append(str)
+//                    if compareColX[index] == winningX[index] {
+//                        return "Player 1 wins"
+//                    }
+//                } else if str == "o" {
+//                    compareColO.append(str)
+//                    if compareColO[index] == winningO[index] {
+//                        return "Player 2 wins"
+//                    }
+//                }
+            }
+        } 
         return ""
     }
+    
+
+    
     
     
 }
