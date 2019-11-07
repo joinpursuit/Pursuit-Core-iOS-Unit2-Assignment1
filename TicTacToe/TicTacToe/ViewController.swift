@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         for gameButton in gameButtons {
             gameButton.setBackgroundImage(nil, for: .normal)
         }
+        
+        userFeedBack.text = "Tic-Tac-Toe"
     }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
@@ -57,7 +59,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func resetGame(_ sender: UIButton) {
-        
+        for gameButton in gameButtons {
+            gameButton.setBackgroundImage(nil, for: .normal)
+            gameButton.isEnabled = true
+        }
+        userFeedBack.text = "Tic-Tac-Toe"
+        ticTacToe.resetBoard()
     }
     
 }

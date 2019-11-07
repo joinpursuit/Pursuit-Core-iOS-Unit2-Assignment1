@@ -111,4 +111,8 @@ class TicTacToeBrain {
         }
     }
     
+    func resetBoard(){
+        self.board = [[String]](repeating: [String](repeating: "_", count: 3), count: 3)
+    }
+    
 }
