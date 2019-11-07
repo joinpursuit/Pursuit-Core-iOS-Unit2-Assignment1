@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
     var game = TicTacToeBrain() // instance 
 
-    var brain = TicTacToeBrain.init().winCondition()
     
     @IBOutlet var gameButtons: [GameButton]!
     
@@ -48,8 +47,8 @@ class ViewController: UIViewController {
 
         if playerX {
             gameButton.setImage(xmarkImage, for: .normal)
-            gameButton.isEnabled = false
             gameStatsLabel.text = "Player 2's turn"
+            gameButton.isEnabled = false
         } else {
             gameButton.setImage(omarkImage, for: .normal)
             gameStatsLabel.text = "Player 1's turn"
@@ -57,7 +56,7 @@ class ViewController: UIViewController {
             
         }
         
-        gameStatsLabel.text = brain
+        gameStatsLabel.text = game.winCondition()
 
     }
     

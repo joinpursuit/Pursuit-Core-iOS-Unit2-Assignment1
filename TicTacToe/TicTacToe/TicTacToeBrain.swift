@@ -35,7 +35,13 @@ class TicTacToeBrain {
         //var text = gameView.gameStatsLabel.text ?? ""
         //use for loop to go through array matrix
         for arr in boardMatrix {
-            
+            for index in arr {
+                if index == "x" {
+                    return "Player 1 wins"
+                } else if index == "o" {
+                    return "Player 2 wins"
+                }
+            }
         }
 //        if boardMatrix[0][0] == boardMatrix[0][1] && boardMatrix[0][0] == boardMatrix[0][2] {
 //
