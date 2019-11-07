@@ -17,8 +17,10 @@ class TicTacToeBrain {
     var boardMatrix = [["","",""],["","",""],["","",""]]
     var winningX = ["x","x","x"]
     var winningO = ["o","o","o"]
-    var compareColX = [""]
-    var compareColO = [""]
+    var compareCol0: [String] = []
+    var compareCol1 = [""]
+    var compareCol2 = [""]
+    
     
     init() {
     }
@@ -36,10 +38,7 @@ class TicTacToeBrain {
     
     
     func winCondition() -> String {
-        //var text = gameView.gameStatsLabel.text ?? ""
-        //use for loop to go through array matrix
-        var boardcount = boardMatrix.count - 1
-        var count = 0
+        
         for arr in boardMatrix {
             
             //comparing rows
@@ -50,30 +49,74 @@ class TicTacToeBrain {
             }
             
             //comparing colums
-            for str in arr {
-                if count < boardcount {
-                 count += 1
-                    
+            for (index, str) in arr.enumerated() {
+                switch index {
+                case 0 :
+                    compareCol0.append(str)
+                    if compareCol0 == winningX {
+                        return "Player 1 wins"
+                    } else if compareCol0 == winningO {
+                        return "Player 2 wins"
+                    } else {
+                        compareCol0.removeAll()
+                    }
+                    print(compareCol0)
+                case 1 :
+                    compareCol1.append(str)
+                    if compareCol1 == winningX {
+                        return "Player 1 wins"
+                    } else if compareCol1 == winningO {
+                        return "Player 2 wins"
+                    } else {
+                        compareCol1.removeAll()
+                    }
+                case 2 :
+                    compareCol2.append(str)
+                    if compareCol2 == winningX {
+                        return "Player 1 wins"
+                    } else if compareCol2 == winningO {
+                        return "Player 2 wins"
+                    } else {
+                        compareCol2.removeAll()
+                    }
+                default :
+                    return "No winners"
                 }
-                
-                
-//                if str == "x" {
-//                    compareColX.append(str)
-//                    if compareColX[index] == winningX[index] {
-//                        return "Player 1 wins"
-//                    }
-//                } else if str == "o" {
-//                    compareColO.append(str)
-//                    if compareColO[index] == winningO[index] {
-//                        return "Player 2 wins"
-//                    }
-//                }
+                //                if index == 0 {
+                //                    compareCol0.append(str)
+                //                    if compareCol0 == winningX {
+                //                        return "Player 1 wins"
+                //                    } else if compareCol0 == winningO {
+                //                        return "Player 2 wins"
+                //                    } else {
+                //                        compareCol0.removeAll()
+                //                    }
+                //                } else if index == 1 {
+                //                    compareCol1.append(str)
+                //                    if compareCol1 == winningX {
+                //                        return "Player 1 wins"
+                //                    } else if compareCol1 == winningO {
+                //                        return "Player 2 wins"
+                //                    } else {
+                //                        compareCol1.removeAll()
+                //                    }
+                //                } else if index == 2 {
+                //                    compareCol2.append(str)
+                //                    if compareCol2 == winningX {
+                //                        return "Player 1 wins"
+                //                    } else if compareCol2 == winningO {
+                //                        return "Player 2 wins"
+                //                    } else {
+                //                        compareCol2.removeAll()
+                //                    }
+                //                }
             }
+            
         } 
         return ""
     }
     
-
+    
     
     
     
