@@ -9,5 +9,6 @@
 import Foundation
 
 class TicTacToeBrain {
-  
+    var board = [String]()
+    var turn = 1
 }
