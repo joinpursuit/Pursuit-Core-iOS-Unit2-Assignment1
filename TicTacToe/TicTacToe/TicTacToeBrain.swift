@@ -9,6 +9,9 @@
 import Foundation
 
 class TicTacToeBrain {
-    var board = [String]()
+    var board: [[Int]] = [[], [], [],
+                          [], [], [],
+                          [], [], []]
+    var winConditions = [[0,0], [0,1], [0,2]]
     var turn = 1
 }
