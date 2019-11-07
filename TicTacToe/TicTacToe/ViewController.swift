@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var gameButtonsOutletCollection: [UIButton]!
     
+    
     @IBOutlet weak var gameStatusLabel: UILabel!
     
     var activePlayer = 1 // Cross
