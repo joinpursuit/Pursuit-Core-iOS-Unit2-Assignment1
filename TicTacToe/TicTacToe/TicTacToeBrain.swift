@@ -11,18 +11,32 @@ import UIKit
 class TicTacToeBrain {
     
     //instance vars
-    var player = "X"
-    var board = [[String]](repeating: [String](repeating: String(), count: 3), count: 3)
+    //var player = "X"
+    var board:[[String]]//(repeating: [String](repeating: String(), count: 3), count: 3)
     var previousPick = String()
-    var rWin = 0, cWin:Int = 0
-    var typeWin = String()
+    var rWin:Int?, cWin:Int?
+    var typeWin:String?
+    
+    //initializers
+    init(board: [[String]], rWin:Int?, cWin:Int?, typeWin:String?) {
+        self.board = board
+        self.rWin = rWin
+        self.cWin = cWin
+        self.typeWin = typeWin
+    }
     
     //methods
-    func switchPlayer(){
+    @available(iOS 13.0, *)
+    func switchPlayer(player1: String){
+        var player = player1
+//        let xImage = UIImage(systemName: "xmark")
+//        let oImage = UIImage(systemName: "circle")
         if player == "X" {
             player = "O"
+//            uiButton.setBackgroundImage(oImage, for: .normal)
         } else  {
             player = "X"
+//            uiButton.setBackgroundImage(xImage, for: .normal)
         }
     }
     
@@ -74,7 +88,7 @@ class TicTacToeBrain {
     }
     
     //Once a win is detected, game board is disabled.
-    func winDetected(player: String, arrButtons: [UIButton], uiLabel: UILabel){
+    func winDetected(player: String, arrButtons: [GameButton], uiLabel: UILabel){
         for button in arrButtons{
             button.isEnabled = false
         }
