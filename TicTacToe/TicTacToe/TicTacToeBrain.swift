@@ -11,7 +11,7 @@ import UIKit
 class TicTacToeBrain {
     
     //instance vars
-    var board:[[String]]//(repeating: [String](repeating: String(), count: 3), count: 3)
+    var board:[[String]]
     var previousPick = String()
     var rWin:Int?, cWin:Int?
     var typeWin:String?
@@ -30,14 +30,10 @@ class TicTacToeBrain {
     @available(iOS 13.0, *)
     func switchPlayer(player1: String){
          self.player = player1
-//        let xImage = UIImage(systemName: "xmark")
-//        let oImage = UIImage(systemName: "circle")
         if player == "X" {
             player = "O"
-//            uiButton.setBackgroundImage(oImage, for: .normal)
         } else  {
             player = "X"
-//            uiButton.setBackgroundImage(xImage, for: .normal)
         }
     }
     

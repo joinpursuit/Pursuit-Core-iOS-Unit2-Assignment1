@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         gameButton.isEnabled = false
         ticTacToe.board[gameButton.row][gameButton.col] = player
         ticTacToe.printBoard()
+        //If board not filled and no winning conditions, next user goes.
         if player == "X"{
             gameButton.setBackgroundImage(xImage, for: .normal)
             ticTacToe.switchPlayer(player1: player)//player = "O"
@@ -51,11 +52,7 @@ class ViewController: UIViewController {
             //If board is filled, game is over.
         }else if(ticTacToe.checkBoardFilled()) {
             ticTacToe.boardFilled(uiLabel: userFeedBack)
-            //If board not filled and no winning conditions, next user goes.
         }
-//        else {
-//            ticTacToe.switchPlayer(player1: ticTacToe.player)
-//        }
     }
     
     @IBAction func resetGame(_ sender: UIButton) {
