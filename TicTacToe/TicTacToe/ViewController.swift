@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet var gameButtons: [GameButton]!
     @IBOutlet weak var userFeedBack: UILabel!
     
-    let ticTacToe = TicTacToeBrain(board: [[String]](repeating: [String](repeating: "_", count: 3), count: 3), rWin: nil, cWin: nil, typeWin: nil)
-    var player = "X"
+    let ticTacToe = TicTacToeBrain(board: [[String]](repeating: [String](repeating: "_", count: 3), count: 3), rWin: nil, cWin: nil, typeWin: nil, player: "X")
+    //var player = "X"
     let xImage = UIImage(systemName: "xmark")
     let oImage = UIImage(systemName: "circle")
 
@@ -29,17 +29,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
+        let player = ticTacToe.player
+        
         gameButton.isEnabled = false
         ticTacToe.board[gameButton.row][gameButton.col] = player
         ticTacToe.printBoard()
         if player == "X"{
             gameButton.setBackgroundImage(xImage, for: .normal)
-            player = "O"
+            ticTacToe.switchPlayer(player1: player)//player = "O"
         } else if player == "O" {
             gameButton.setBackgroundImage(oImage, for: .normal)
-            player = "X"
+            ticTacToe.switchPlayer(player1: ticTacToe.player)
         }
-        
         
         if ticTacToe.checkForWin(player: "X"){
             ticTacToe.winDetected(player: "X", arrButtons: gameButtons, uiLabel: userFeedBack)
@@ -50,9 +51,9 @@ class ViewController: UIViewController {
             ticTacToe.boardFilled(uiLabel: userFeedBack)
             //If board not filled and no winning conditions, next user goes.
         }
-        else {
-            ticTacToe.switchPlayer(player1: player)
-        }
+//        else {
+//            ticTacToe.switchPlayer(player1: ticTacToe.player)
+//        }
     }
     
     @IBAction func resetGame(_ sender: UIButton) {

@@ -11,24 +11,25 @@ import UIKit
 class TicTacToeBrain {
     
     //instance vars
-    //var player = "X"
     var board:[[String]]//(repeating: [String](repeating: String(), count: 3), count: 3)
     var previousPick = String()
     var rWin:Int?, cWin:Int?
     var typeWin:String?
+    var player:String
     
     //initializers
-    init(board: [[String]], rWin:Int?, cWin:Int?, typeWin:String?) {
+    init(board: [[String]], rWin:Int?, cWin:Int?, typeWin:String?, player: String) {
         self.board = board
         self.rWin = rWin
         self.cWin = cWin
         self.typeWin = typeWin
+        self.player = player
     }
     
     //methods
     @available(iOS 13.0, *)
     func switchPlayer(player1: String){
-        var player = player1
+         self.player = player1
 //        let xImage = UIImage(systemName: "xmark")
 //        let oImage = UIImage(systemName: "circle")
         if player == "X" {
@@ -73,7 +74,7 @@ class TicTacToeBrain {
     //Cycles through an array meant to present game board.
     //Board is not filled if there are any null instances.
     func checkBoardFilled() -> Bool{
-        if board.isEmpty{
+        if self.board.isEmpty{
             return false
         } else {
             return true
