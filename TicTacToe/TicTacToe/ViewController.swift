@@ -14,7 +14,12 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
   }
-
+//  board, image --
+//  board buttons --
+//  new game button --
+//  winner label
+//  x score, y score
+//
 
 }
 
