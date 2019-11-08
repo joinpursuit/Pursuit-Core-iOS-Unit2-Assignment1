@@ -39,17 +39,14 @@ class ViewController: UIViewController {
         
         for button in gameButtons {
             button.isEnabled = true
-            button.setImage(nil, for: .normal)
         }
         
-        game.boardMatrix.removeAll()
-        
+        game.boardMatrix = [["","",""],["","",""],["","",""]]
+        playerX = false
     }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
-        
-        
-        
+
         let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
         let xmarkImage = UIImage(systemName: "xmark", withConfiguration: config)
         let omarkImage = UIImage(systemName: "circle", withConfiguration: config)

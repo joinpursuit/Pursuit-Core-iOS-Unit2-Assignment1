@@ -92,12 +92,24 @@ class TicTacToeBrain {
                     } else if diagnol1 == winningO {
                         return "Player 2 wins"
                     }
-                    
                 }
             }
         }
+        for (index, arr) in boardMatrix.enumerated() {
+            for (point, str) in arr.enumerated() {
+                if index + point == 2 {
+                diagnol2.append(str)
+                print(diagnol2)
+                if diagnol2 == winningX {
+                    return "Player 1 wins"
+                } else if diagnol2 == winningO {
+                    return "Player 2 wins"
+                }
+                }
+                }
+            }
         return ""
-    }
+        }
     
     
     
