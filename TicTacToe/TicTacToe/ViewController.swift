@@ -46,6 +46,19 @@ class ViewController: UIViewController {
                 gameButtonOutlet.isEnabled = true
             }
         }
+//    var activePlayer = 1 // Cross
+//    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+//
+//   @IBOutlet var gameButtons: [GameButton]!
+//    @IBOutlet weak var gameStatusLabel: UILabel!
+//
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        gameStatusLabel.layer.borderColor = UIColor.systemBlue.cgColor
+//        gameStatusLabel.layer.borderWidth = 2.0
+//        // Do any additional setup after loading the view, typically from a nib.
+//    }
     }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
@@ -55,6 +68,7 @@ class ViewController: UIViewController {
             
             if activePlayer == 1 {
                 
+//<<<<<<< HEAD
                 gameButton.setImage(UIImage(named: "Cross.png"), for: UIControl.State.normal)
                 activePlayer = 2
                 gameStatusLabel.text = """
@@ -112,4 +126,26 @@ class ViewController: UIViewController {
         }
     }
 }
-
+//=======
+                   // gameButton.setImage(UIImage(named: "Cross.png"), for: UIControl.State.normal)
+                   // activePlayer = 2
+//>>>>>>> 009ca7bc1c6d3a3815976f668390dba9bf5acf55
+//
+//                } else {
+//                    gameButton.setImage(UIImage(named: "Circle.png"), for: UIControl.State.normal)
+//                    activePlayer = 1
+//                       }
+//        }
+//
+//        }
+//
+//    }
+    
+    
+//        sender.setBackgroundImage(UIImage(named: "Button-Normal"), for: UIControl.State.normal)
+    
+//    @IBAction func resetButton(_ sender: UIButton) {
+//          }
+//    
+//}
+   
