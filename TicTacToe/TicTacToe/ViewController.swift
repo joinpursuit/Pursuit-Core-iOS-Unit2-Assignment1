@@ -30,6 +30,24 @@ class ViewController: UIViewController {
         """
     }
     
+    @IBOutlet weak var playAgainButton: UIButton!
+    @IBAction func playAgain(_ sender: UIButton) {
+        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        activePlayer = 1 // Cross
+        
+        playAgainButton.isHidden = false
+        gameStatusLabel.isHidden = false
+        
+        for i in 1...9 {
+            let button = view.viewWithTag(i) as! UIButton
+            button.setImage(nil, for:   UIControl.State.normal)
+            
+            for gameButtonOutlet in gameButtonsOutletCollection {
+                gameButtonOutlet.isEnabled = true
+            }
+        }
+    }
+    
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
         if gameState[gameButton.tag - 1] == 0 {
             
@@ -51,60 +69,47 @@ class ViewController: UIViewController {
                 Place an X.
                 """
             }
-        }
-        for combination in winningCombinations {
-            if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
-               
-                if gameState[combination[0]] == 1 {
-                    totalScorePlayer1 += 1
-                    gameStatusLabel.text = """
-                    CROSS WON!
-                    YOUR TOTAL SCORE IS \(totalScorePlayer1)!
-                    """
-                    for gameButtonOutlet in gameButtonsOutletCollection {
-                        gameButtonOutlet.isEnabled = false
-                    }
+            
+            for combination in winningCombinations {
+                if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {
                     
-                } else if gameState[combination[0]] == 2 {
-                    totalScorePlayer2 += 1
-                    gameStatusLabel.text = """
-                    CIRCLE WON!
-                    YOUR TOTAL SCORE IS \(totalScorePlayer2)!
-                    """
-                    for gameButtonOutlet in gameButtonsOutletCollection {
-                        gameButtonOutlet.isEnabled = false
+                    if gameState[combination[0]] == 1 {
+                        totalScorePlayer1 += 1
+                        gameStatusLabel.text = """
+                        CROSS WON!
+                        YOUR TOTAL SCORE IS \(totalScorePlayer1)!
+                        """
+                        for gameButtonOutlet in gameButtonsOutletCollection {
+                            gameButtonOutlet.isEnabled = false
+                        }
+                        playAgainButton.isHidden = false
+                        gameStatusLabel.isHidden = false
+                        
+                    } else if gameState[combination[0]] == 2 {
+                        totalScorePlayer2 += 1
+                        gameStatusLabel.text = """
+                        CIRCLE WON!
+                        YOUR TOTAL SCORE IS \(totalScorePlayer2)!
+                        """
+                        for gameButtonOutlet in gameButtonsOutletCollection {
+                            gameButtonOutlet.isEnabled = false
+                        }
+                        
+                        playAgainButton.isHidden = false
+                        gameStatusLabel.isHidden = false
                     }
-                    
-                } else {
-                    gameStatusLabel.text = """
-                    THE GAME IS TIGHT.
-                    START PLAYING A NEW GAME.
-                    """
-                    playAgainButton.isHidden = false
-                    gameStatusLabel.isHidden = false
                 }
                 
+            }
+            if !gameState.contains(0) {
+                gameStatusLabel.text = """
+                THE GAME IS TIGHT.
+                START PLAYING A NEW GAME.
+                """
                 playAgainButton.isHidden = false
                 gameStatusLabel.isHidden = false
             }
         }
     }
-    
-    @IBOutlet weak var playAgainButton: UIButton!
-    @IBAction func playAgain(_ sender: UIButton) {
-        gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-        activePlayer = 1 // Cross
-        
-        playAgainButton.isHidden = false
-        gameStatusLabel.isHidden = true
-        
-        for i in 1...9 {
-            let button = view.viewWithTag(i) as! UIButton
-            button.setImage(nil, for:   UIControl.State.normal)
-            
-            for gameButtonOutlet in gameButtonsOutletCollection {
-                gameButtonOutlet.isEnabled = true
-            }
-        }
-    }
 }
+
