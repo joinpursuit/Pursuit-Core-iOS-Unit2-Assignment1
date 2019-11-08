@@ -16,7 +16,7 @@ class TicTacToeBrain {
         
         for i in 0..<matrix.count{
             win = true
-            for j in 0..<matrix.count{
+            for j in 0..<matrix[i].count{
                     if matrix[i][j].titleLabel?.text != str{
                         win = false
                         break
@@ -35,7 +35,7 @@ class TicTacToeBrain {
         
         for i in 0..<matrix.count{
             win = true
-            for j in 0..<matrix.count{
+            for j in 0..<matrix[i].count{
                if matrix[j][i].titleLabel?.text != str{
                         win = false
                 }
@@ -50,17 +50,29 @@ class TicTacToeBrain {
     }
     
     private func checkDiagnols(_ matrix: [[GameButton]], _ str: String) -> Bool{
-        var win = false
+        var i = 0
+        var winCount = 0
 
-            if matrix[0][0].titleLabel?.text == str && matrix[1][1].titleLabel?.text == str && matrix[2][2].titleLabel?.text == str{
-                win = true
+        for count in 0..<matrix.count{
+            i = matrix.count - 1
+            if matrix[count][i - count].titleLabel?.text == str{
+                winCount += 1
             }
-        
-        if matrix[0][2].titleLabel?.text == str && matrix[1][1].titleLabel?.text == str && matrix[2][0].titleLabel?.text == str{
-            win = true
         }
         
-        return win
+        if winCount == 3{
+            return true
+        }
+        
+        winCount = 0
+        
+        for count in 0..<matrix.count{
+            if matrix[count][count].titleLabel?.text == str{
+                winCount += 1
+            }
+        }
+        
+        return winCount == 3
     }
     
     //MARK: Methods of TicTacToeBrain

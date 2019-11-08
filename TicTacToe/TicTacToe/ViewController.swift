@@ -40,16 +40,17 @@ class ViewController: UIViewController {
     var computerTriumphs: Int = 0
     var options: Int = 0
     var userChoice: String = ""
+    var compTurn: Int = 0
     
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+   
     buttonMatrix = [[topLeft, topMid, topRight], [midLeft, midMid, midRight], [bottomLeft, bottomMid, bottomRight]]
     functionHandler.startGame(buttonMatrix)
     functionHandler.setRowsAndColumns(buttonMatrix)
     functionHandler.disable(buttonMatrix)
-    newGameButton.titleLabel?.text = "New Two Player Game"
-    newGameComputer.titleLabel?.text = "New Game Vs The Computer"
+    newGameButton.setTitle("New Two Player Game", for: .normal)
+    newGameComputer.setTitle("New Game Vs The Computer", for: .normal)
     turnIndicator.text = ""
     xWinsIndicator.text = "Number of X wins: \(xWins)"
     oWinsIndicator.text = "Number of O wins: \(oWins)"
@@ -70,6 +71,7 @@ class ViewController: UIViewController {
                     functionHandler.oh(sender)
                     gameOver  = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
                 }
+                compTurn += 1
                 ohTurn = functionHandler.switchTurn(ohTurn)
                 
                 
@@ -182,9 +184,11 @@ class ViewController: UIViewController {
                     if userChoice == "X"{
                         functionHandler.makeRandomMove(buttonMatrix, "O")
                         gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
+                        compTurn += 1
                     } else if userChoice == "O"{
                         functionHandler.makeRandomMove(buttonMatrix,"X")
                         gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "X")
+                        compTurn += 1
                     }
                 ohTurn = functionHandler.switchTurn(ohTurn)
                 
@@ -220,9 +224,11 @@ class ViewController: UIViewController {
                 if userChoice == "X"{
                     functionHandler.makeRandomMove(buttonMatrix, "O")
                     gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "O")
+                    compTurn += 1
                 } else if userChoice == "O"{
                     functionHandler.makeRandomMove(buttonMatrix,"X")
                     gameOver = functionHandler.didSomeoneWinYet(buttonMatrix, "X")
+                    compTurn += 1
                 }
             ohTurn = functionHandler.switchTurn(ohTurn)
             
