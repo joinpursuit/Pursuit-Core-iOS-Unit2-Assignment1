@@ -17,9 +17,7 @@ class TicTacToeBrain {
     var boardMatrix = [["","",""],["","",""],["","",""]]
     var winningX = ["x","x","x"]
     var winningO = ["o","o","o"]
-    
-    
-    
+
     init() {
     }
     

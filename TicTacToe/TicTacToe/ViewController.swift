@@ -14,33 +14,23 @@ class ViewController: UIViewController {
     
     var game = TicTacToeBrain() // instance 
 
-    
     @IBOutlet var gameButtons: [GameButton]!
-        
     @IBOutlet weak var ticTacToe: UILabel!
-    
     @IBOutlet weak var board: UIImageView!
-    
     @IBOutlet weak var gameStatsLabel: UILabel!
     
-    
 //TODO: create an instance of brain class
-    
   override func viewDidLoad() {
     super.viewDidLoad()
     ticTacToe.text = "Tic Tac Toe"
-
-    
   }
-    
     
     @IBAction func playAgain(_ sender: UIButton) {
         gameStatsLabel.text = ""
-        
         for button in gameButtons {
+            button.setImage(nil, for: .normal)
             button.isEnabled = true
         }
-        
         game.boardMatrix = [["","",""],["","",""],["","",""]]
         playerX = false
     }
