@@ -9,32 +9,46 @@
 import UIKit
 
 class ViewController: UIViewController {
-   
- // creating array of buttons(collection)
+    
+    // creating array of buttons(collection)
     @IBOutlet var gameButtons: [GameButton]!
-   var activePlayer = 1 // cross
-   var gameState = [0,0,0,0,0,0,0,0,0]
     
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-  }
     
-  
-    @IBAction func gameButtonPressed(_ gameButton: GameButton) {
-        if gameState[gameButton.tag] == 0 {
-            gameState[gameButton.tag] = activePlayer
-            
-        if activePlayer == 1 {
-            gameButton.setImage(UIImage(named: "cross"), for: .normal)
-            activePlayer = 2
-        } else {
-            gameButton.setImage(UIImage(named: "nought"), for: .normal)
-            activePlayer = 1
-        }
-//        print(" row \(gameButton.row) at column \(gameButton.col) was pressed")
+    @IBOutlet weak var winLoseLabel: UILabel!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         winLoseLabel.backgroundColor = .orange
+       
+    }
+    let gameBrain = TicTacToeBrain()
+    
+    @IBAction func gameButtonPressed(_ sender: GameButton) {
+        gameBrain.gameButtonPressed(sender)
+        /*let gameEnd */ gameBrain.winner()
+        
+//        if gameEnd == false{
+//            for gameButton in gameButtons{
+//                gameButton.isEnabled = false
+//            }
+//        }
+        winLoseLabel.text = gameBrain.thereIsAWinner(name: gameBrain.gameIsActive)
+        
+        print(gameBrain.thereIsAWinner(name: gameBrain.gameIsActive))
+        //
+        //       print(" row \(gameButton.row) at column \(gameButton.col) was pressed")
     }
     
+    @IBAction func resetButton(_ sender: UIButton) {
+        gameBrain.gameIsActive = true
+        winLoseLabel.text = "Let's Play!"
+        for button in gameButtons {
+            button.setImage(nil, for: .normal)
+            gameBrain.newGame()
+        }
+        print(gameBrain.gameState)
+    }
+    
+}
 
-}
-}
