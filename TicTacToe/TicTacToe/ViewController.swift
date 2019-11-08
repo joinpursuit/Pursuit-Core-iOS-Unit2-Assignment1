@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         
         playAgainButton.isHidden = false
         gameStatusLabel.isHidden = false
+        gameStatusLabel.text = "Player 1 starts with X."
         
         for i in 1...9 {
             let button = view.viewWithTag(i) as! UIButton
@@ -46,19 +47,6 @@ class ViewController: UIViewController {
                 gameButtonOutlet.isEnabled = true
             }
         }
-//    var activePlayer = 1 // Cross
-//    var gameState = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-//
-//   @IBOutlet var gameButtons: [GameButton]!
-//    @IBOutlet weak var gameStatusLabel: UILabel!
-//
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        gameStatusLabel.layer.borderColor = UIColor.systemBlue.cgColor
-//        gameStatusLabel.layer.borderWidth = 2.0
-//        // Do any additional setup after loading the view, typically from a nib.
-//    }
     }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
@@ -67,14 +55,20 @@ class ViewController: UIViewController {
             gameState[gameButton.tag - 1] = activePlayer
             
             if activePlayer == 1 {
-                
-//<<<<<<< HEAD
                 gameButton.setImage(UIImage(named: "Cross.png"), for: UIControl.State.normal)
                 activePlayer = 2
                 gameStatusLabel.text = """
                 Player two's turn.
                 Place an O.
                 """
+                if !gameState.contains(0) {
+                    gameStatusLabel.text = """
+                    THE GAME IS TIGHT.
+                    START PLAYING A NEW GAME.
+                    """
+                    playAgainButton.isHidden = false
+                    gameStatusLabel.isHidden = false
+                }
             } else {
                 gameButton.setImage(UIImage(named: "Circle.png"), for: UIControl.State.normal)
                 activePlayer = 1
@@ -82,6 +76,14 @@ class ViewController: UIViewController {
                 Player one's turn.
                 Place an X.
                 """
+                if !gameState.contains(0) {
+                    gameStatusLabel.text = """
+                    THE GAME IS TIGHT.
+                    START PLAYING A NEW GAME.
+                    """
+                    playAgainButton.isHidden = false
+                    gameStatusLabel.isHidden = false
+                }
             }
             
             for combination in winningCombinations {
@@ -99,6 +101,7 @@ class ViewController: UIViewController {
                         playAgainButton.isHidden = false
                         gameStatusLabel.isHidden = false
                         
+                        
                     } else if gameState[combination[0]] == 2 {
                         totalScorePlayer2 += 1
                         gameStatusLabel.text = """
@@ -115,37 +118,8 @@ class ViewController: UIViewController {
                 }
                 
             }
-            if !gameState.contains(0) {
-                gameStatusLabel.text = """
-                THE GAME IS TIGHT.
-                START PLAYING A NEW GAME.
-                """
-                playAgainButton.isHidden = false
-                gameStatusLabel.isHidden = false
-            }
-        }
-    }
+           // print(gameState)
 }
-//=======
-                   // gameButton.setImage(UIImage(named: "Cross.png"), for: UIControl.State.normal)
-                   // activePlayer = 2
-//>>>>>>> 009ca7bc1c6d3a3815976f668390dba9bf5acf55
-//
-//                } else {
-//                    gameButton.setImage(UIImage(named: "Circle.png"), for: UIControl.State.normal)
-//                    activePlayer = 1
-//                       }
-//        }
-//
-//        }
-//
-//    }
-    
-    
-//        sender.setBackgroundImage(UIImage(named: "Button-Normal"), for: UIControl.State.normal)
-    
-//    @IBAction func resetButton(_ sender: UIButton) {
-//          }
-//    
-//}
+}
+}
    
