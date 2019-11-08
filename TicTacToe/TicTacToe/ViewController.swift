@@ -16,7 +16,7 @@ class ViewController: UIViewController {
 
     
     @IBOutlet var gameButtons: [GameButton]!
-    
+        
     @IBOutlet weak var ticTacToe: UILabel!
     
     @IBOutlet weak var board: UIImageView!
@@ -29,15 +29,26 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     ticTacToe.text = "Tic Tac Toe"
+
     
   }
     
     
     @IBAction func playAgain(_ sender: UIButton) {
+        gameStatsLabel.text = ""
+        
+        for button in gameButtons {
+            button.isEnabled = true
+            button.setImage(nil, for: .normal)
+        }
+        
+        game.boardMatrix.removeAll()
         
     }
     
     @IBAction func gameButtonPressed(_ gameButton: GameButton) {
+        
+        
         
         let config = UIImage.SymbolConfiguration(pointSize: 25, weight: .black, scale: .large)
         let xmarkImage = UIImage(systemName: "xmark", withConfiguration: config)
@@ -45,23 +56,24 @@ class ViewController: UIViewController {
         
         playerX.toggle()
         game.populate(gameButton)
-
+        
         if playerX {
             gameButton.setImage(xmarkImage, for: .normal)
             gameStatsLabel.text = "Player 2's turn"
             gameButton.isEnabled = false
+            
         } else {
             gameButton.setImage(omarkImage, for: .normal)
             gameStatsLabel.text = "Player 1's turn"
             gameButton.isEnabled = false
-            
         }
         
-        gameStatsLabel.text = game.winCondition()
+        gameStatsLabel.text = game.winRow()
+        gameStatsLabel.text = game.winColumn()
+        gameStatsLabel.text = game.diagnolWin()
 
     }
-    
-
 
 }
+
 

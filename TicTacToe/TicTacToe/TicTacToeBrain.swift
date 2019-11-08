@@ -17,9 +17,7 @@ class TicTacToeBrain {
     var boardMatrix = [["","",""],["","",""],["","",""]]
     var winningX = ["x","x","x"]
     var winningO = ["o","o","o"]
-    var compareCol0: [String] = []
-    var compareCol1 = [""]
-    var compareCol2 = [""]
+    
     
     
     init() {
@@ -32,22 +30,28 @@ class TicTacToeBrain {
         } else {
             boardMatrix[gameButton.row][gameButton.col] = "o"
             print(boardMatrix)
-            
         }
     }
     
     
-    func winCondition() -> String {
-        
+    func winRow() -> String {
         for arr in boardMatrix {
-            
-            //comparing rows
             if arr == winningX {
                 return "Player 1 wins"
             } else if arr == winningO {
                 return "Player 2 wins"
             }
-            
+        }
+        return ""
+    }
+    
+    
+    func winColumn() -> String {
+        var compareCol0 = [String]()
+        var compareCol1 = [String]()
+        var compareCol2 = [String]()
+        
+        for arr in boardMatrix {
             //comparing colums
             for (index, str) in arr.enumerated() {
                 switch index {
@@ -58,9 +62,7 @@ class TicTacToeBrain {
                     } else if compareCol0 == winningO {
                         return "Player 2 wins"
                     } else {
-                        compareCol0.removeAll()
                     }
-                    print(compareCol0)
                 case 1 :
                     compareCol1.append(str)
                     if compareCol1 == winningX {
@@ -68,7 +70,6 @@ class TicTacToeBrain {
                     } else if compareCol1 == winningO {
                         return "Player 2 wins"
                     } else {
-                        compareCol1.removeAll()
                     }
                 case 2 :
                     compareCol2.append(str)
@@ -77,45 +78,37 @@ class TicTacToeBrain {
                     } else if compareCol2 == winningO {
                         return "Player 2 wins"
                     } else {
-                        compareCol2.removeAll()
                     }
+                    print("Col 2 updated = \(compareCol2)")
                 default :
-                    return "No winners"
+                    print("Player")
                 }
-                //                if index == 0 {
-                //                    compareCol0.append(str)
-                //                    if compareCol0 == winningX {
-                //                        return "Player 1 wins"
-                //                    } else if compareCol0 == winningO {
-                //                        return "Player 2 wins"
-                //                    } else {
-                //                        compareCol0.removeAll()
-                //                    }
-                //                } else if index == 1 {
-                //                    compareCol1.append(str)
-                //                    if compareCol1 == winningX {
-                //                        return "Player 1 wins"
-                //                    } else if compareCol1 == winningO {
-                //                        return "Player 2 wins"
-                //                    } else {
-                //                        compareCol1.removeAll()
-                //                    }
-                //                } else if index == 2 {
-                //                    compareCol2.append(str)
-                //                    if compareCol2 == winningX {
-                //                        return "Player 1 wins"
-                //                    } else if compareCol2 == winningO {
-                //                        return "Player 2 wins"
-                //                    } else {
-                //                        compareCol2.removeAll()
-                //                    }
-                //                }
             }
             
-        } 
+        }
         return ""
     }
     
+    
+    func diagnolWin() -> String {
+        var diagnol1 = [String]()
+        var diagnol2 = [String]()
+        
+        for (index , arr) in boardMatrix.enumerated() {
+            for (point , str) in arr.enumerated() {
+                if index == point {
+                    diagnol1.append(str)
+                    if diagnol1 == winningX {
+                        return "Player 1 wins"
+                    } else if diagnol1 == winningO {
+                        return "Player 2 wins"
+                    }
+                    
+                } 
+            }
+        }
+        return ""
+    }
     
     
     
