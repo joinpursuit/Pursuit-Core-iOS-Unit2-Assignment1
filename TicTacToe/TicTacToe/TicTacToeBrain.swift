@@ -27,7 +27,6 @@ class TicTacToeBrain {
     }
     
     //methods
-    @available(iOS 13.0, *)
     func switchPlayer(player1: String){
          self.player = player1
         if player == "X" {

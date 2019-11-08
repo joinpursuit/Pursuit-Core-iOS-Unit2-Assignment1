@@ -14,10 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet var gameButtons: [GameButton]!
     @IBOutlet weak var userFeedBack: UILabel!
     
+    
     let ticTacToe = TicTacToeBrain(board: [[String]](repeating: [String](repeating: "_", count: 3), count: 3), rWin: nil, cWin: nil, typeWin: nil, player: "X")
     //var player = "X"
     let xImage = UIImage(systemName: "xmark")
     let oImage = UIImage(systemName: "circle")
+    
+    var playerXScore = 0
+    var playerYScore = 0
 
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -47,9 +51,13 @@ class ViewController: UIViewController {
         
         if ticTacToe.checkForWin(player: "X"){
             ticTacToe.winDetected(player: "X", arrButtons: gameButtons, uiLabel: userFeedBack)
+            playerXScore += 1
+            userFeedBack.text?.append(contentsOf: "\nPlayer X score: \(playerXScore) \nPlayer O score: \(playerYScore)")
         }else if(ticTacToe.checkForWin(player: "O")) {
             ticTacToe.winDetected(player: "O", arrButtons: gameButtons, uiLabel: userFeedBack)
             //If board is filled, game is over.
+            playerYScore += 1
+            userFeedBack.text?.append(contentsOf: "Player X score: \(playerXScore), Player O score: \(playerYScore)")
         }else if(ticTacToe.checkBoardFilled()) {
             ticTacToe.boardFilled(uiLabel: userFeedBack)
         }
@@ -60,6 +68,8 @@ class ViewController: UIViewController {
             gameButton.setBackgroundImage(nil, for: .normal)
             gameButton.isEnabled = true
         }
+//        playerXScore = 0
+//        playerYScore = 0
         userFeedBack.text = "Tic-Tac-Toe"
         ticTacToe.resetBoard()
     }
