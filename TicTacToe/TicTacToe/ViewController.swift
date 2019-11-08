@@ -69,8 +69,7 @@ class ViewController: UIViewController {
         }
         
         gameStatsLabel.text = game.winRow()
-        gameStatsLabel.text = game.winColumn()
-        gameStatsLabel.text = game.diagnolWin()
+       
 
     }
 

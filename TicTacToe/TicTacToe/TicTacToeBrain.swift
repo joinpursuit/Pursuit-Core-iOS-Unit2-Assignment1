@@ -35,6 +35,13 @@ class TicTacToeBrain {
     
     
     func winRow() -> String {
+        var compareCol0 = [String]()
+        var compareCol1 = [String]()
+        var compareCol2 = [String]()
+        var diagnol1 = [String]()
+        var diagnol2 = [String]()
+        
+        //rows
         for arr in boardMatrix {
             if arr == winningX {
                 return "Player 1 wins"
@@ -42,17 +49,8 @@ class TicTacToeBrain {
                 return "Player 2 wins"
             }
         }
-        return ""
-    }
-    
-    
-    func winColumn() -> String {
-        var compareCol0 = [String]()
-        var compareCol1 = [String]()
-        var compareCol2 = [String]()
-        
+        //columns
         for arr in boardMatrix {
-            //comparing colums
             for (index, str) in arr.enumerated() {
                 switch index {
                 case 0 :
@@ -79,21 +77,12 @@ class TicTacToeBrain {
                         return "Player 2 wins"
                     } else {
                     }
-                    print("Col 2 updated = \(compareCol2)")
                 default :
                     print("Player")
                 }
             }
-            
         }
-        return ""
-    }
-    
-    
-    func diagnolWin() -> String {
-        var diagnol1 = [String]()
-        var diagnol2 = [String]()
-        
+        //diagnols
         for (index , arr) in boardMatrix.enumerated() {
             for (point , str) in arr.enumerated() {
                 if index == point {
@@ -104,7 +93,7 @@ class TicTacToeBrain {
                         return "Player 2 wins"
                     }
                     
-                } 
+                }
             }
         }
         return ""
@@ -113,5 +102,6 @@ class TicTacToeBrain {
     
     
     
+    
+    
 }
-
