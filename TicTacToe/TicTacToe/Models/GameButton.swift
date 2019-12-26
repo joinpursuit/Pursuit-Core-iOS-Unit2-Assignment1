@@ -2,8 +2,8 @@
 //  GameButton.swift
 //  TicTacToe
 //
-//  Created by Alex Paul on 11/8/18.
-//  Copyright © 2018 Pursuit. All rights reserved.
+//  Created by Sunni Tang on 08/1/19.
+//  Copyright © 2019 Pursuit. All rights reserved.
 //
 
 import UIKit
