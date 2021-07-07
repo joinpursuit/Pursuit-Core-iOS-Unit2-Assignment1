@@ -6,8 +6,12 @@
 //  Copyright © 2018 Pursuit. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
 
 class TicTacToeBrain {
-  
+    var playerArray = ["Mike","John"]
+
 }
+
+
