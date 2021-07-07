@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zKN-9I-Elb">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +12,275 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tic-tac-toe" translatesAutoresizingMaskIntoConstraints="NO" id="xdC-DL-RuI">
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dub-5l-lpi">
+                                <rect key="frame" x="8" y="88" width="358" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Start your Tic Tac Toe Game">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="MarkerFelt-Wide"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" white="0.55246310763888884" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" white="0.63552517361111116" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xBv-jm-fsF">
+                                <rect key="frame" x="123" y="663" width="129" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Click to start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZMO-pD-fvv"/>
+                                    <segue destination="9Tc-RF-gDX" kind="show" id="W6O-gq-02x"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tic-tac-toe" translatesAutoresizingMaskIntoConstraints="NO" id="hsR-C1-jcJ">
+                                <rect key="frame" x="-146" y="1295" width="375" height="690"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.89036100440555144" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="7hz-Ss-zJ3"/>
+                    <connections>
+                        <outlet property="TicTacToe" destination="Dub-5l-lpi" id="InS-QM-lWC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="996" y="27.339901477832512"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="h9r-VW-OLs">
+            <objects>
+                <viewController id="9Tc-RF-gDX" customClass="GameViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="unI-Eo-eM4" customClass="GameV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tictactoeboard" highlightedImage="tictactoeboard" translatesAutoresizingMaskIntoConstraints="NO" id="FYd-eC-asU">
+                                <rect key="frame" x="17" y="105" width="343" height="306"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Player 1 Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8UG-tv-22K">
+                                <rect key="frame" x="17" y="432" width="343" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.80232747395833337" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnT-XI-FES">
+                                <rect key="frame" x="16" y="206" width="105" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="uLz-qf-l4h"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTo-bp-sCI">
+                                <rect key="frame" x="251" y="216" width="105" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="MEM-5d-Wf2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSb-cT-Unc">
+                                <rect key="frame" x="136" y="215" width="97" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="XA8-c8-hct"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H7V-31-pYd">
+                                <rect key="frame" x="252" y="103" width="104" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="Fmv-wH-KBn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTc-t6-SzQ">
+                                <rect key="frame" x="137" y="105" width="100" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="wub-px-0nQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snp-BK-bdl">
+                                <rect key="frame" x="16" y="103" width="105" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="4ac-rY-WLt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qk0-2o-Lq6">
+                                <rect key="frame" x="16" y="315" width="105" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="7cl-KT-waZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8y-4f-5wK">
+                                <rect key="frame" x="133" y="315" width="104" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="Mv3-YC-iNo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2K-x8-GI6">
+                                <rect key="frame" x="50" y="630" width="81" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2 :" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8D-RX-cwH">
+                                <rect key="frame" x="249" y="630" width="84" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="AMp-mx-Qbr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfS-kV-HmT">
+                                <rect key="frame" x="139" y="549" width="92" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="PlayAgain:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="Kyt-xp-OeR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyZ-2d-JDu">
+                                <rect key="frame" x="50" y="665" width="81" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbl-0X-gsi">
+                                <rect key="frame" x="249" y="665" width="84" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSr-3e-pHW">
+                                <rect key="frame" x="249" y="312" width="104" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.25490197539999998" green="0.56078433989999998" blue="0.87843137979999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="TicTacToeButton:" destination="9Tc-RF-gDX" eventType="touchUpInside" id="fQv-13-n0N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.81960720486111116" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gyZ-2d-JDu" firstAttribute="height" secondItem="O2K-x8-GI6" secondAttribute="height" id="1Mb-TX-Ibe"/>
+                            <constraint firstItem="gyZ-2d-JDu" firstAttribute="top" secondItem="O2K-x8-GI6" secondAttribute="bottom" constant="10" id="9Pf-PH-FF1"/>
+                            <constraint firstItem="mol-er-jjv" firstAttribute="bottom" secondItem="gbl-0X-gsi" secondAttribute="bottom" constant="88" id="BeY-Sw-oWf"/>
+                            <constraint firstItem="O2K-x8-GI6" firstAttribute="leading" secondItem="gyZ-2d-JDu" secondAttribute="leading" id="C9U-Hq-FMe"/>
+                            <constraint firstItem="O2K-x8-GI6" firstAttribute="leading" secondItem="mol-er-jjv" secondAttribute="leading" constant="50" id="FPu-7m-Hb1"/>
+                            <constraint firstItem="z8D-RX-cwH" firstAttribute="centerY" secondItem="O2K-x8-GI6" secondAttribute="centerY" id="Ltl-aY-SuI"/>
+                            <constraint firstItem="gbl-0X-gsi" firstAttribute="height" secondItem="z8D-RX-cwH" secondAttribute="height" id="VFj-30-jaO"/>
+                            <constraint firstItem="z8D-RX-cwH" firstAttribute="leading" secondItem="gbl-0X-gsi" secondAttribute="leading" id="e0Y-ud-ybp"/>
+                            <constraint firstItem="mol-er-jjv" firstAttribute="trailing" secondItem="z8D-RX-cwH" secondAttribute="trailing" constant="42" id="f0B-C0-rqR"/>
+                            <constraint firstItem="gbl-0X-gsi" firstAttribute="width" secondItem="z8D-RX-cwH" secondAttribute="width" id="mRl-6Z-NU3"/>
+                            <constraint firstItem="gyZ-2d-JDu" firstAttribute="width" secondItem="O2K-x8-GI6" secondAttribute="width" id="set-tn-w83"/>
+                            <constraint firstItem="gbl-0X-gsi" firstAttribute="top" secondItem="z8D-RX-cwH" secondAttribute="bottom" constant="10" id="tjp-Pp-q4G"/>
+                            <constraint firstItem="z8D-RX-cwH" firstAttribute="firstBaseline" secondItem="O2K-x8-GI6" secondAttribute="firstBaseline" id="x7D-oG-Tm8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mol-er-jjv"/>
+                    </view>
+                    <connections>
+                        <outlet property="Button1" destination="snp-BK-bdl" id="xQ6-ht-bPA"/>
+                        <outlet property="Button2" destination="eTc-t6-SzQ" id="gXf-pr-ykK"/>
+                        <outlet property="Button3" destination="H7V-31-pYd" id="65e-xb-4Xg"/>
+                        <outlet property="Button4" destination="gnT-XI-FES" id="wb5-n1-tWg"/>
+                        <outlet property="Button5" destination="bSb-cT-Unc" id="fsY-lf-tsV"/>
+                        <outlet property="Button6" destination="BTo-bp-sCI" id="c0X-YX-vy5"/>
+                        <outlet property="Button7" destination="Qk0-2o-Lq6" id="pDV-DG-CPg"/>
+                        <outlet property="Button8" destination="C8y-4f-5wK" id="5sC-jh-2nY"/>
+                        <outlet property="Button9" destination="xSr-3e-pHW" id="jbM-Yi-xQ6"/>
+                        <outlet property="ButtonState" destination="IfS-kV-HmT" id="QyB-E7-62k"/>
+                        <outlet property="Player1Label" destination="O2K-x8-GI6" id="R2h-SO-qIP"/>
+                        <outlet property="Player2Label" destination="z8D-RX-cwH" id="kup-QQ-EVS"/>
+                        <outlet property="ScoreLabel1" destination="gyZ-2d-JDu" id="OUE-ro-osB"/>
+                        <outlet property="ScoreLabel2" destination="gbl-0X-gsi" id="j6T-MB-PJ8"/>
+                        <outlet property="label" destination="8UG-tv-22K" id="Nyd-iy-pHc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NLV-6R-6MO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1919.2" y="37.684729064039409"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w9n-rX-FF1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zKN-9I-Elb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LaH-CS-Qg1">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EiO-dS-njQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sb6-Yj-kod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="27.339901477832512"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tic-tac-toe" width="960" height="1280"/>
+        <image name="tictactoeboard" width="73" height="73"/>
+    </resources>
 </document>
